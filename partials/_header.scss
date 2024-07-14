@@ -50,7 +50,7 @@ header {
 
 .header-icons a:hover i {
   animation: translateYIcon 0.6s infinite alternate;
-  color: #e63946; /* Usando a cor vermelha clara */
+  color: var(--primary-color); /* Usando a cor vermelha clara */
 }
 
 @keyframes translateYIcon {
@@ -76,47 +76,46 @@ header {
   padding: 10px;
   color: #fff;
   font-weight: 700;
-  text-transform: uppercase; /* Adicione esta linha */
+  text-transform: uppercase;
 }
 
 .menu-link {
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 15px; /* Tamanho do texto */
-  transition: transform 0.3s, color 0.3s; /* Transições para transformação e cor */
-  padding: 8px 12px; /* Espaçamento interno */
-  position: relative; /* Permite animação baseada na posição */
+  font-size: 15px;
+  transition: transform 0.3s, color 0.3s;
+  padding: 8px 12px;
+  position: relative;
   letter-spacing: 3px;
 }
 
 .menu-link::before {
   content: "";
   position: absolute;
-  bottom: -2px; /* A linha fica logo abaixo do texto */
+  bottom: -2px;
   left: 0;
   width: 100%;
-  height: 2px; /* Altura da linha */
-  background-color: #e63946; /* Cor da linha */
-  transform: scaleX(0); /* Inicialmente, a linha está invisível */
-  transform-origin: right; /* Origem da transformação */
-  transition: transform 0.3s ease-in-out; /* Transição suave */
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
 }
 
 .menu-link:hover::before {
-  transform: scaleX(1); /* Aumenta a largura da linha ao passar o mouse */
-  transform-origin: left; /* Animação a partir da esquerda */
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .menu-link:hover {
-  color: #e63946; /* Altera a cor do texto ao passar o mouse */
+  color: var(--primary-color);
 }
 
-/* Estilizando especificamente o link 'Serviços' */
 .menu-link.servicos {
-  font-size: 12px; /* Tamanho menor para 'Serviços' */
-  margin-left: auto; /* Alinha à direita */
-  margin-right: auto; /* Alinha à esquerda */
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-equipe {
@@ -139,22 +138,22 @@ header {
   text-align: center;
   max-width: 940px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .title-subtitle h1 {
   font-size: 48px;
   font-weight: 600;
   margin-bottom: 14px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  text-shadow: 2px 2px 4px var(--text-shadow);
 }
 
 .title-subtitle p {
   font-size: 24px;
   font-weight: 400;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  text-shadow: 1px 1px 3px var(--text-shadow);
 }
 
 .header-button {
@@ -167,8 +166,8 @@ header {
 }
 
 .header-button:hover {
-  border: 1px solid #e63946;
-  background-color: #e63946;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
 }
 
 .header-logo {
@@ -180,14 +179,13 @@ header {
 }
 
 .header-logo img {
-  width: 150px;
-  height: 150px;
+  width: 200px; /* Aumentar o tamanho da logo */
+  height: 200px; /* Aumentar o tamanho da logo */
 }
 
-/* Configurações da imagem de fundo */
 .image-home {
   width: 100%;
-  height: 100vh; /* Ocupa toda a altura da viewport */
+  height: 100vh;
   position: relative;
   overflow: hidden;
   background: url("../assets/OtavioEmCirurgia.png") no-repeat center
@@ -207,7 +205,6 @@ header {
   opacity: 0.7;
 }
 
-/* dispositivos móveis */
 @media screen and (max-width: 768px) {
   .header-content {
     width: 100%;
@@ -229,8 +226,8 @@ header {
   }
 
   .header-logo img {
-    width: 90px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     padding: 5px 0 20px 3px;
   }
 
@@ -252,11 +249,11 @@ header {
 
   .menu-icon i {
     color: #ccc;
+    cursor: pointer;
   }
 
   .menu-link {
-    padding: 10px 0;
-    font-size: 18px;
+    display: none;
   }
 
   .menu-visible {
@@ -276,26 +273,26 @@ header {
     text-align: center;
     max-width: 940px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   }
 
   .title-subtitle h1 {
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 14px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+    text-shadow: 2px 2px 4px var(--text-shadow);
   }
 
   .title-subtitle p {
     font-size: 24px;
     font-weight: 400;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+    text-shadow: 1px 1px 3px var(--text-shadow);
   }
 }
 
 /* Ajuste para overflow vertical */
 .hero {
-  overflow-y: auto; /* Ativa o overflow vertical */
+  overflow-y: auto;
 }
