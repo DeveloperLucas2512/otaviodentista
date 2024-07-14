@@ -1,0 +1,301 @@
+:root {
+  --primary-color: #e63946;
+  --secondary-color: #ffffff;
+  --background-color: rgba(0, 0, 0, 0.5);
+  --text-shadow: rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos gerais */
+body {
+  font-family: "Sora", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+/* Cabeçalho e ícones */
+header {
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.header-icons {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-icons a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header-icons i {
+  padding: 5px;
+  font-size: 30px;
+}
+
+.header-icons a:hover i {
+  animation: translateYIcon 0.6s infinite alternate;
+  color: #e63946; /* Usando a cor vermelha clara */
+}
+
+@keyframes translateYIcon {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-4px) scale(1.2);
+  }
+}
+
+.menu-icon {
+  display: none;
+}
+
+.menu {
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+
+.menu .menu-link {
+  padding: 10px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase; /* Adicione esta linha */
+}
+
+.menu-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px; /* Tamanho do texto */
+  transition: transform 0.3s, color 0.3s; /* Transições para transformação e cor */
+  padding: 8px 12px; /* Espaçamento interno */
+  position: relative; /* Permite animação baseada na posição */
+  letter-spacing: 3px;
+}
+
+.menu-link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* A linha fica logo abaixo do texto */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Altura da linha */
+  background-color: #e63946; /* Cor da linha */
+  transform: scaleX(0); /* Inicialmente, a linha está invisível */
+  transform-origin: right; /* Origem da transformação */
+  transition: transform 0.3s ease-in-out; /* Transição suave */
+}
+
+.menu-link:hover::before {
+  transform: scaleX(1); /* Aumenta a largura da linha ao passar o mouse */
+  transform-origin: left; /* Animação a partir da esquerda */
+}
+
+.menu-link:hover {
+  color: #e63946; /* Altera a cor do texto ao passar o mouse */
+}
+
+/* Estilizando especificamente o link 'Serviços' */
+.menu-link.servicos {
+  font-size: 12px; /* Tamanho menor para 'Serviços' */
+  margin-left: auto; /* Alinha à direita */
+  margin-right: auto; /* Alinha à esquerda */
+}
+
+.img-equipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50%;
+}
+
+@keyframes translateY {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-8px) scale(1.1);
+  }
+}
+
+.title-subtitle {
+  text-align: center;
+  max-width: 940px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+}
+
+.title-subtitle h1 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+}
+
+.title-subtitle p {
+  font-size: 24px;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+}
+
+.header-button {
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: transparent;
+  transition: background-color 0.6s;
+}
+
+.header-button:hover {
+  border: 1px solid #e63946;
+  background-color: #e63946;
+}
+
+.header-logo {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.header-logo img {
+  width: 150px;
+  height: 150px;
+}
+
+/* Configurações da imagem de fundo */
+.image-home {
+  width: 100%;
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  position: relative;
+  overflow: hidden;
+  background: url("../assets/OtavioEmCirurgia.png") no-repeat center
+    center/cover;
+}
+
+.image-home::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* dispositivos móveis */
+@media screen and (max-width: 768px) {
+  .header-content {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .background-in-mobile {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 105%;
+    height: 80px;
+    margin: 0 -2.5%;
+    padding: 0;
+  }
+
+  .header-logo img {
+    width: 90px;
+    height: 70px;
+    padding: 5px 0 20px 3px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    padding: 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-icon i {
+    color: #ccc;
+  }
+
+  .menu-link {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  .menu-visible {
+    display: flex;
+  }
+
+  .header-icons {
+    padding-top: 15px;
+    margin-bottom: 50px;
+  }
+
+  .header-button {
+    display: none;
+  }
+
+  .title-subtitle {
+    text-align: center;
+    max-width: 940px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  }
+
+  .title-subtitle h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  }
+
+  .title-subtitle p {
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  }
+}
+
+/* Ajuste para overflow vertical */
+.hero {
+  overflow-y: auto; /* Ativa o overflow vertical */
+}

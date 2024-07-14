@@ -1,0 +1,395 @@
+// ------- Home ----------- //
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.image-home {
+  position: relative;
+}
+
+.image-home::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e),
+    url("../assets/OtavioEmCirurgia.png");
+  left: 0;
+  top: 0;
+  width: 100%; /* Alterado para 100% para ocupar a largura total da tela */
+  height: 180%; /* Alterado para 100% para ocupar a altura total da tela */
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; /* Ajustado para centralizar a imagem */
+  opacity: 0.7; /* Reduzi a opacidade para 0.7 para permitir maior visibilidade da imagem */
+}
+
+// -------- Hero ----------//
+.hero {
+  color: #ffffff;
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+
+  h1 {
+    text-align: center;
+    line-height: 150%;
+    max-width: 940px;
+    font-size: 44px;
+  }
+
+  p {
+    text-align: center;
+    margin: 14px 0;
+  }
+
+  .button-contact {
+    padding: 14px 28px;
+    color: #ffffff;
+    background-color: #e63946;
+    border: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 14px 0;
+  }
+
+  .button-contact:hover {
+    animation: scaleButton 0.8s alternate infinite;
+  }
+
+  @keyframes scaleButton {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.text-in-background {
+  color: #ccc;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.text-in-background p {
+  font-weight: 700;
+  text-align: center;
+  margin: 3px 0;
+}
+
+.image-home {
+  position: relative;
+}
+
+.image-home::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e),
+    url("../assets/OtavioEmCirurgia.png");
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 180%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.hero {
+  color: #ffffff;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.hero h1 {
+  text-align: center;
+  line-height: 150%;
+  max-width: 940px;
+  font-size: 44px;
+}
+
+.hero p {
+  text-align: center;
+  margin: 14px 0;
+}
+
+.button-contact {
+  padding: 14px 28px;
+  color: #ffffff;
+  background-color: #e63946;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 14px 0;
+}
+
+.button-contact:hover {
+  animation: scaleButton 0.8s alternate infinite;
+}
+
+@keyframes scaleButton {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    padding: 0 14px;
+    width: 100%;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+}
+
+// -------- About ----------//
+.about {
+  background-color: #06121e;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 34px 14px 64px 14px;
+}
+
+.about-container img {
+  max-width: 570px;
+  width: 100%;
+}
+
+.about-container div {
+  align-self: normal;
+}
+
+.about-description {
+  h2 {
+    font-size: 38px;
+    margin-bottom: 24px;
+  }
+  p {
+    margin-bottom: 14px;
+    line-height: 150%;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services .haircuts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .services .haircut {
+    padding: 20px;
+  }
+
+  .services .haircut img {
+    max-width: 100%;
+  }
+}
+
+/* Efeitos visuais adicionais */
+
+.haircut img {
+  width: 100%;
+  max-width: 354px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.haircut:hover img {
+  transform: scale(1.1);
+}
+
+//------- The End About ----------//
+
+//---------- Services -------------//
+.services {
+  background-color: $white-normal;
+  color: $black-normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 14px;
+}
+
+.service-content h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.service-content p {
+  line-height: 150%;
+  margin-bottom: 14px;
+  text-align: center;
+  max-width: 780px;
+}
+
+.haircuts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 0 44px 34px 44px;
+}
+
+.haircut {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: $white-normal;
+  border-radius: 8px;
+  box-shadow: 0px -1px 17px -4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    max-width: 354px;
+    transition: transform 0.55s;
+  }
+}
+
+.haircut img:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+.haircut-info {
+  z-index: 99;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  background-color: $white-normal;
+}
+
+.haircut-info button {
+  color: $white-normal;
+  background-color: $red-normal;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 0;
+  cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+  .haircuts {
+    flex-direction: column;
+  }
+
+  .haircut img {
+    max-width: 740px;
+  }
+}
+
+//------ The End Services -------//
+
+//------ Footer -------//
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 0;
+  gap: 22px;
+  color: $white-normal;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 8px;
+  color: $white-normal;
+}
+
+// ------- The End Footer --------//
+// ------- Whatsapp --------//
+
+.btn-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+
+  img {
+    max-width: 74px;
+    transition: transform 0.6s;
+  }
+  img:hover {
+    transform: scale(1.15);
+  }
+}
+
+.btn-whatsapp .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  top: 8px;
+  left: -130px;
+  background-color: $black-normal;
+  color: $white-normal;
+  padding: 6px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-align: center;
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-whatsapp {
+    max-width: 54px;
+  }
+}
