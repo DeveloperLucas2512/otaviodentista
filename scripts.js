@@ -3,6 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const menu = document.querySelector(".menu");
 
   menuIcon.addEventListener("click", function () {
-    menu.classList.toggle("menu-visible");
+    menu.classList.toggle("open");
   });
 });

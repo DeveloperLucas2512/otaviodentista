@@ -5,11 +5,8 @@
   --text-shadow: rgba(0, 0, 0, 0.7);
 }
 
-/* Estilos gerais */
 body {
   font-family: "Sora", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .container {
@@ -18,7 +15,6 @@ body {
   padding: 0 8px;
 }
 
-/* Cabeçalho e ícones */
 header {
   width: 100%;
 }
@@ -36,21 +32,21 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
-}
 
-.header-icons a {
-  color: #ffffff;
-  text-decoration: none;
-}
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
 
-.header-icons i {
-  padding: 5px;
-  font-size: 30px;
-}
+  i {
+    padding: 5px;
+    font-size: 30px;
+  }
 
-.header-icons a:hover i {
-  animation: translateYIcon 0.6s infinite alternate;
-  color: var(--primary-color); /* Usando a cor vermelha clara */
+  a:hover i {
+    animation: translateYIcon 0.6s infinite alternate;
+    color: var(--primary-color);
+  }
 }
 
 @keyframes translateYIcon {
@@ -69,170 +65,69 @@ header {
 .menu {
   border-radius: 5px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-  display: flex;
+  padding: 14px;
 }
 
-.menu .menu-link {
-  padding: 10px;
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.menu-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
-  transition: transform 0.3s, color 0.3s;
-  padding: 8px 12px;
-  position: relative;
-  letter-spacing: 3px;
-}
-
-.menu-link::before {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--primary-color);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease-in-out;
-}
-
-.menu-link:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.menu-link:hover {
-  color: var(--primary-color);
-}
-
-.menu-link.servicos {
-  font-size: 12px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.img-equipe {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 50%;
-}
-
-@keyframes translateY {
-  from {
-    transform: translateY(0) scale(1);
-  }
-  to {
-    transform: translateY(-8px) scale(1.1);
-  }
-}
-
-.title-subtitle {
-  text-align: center;
-  max-width: 940px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.title-subtitle h1 {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 14px;
-  text-shadow: 2px 2px 4px var(--text-shadow);
-}
-
-.title-subtitle p {
-  font-size: 24px;
-  font-weight: 400;
-  text-shadow: 1px 1px 3px var(--text-shadow);
-}
-
-.header-button {
-  border: 1px solid #ffffff;
-  padding: 8px 24px;
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: transparent;
-  transition: background-color 0.6s;
-}
-
-.header-button:hover {
-  border: 1px solid var(--primary-color);
-  background-color: var(--primary-color);
-}
-
-.header-logo {
-  height: 200px;
+.menu ul {
+  list-style: none;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-}
+  gap: 14px;
 
-.header-logo img {
-  width: 200px; /* Aumentar o tamanho da logo */
-  height: 200px; /* Aumentar o tamanho da logo */
-}
+  li a {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
 
-.image-home {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: url("../assets/OtavioEmCirurgia.png") no-repeat center
-    center/cover;
-}
-
-.image-home::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e);
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.7;
+  li a:hover {
+    color: var(--primary-color);
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .header-content {
-    width: 100%;
+  .menu ul {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    align-items: flex-start;
   }
 
-  .background-in-mobile {
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 105%;
-    height: 80px;
-    margin: 0 -2.5%;
-    padding: 0;
-  }
-
-  .header-logo img {
-    width: 150px;
-    height: 150px;
-    padding: 5px 0 20px 3px;
+  .menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
   }
 
   .menu {
     display: none;
+  }
+
+  .menu.open {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-content .header-icons .menu-icon {
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .header-icons {
+    margin-bottom: 0; /* Remova qualquer margem inferior */
+  }
+
+  .menu-icon {
+    margin-bottom: 0; /* Remova qualquer margem inferior */
+    margin-top: 0; /* Remova qualquer margem superior */
+    align-self: flex-end;
+    display: flex;
+  }
+
+  .menu {
     flex-direction: column;
     align-items: center;
     position: absolute;
@@ -241,58 +136,10 @@ header {
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     padding: 20px;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .menu-icon i {
-    color: #ccc;
-    cursor: pointer;
-  }
-
-  .menu-link {
-    display: none;
+    display: none; /* Esconda o menu até que o ícone seja clicado */
   }
 
   .menu-visible {
     display: flex;
   }
-
-  .header-icons {
-    padding-top: 15px;
-    margin-bottom: 50px;
-  }
-
-  .header-button {
-    display: none;
-  }
-
-  .title-subtitle {
-    text-align: center;
-    max-width: 940px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  }
-
-  .title-subtitle h1 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    text-shadow: 2px 2px 4px var(--text-shadow);
-  }
-
-  .title-subtitle p {
-    font-size: 24px;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px var(--text-shadow);
-  }
-}
-
-/* Ajuste para overflow vertical */
-.hero {
-  overflow-y: auto;
 }
