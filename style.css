@@ -196,7 +196,10 @@ header {
   height: 100vh; /* Ocupa toda a altura da viewport */
   position: relative;
   overflow: hidden;
-  background: url("../assets/OtavioEmCirurgia.png") no-repeat center center/cover;
+  background: url("../assets/OtavioEmCirurgia.png") no-repeat center
+    center/cover;
+  background-image: linear-gradient(to bottom, rgba(6, 10, 10, 0.1), #0f1e2e),
+    url("../assets/OtavioEmCirurgia.png");
 }
 
 .image-home::before {
@@ -212,13 +215,14 @@ header {
   opacity: 0.7;
 }
 
-/* dispositivos móveis */
+/* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
   .header-content {
-    width: 100%;
-    flex-direction: column;
+    display: flex;
+    width: 93%;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
   }
   .background-in-mobile {
@@ -231,10 +235,12 @@ header {
     margin: 0 -2.5%;
     padding: 0;
   }
+
   .header-logo img {
-    width: 90px;
-    height: 70px;
-    padding: 5px 0 20px 3px;
+    font-weight: 900;
+    width: 260px;
+    height: auto;
+    padding: 0px 0 82px 0px;
   }
   .menu {
     display: none;
@@ -244,10 +250,12 @@ header {
     top: 60px;
     right: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
+    width: 50%;
     padding: 20px;
   }
   .menu-icon {
+    padding-top: 14px;
+    align-self: baseline;
     display: block;
   }
   .menu-icon i {
@@ -306,7 +314,6 @@ header {
   content: "";
   display: block;
   position: absolute;
-  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e), url("../assets/OtavioEmCirurgia.png");
   left: 0;
   top: 0;
   width: 100%; /* Alterado para 100% para ocupar a largura total da tela */
@@ -382,7 +389,8 @@ header {
   content: "";
   display: block;
   position: absolute;
-  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e), url("../assets/OtavioEmCirurgia.png");
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e),
+    url("../assets/OtavioEmCirurgia.png");
   left: 0;
   top: 0;
   width: 100%;
@@ -673,4 +681,4 @@ img {
 a {
   cursor: pointer;
   text-decoration: none;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
