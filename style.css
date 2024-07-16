@@ -269,8 +269,8 @@ header {
     display: flex;
   }
   .header-icons {
-    padding-top: 15px;
-    margin-bottom: 50px;
+    margin-top: 15px;
+    margin-bottom: 30px;
   }
   .header-button {
     display: none;
@@ -402,28 +402,6 @@ header {
   opacity: 0.7;
 }
 
-.hero {
-  color: #ffffff;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-}
-
-.hero h1 {
-  text-align: center;
-  line-height: 150%;
-  max-width: 940px;
-  font-size: 44px;
-}
-
-.hero p {
-  text-align: center;
-  margin: 14px 0;
-}
-
 .button-contact {
   padding: 14px 28px;
   color: #ffffff;
@@ -548,41 +526,274 @@ header {
   max-width: 780px;
 }
 
-.haircuts {
+/* Estilo para o slider */
+
+/* CSS atualizado */
+/* ... (outras regras de estilo omitidas para brevidade) */
+
+/* Estilo para o slider */
+.slider {
+  width: 100%;
+  overflow-x: auto; /* Permitir rolagem horizontal */
+  white-space: nowrap; /* Garantir que os slides fiquem em uma linha */
+  -webkit-overflow-scrolling: touch; /* Suporte para scroll suave em dispositivos iOS */
+}
+
+.slide {
+  display: inline-block; /* Exibir os slides em linha */
+  width: 200px; /* Tamanho fixo para todas as imagens do carrossel */
+  height: 200px; /* Tamanho fixo para todas as imagens do carrossel */
+  margin-right: 10px; /* Espaçamento entre os slides */
+  transition: transform 0.3s ease-in-out; /* Efeito de transição suave ao mudar de slide */
+  vertical-align: top; /* Alinhar os slides no topo */
+  overflow: hidden; /* Impedir overflow vertical */
+}
+
+.slide img {
+  width: 100%; /* Garantir que a imagem ocupe toda a largura do slide */
+  height: 100%; /* Garantir que a imagem ocupe toda a altura do slide */
+  object-fit: cover; /* Manter proporções da imagem */
+  transition: transform 0.3s ease-in-out; /* Efeito de transição para o aumento de tamanho */
+}
+
+.slide:hover img {
+  transform: scale(1.1); /* Aumentar o tamanho da imagem ao passar o mouse */
+}
+
+/* ... (outras regras de estilo omitidas para brevidade) */
+
+/* Estilo para o conteúdo da descrição */
+.about-description {
+  flex: 1;
+  max-width: 50%; /* Ajuste conforme necessário */
+}
+
+/* Responsividade para dispositivos menores */
+
+/* About Section */
+.about-me {
+  background-color: #06121e;
+  color: #ffffff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.about-me-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-me-text {
+  margin-top: 20px;
+}
+
+.btn-learn-more {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-learn-more:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.about-me-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  text-align: left;
+  color: #000;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* About Section */
+.about-me {
+  background-color: #06121e;
+  color: #ffffff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.about-me-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-me-text {
+  margin-top: 20px;
+}
+
+.btn-learn-more {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-learn-more:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.about-me-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  text-align: left;
+  color: #000;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Team Section */
+.about {
+  background-color: #06121e;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 60px 0;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
+  gap: 14px;
+  padding: 34px 14px 64px 14px;
+}
+
+.img-equipe {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%; /* Para garantir que a imagem não ultrapasse seu contêiner */
+}
+
+.about-container img {
+  max-width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.about-container div {
+  align-self: normal;
+}
+
+.about-description h2 {
+  font-size: 38px;
+  margin-bottom: 24px;
+}
+
+.about-description p {
+  margin-bottom: 14px;
+  line-height: 150%;
+}
+
+.haircuts {
+  display: flex;
+  justify-content: flex-start; /* Alinhar os itens à esquerda */
   gap: 14px;
-  padding: 0 44px 34px 44px;
+  padding: 0 14px 34px 14px;
+  overflow-x: auto; /* Permitir rolagem horizontal */
+  scroll-snap-type: x mandatory; /* Efeito de carrossel */
 }
 
 .haircut {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
+  flex: 0 0 auto;
+  width: 354px;
   border-radius: 8px;
-  box-shadow: 0px -1px 17px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 17px -4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
+
 .haircut img {
   width: 100%;
-  max-width: 354px;
+  height: auto;
   transition: transform 0.55s;
 }
 
-.haircut img:hover {
-  transform: scale(1.2);
-  z-index: 1;
+.haircut:hover img {
+  transform: scale(1.1);
 }
 
 .haircut-info {
-  z-index: 99;
-  width: 100%;
+  position: absolute; /* Ajuste para sobrepor na imagem */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
-  padding: 14px;
-  background-color: #fff;
+  align-items: center;
 }
 
 .haircut-info button {
@@ -591,7 +802,13 @@ header {
   padding: 4px 8px;
   border-radius: 4px;
   border: 0;
-  cursor: default;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .haircuts {
+    padding: 0 14px 34px 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {

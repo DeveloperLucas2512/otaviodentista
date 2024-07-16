@@ -7,6 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
@@ -27,15 +37,9 @@
       <header>
         <nav class="header-content container">
           <div class="header-icons">
-            <a href="#">
-              <i class="fa-brands fa-instagram fa-2x"></i>
-            </a>
-            <a href="#">
-              <i class="fa-brands fa-whatsapp fa-2x"></i>
-            </a>
-            <a href="#">
-              <i class="fas fa-phone fa-2x"></i>
-            </a>
+            <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+            <a href="#"><i class="fas fa-phone fa-2x"></i></a>
           </div>
           <div class="menu-icon">
             <i class="fas fa-bars fa-2x"></i>
@@ -43,59 +47,120 @@
           <div class="menu">
             <a href="#" class="menu-link">Home</a>
             <a href="#" class="menu-link">Sobre</a>
-            <a href="#" class="menu-link">Contato</a>
             <a href="#" class="menu-link">Especialidades</a>
+            <a href="#" class="menu-link">Contato</a>
           </div>
         </nav>
-
         <div class="header-logo">
-            <img src="assets/logoSemFundo.png" alt="Logo Usuario" />
-          </div>
+          <img src="assets/logoSemFundo.png" alt="Logo Usuario" />
+        </div>
       </header>
       <div class="hero">
         <div class="title-subtitle">
           <h1>Excelência em Cirurgia Ortognática</h1>
           <p>Transformando Sorrisos, Mudando Vidas e Realizando Sonhos</p>
         </div>
-        <button class="button-contact">Agende uma avaliação</button>
+        <button class="button-contact">Agende uma consulta</button>
       </div>
     </div>
 
+    <!-- Team Section -->
     <section class="about">
-      <div class="about-container container">
-        <div class="img-equipe">
-          <img src="assets/minhaEquipe.png" alt="Imagem sobre a barbearia" />
-        </div>
-        <div class="about-description">
-          <h2>Conheça nossa equipe de profissionais</h2>
-        </div>
-      </div>
+      <div class="container">
+        <div class="about-container">
+          <div class="img-equipe">
+            <div class="slider">
+              <div class="slide">
+                <img src="/assets/drOtavio.png" alt="Descrição da imagem 1" />
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/OtavioCongressoCirurgico.png"
+                  alt="Descrição da imagem 2"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/OtavioEmCirurgia.png"
+                  alt="Descrição da imagem 3"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/OtavioEmCirurgia2.png"
+                  alt="Descrição da imagem 3"
+                />
+              </div>
+              <div class="slide">
+                <img
+                  src="/assets/OtavioHospitalSaoLucas.png"
+                  alt="Descrição da imagem 3"
+                />
+              </div>
+              <div class="slide">
+                <img src="/assets/OtavioIBRA.png" alt="Descrição da imagem 3" />
+              </div>
+              <!-- Adicionar mais slides conforme necessário -->
+            </div>
+          </div>
 
-      <div class="haircuts container">
-        <div class="haircut" data-aos="fade-up" data-aos-delay="150">
-          <img src="assets/drKelly.png" alt="Dr. Kelly" />
-          <div class="haircut-info">
-            <strong>Corte normal</strong>
-            <button>R$ 45,00</button>
-          </div>
-        </div>
-        <div class="haircut" data-aos="fade-up" data-aos-delay="450">
-          <img src="assets/drOtavio.png" alt="Dr. Otavio" />
-          <div class="haircut-info">
-            <strong>Barba completa</strong>
-            <button>R$ 35,00</button>
-          </div>
-        </div>
-        <div class="haircut" data-aos="fade-up" data-aos-delay="600">
-          <img src="assets/drAndreSampaio.png" alt="Dr. André" />
-          <div class="haircut-info">
-            <strong>Corte e Barba</strong>
-            <button>R$ 80,00</button>
+          <section class="about-me">
+            <div class="about-me-content container">
+              <div class="about-me-image">
+                <div class="about-me-text">
+                  <h2>Conheça Dr. Otávio</h2>
+                  <p>Cirurgião Bucomaxilofacial e Dentista</p>
+                  <button id="aboutMeBtn" class="btn-learn-more">
+                    Saiba Mais
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- About Me Modal -->
+          <div class="about-me-modal" id="aboutMeModal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Sobre o Dr. Otávio</h2>
+              <p>
+                Cirurgião Bucomaxilofacial com formação em residência no
+                Hospital Santa Casa de Valinhos.
+              </p>
+              <p>Cirurgião dentista Formado pela UNESP Araraquara.</p>
+              <p>
+                Coordenador da Cirurgia Bucomaxilofacial do Hospital São Lucas
+                de Ribeirão Preto.
+              </p>
+              <p>
+                Coordenador da Odontologia Hospitalar do Hospital São Lucas de
+                Ribeirão Preto.
+              </p>
+              <p>
+                Anos de experiência clínica atuando no Hospital São Lucas,
+                Hospital Ribeirânia, Hospital Unimed de Ribeirão Preto e
+                Campinas, Hospital Galileo, Santa Casa de Valinhos, Santa Casa
+                de Vinhedo.
+              </p>
+              <p>
+                Extensa formação em Cirurgia Ortognática, Tratamento de DTM,
+                Implantes dentários e Harmonização Facial.
+              </p>
+              <p>Membro da AO Maxillofacial Surgery.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <aside>
+      <div class="">
+        <h2>Conheça nossa equipe</h2>
+        <p>Descrição da equipe e outras informações relevantes.</p>
+      </div>
+    </aside>
+
+    <!-- Services Section -->
     <section class="services">
       <div class="service-content container">
         <h2>Serviços</h2>
@@ -107,14 +172,11 @@
         </p>
       </div>
     </section>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
     <script src="scripts.js"></script>
-    <script>
-      // Script para alternar o menu em dispositivos móveis
-      document
-        .querySelector(".menu-icon")
-        .addEventListener("click", function () {
-          document.querySelector(".menu").classList.toggle("menu-visible");
-        });
-    </script>
   </body>
 </html>
