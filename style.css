@@ -221,7 +221,7 @@ header {
 @media screen and (max-width: 768px) {
   .header-content {
     display: flex;
-    width: 93%;
+    width: 88%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -285,7 +285,9 @@ header {
   }
 
   .menu-open .menu {
-    display: flex; /* Display the menu when .menu-open class is added */
+    margin-right: 8px;
+    padding: 20px;
+    display: flex;
   }
   .header-icons {
     margin-top: 15px;
@@ -357,7 +359,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 20px;
 }
 .hero h1 {
   text-align: center;
@@ -451,7 +453,7 @@ header {
 }
 @media screen and (max-width: 768px) {
   .hero {
-    min-height: 60vh;
+    min-height: 48vh;
   }
   .hero h1 {
     font-size: 34px;
