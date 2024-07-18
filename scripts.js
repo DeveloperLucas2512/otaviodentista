@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const aboutMeBtn = document.getElementById("aboutMeBtn");
   const aboutMeModal = document.getElementById("aboutMeModal");
   const closeBtn = document.getElementsByClassName("close")[0];
+  const slides = document.querySelectorAll(".slide");
+  let currentIndex = 0;
+
+  document.querySelector(".menu-icon").addEventListener("click", function () {
+    document.querySelector(".header-content").classList.toggle("menu-open");
+  });
 
   // Abrir/fechar menu ao clicar no ícone do menu
   menuIcon.addEventListener("click", function (event) {
@@ -128,3 +134,25 @@ $(document).ready(function () {
     }
   });
 });
+
+document.querySelector(".next").addEventListener("click", () => {
+  slides[currentIndex].classList.remove("active");
+  currentIndex = (currentIndex + 1) % slides.length;
+  slides[currentIndex].classList.add("active");
+  updateSliderPosition();
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  slides[currentIndex].classList.remove("active");
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  slides[currentIndex].classList.add("active");
+  updateSliderPosition();
+});
+
+function updateSliderPosition() {
+  const slider = document.querySelector(".slider");
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Initialize the first slide as active
+slides[0].classList.add("active");
