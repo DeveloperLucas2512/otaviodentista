@@ -47,19 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalItems = items.length;
   let currentIndex = 0;
 
-  const prevButton = document.querySelector(".arrow-left");
-  const nextButton = document.querySelector(".arrow-right");
-
-  // Clone the first and last items to create an infinite scroll effect
+  // Clonar a primeira e a última imagem para criar um efeito de rotação infinita
   const firstItemClone = items[0].cloneNode(true);
   const lastItemClone = items[totalItems - 1].cloneNode(true);
-  gallery.appendChild(firstItemClone); // Append clone to end
-  gallery.insertBefore(lastItemClone, items[0]); // Insert clone to start
+  gallery.appendChild(firstItemClone); // Adicionar clone ao final
+  gallery.insertBefore(lastItemClone, items[0]); // Inserir clone no início
 
-  const adjustedItems = Array.from(document.querySelectorAll(".item")); // Updated list of items
-  const itemWidth = adjustedItems[0].offsetWidth + 15; // Including gap
+  const adjustedItems = Array.from(document.querySelectorAll(".item")); // Lista atualizada de itens
+  const itemWidth = adjustedItems[0].offsetWidth; // Largura dos itens
 
-  // Move gallery to the position of the first item clone
+  // Ajustar o carrossel para a posição do primeiro item clone
   gallery.style.transform = `translateX(-${itemWidth}px)`;
 
   function updateCarousel() {
@@ -69,73 +66,53 @@ document.addEventListener("DOMContentLoaded", function () {
       item.style.transform = "scale(1)";
     });
 
-    adjustedItems[currentIndex + 1].classList.add("current-item");
-    adjustedItems[currentIndex + 1].style.opacity = "1";
-    adjustedItems[currentIndex + 1].style.transform = "scale(1.4)";
-
-    // Move the gallery to the position of the current item
-    gallery.style.transition = "transform 0.5s ease";
-    gallery.style.transform = `translateX(-${
-      (currentIndex + 1) * itemWidth
-    }px)`;
+    const centeredIndex = currentIndex + 1; // Índice da imagem no centro
+    adjustedItems[centeredIndex].classList.add("current-item");
+    adjustedItems[centeredIndex].style.opacity = "1";
+    adjustedItems[centeredIndex].style.transform = "scale(1.4)";
   }
 
-  function autoScroll() {
-    currentIndex++;
-    if (currentIndex >= totalItems) {
+  function moveToIndex(index) {
+    gallery.style.transform = `translateX(-${(index + 1) * itemWidth}px)`;
+  }
+
+  function handleTransitionEnd() {
+    if (currentIndex === totalItems) {
       currentIndex = 0;
-      gallery.style.transition = "none"; // Disable transition for smooth jump
-      gallery.style.transform = `translateX(-${itemWidth}px)`; // Jump to the real first item
-      setTimeout(() => {
-        gallery.style.transition = "transform 0.5s ease"; // Re-enable transition
-        currentIndex = 0; // Reset index
-      }, 50); // Small delay to ensure transition kicks in
-    }
-    updateCarousel();
-  }
-
-  function resetAutoScroll() {
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = setInterval(autoScroll, 3000);
-  }
-
-  prevButton.addEventListener("click", () => {
-    if (currentIndex === 0) {
-      currentIndex = totalItems - 1;
       gallery.style.transition = "none";
-      gallery.style.transform = `translateX(-${
-        (totalItems + 1) * itemWidth
-      }px)`;
+      moveToIndex(currentIndex);
       setTimeout(() => {
         gallery.style.transition = "transform 0.5s ease";
-        gallery.style.transform = `translateX(-${totalItems * itemWidth}px)`;
-        currentIndex = totalItems - 1;
-      }, 50);
-    } else {
-      currentIndex--;
+      }, 0);
+    } else if (currentIndex === -1) {
+      currentIndex = totalItems - 1;
+      gallery.style.transition = "none";
+      moveToIndex(currentIndex + 1);
+      setTimeout(() => {
+        gallery.style.transition = "transform 0.5s ease";
+      }, 0);
     }
+  }
+
+  const prevButton = document.querySelector(".arrow-left");
+  const nextButton = document.querySelector(".arrow-right");
+
+  prevButton.addEventListener("click", () => {
+    currentIndex--;
+    moveToIndex(currentIndex + 1);
     updateCarousel();
-    resetAutoScroll();
+    handleTransitionEnd();
   });
 
   nextButton.addEventListener("click", () => {
     currentIndex++;
-    if (currentIndex >= totalItems) {
-      currentIndex = 0;
-      gallery.style.transition = "none";
-      gallery.style.transform = `translateX(-${itemWidth}px)`;
-      setTimeout(() => {
-        gallery.style.transition = "transform 0.5s ease";
-        gallery.style.transform = `translateX(-${itemWidth}px)`;
-      }, 50);
-    }
+    moveToIndex(currentIndex + 1);
     updateCarousel();
-    resetAutoScroll();
+    handleTransitionEnd();
   });
 
-  // Initial display
-  updateCarousel();
+  gallery.addEventListener("transitionend", handleTransitionEnd);
 
-  // Automatic scroll every 3 seconds
-  let autoScrollInterval = setInterval(autoScroll, 3000);
+  // Inicializar exibição
+  updateCarousel();
 });
