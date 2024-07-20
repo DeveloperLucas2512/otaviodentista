@@ -65,6 +65,17 @@ header {
   }
 }
 
+h5 {
+  margin-top: -30px;
+  white-space: nowrap;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+p {
+  font-size: 10pt;
+}
+
 .menu-icon {
   display: none;
 }
@@ -331,7 +342,6 @@ header {
 .container {
   max-width: 1540px;
   margin: 0 auto;
-  padding: 0px 8px;
 }
 
 .image-home::before {
@@ -467,18 +477,6 @@ header {
   margin-bottom: 30px;
 }
 
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 34px 14px 64px 14px;
-}
-
-.about-container div {
-  align-self: normal;
-}
-
 .about-description h2 {
   font-size: 38px;
   margin-bottom: 24px;
@@ -490,10 +488,6 @@ header {
 
 /* Responsividade para dispositivos móveis */
 @media screen and (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
   .services .haircuts {
     flex-direction: column;
     gap: 20px;
@@ -546,42 +540,15 @@ header {
   max-width: 780px;
 }
 
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  overflow-x: hidden; /* Permitir rolagem horizontal */
-  white-space: nowrap; /* Garantir que os slides fiquem em uma linha */
-  -webkit-overflow-scrolling: touch; /* Suporte para scroll suave em dispositivos iOS */
-}
-
-.slide {
-  min-width: 100%;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.slide img {
-  width: 100%; /* Garantir que a imagem ocupe toda a largura do slide */
-  height: 100%; /* Garantir que a imagem ocupe toda a altura do slide */
-  object-fit: cover; /* Manter proporções da imagem */
-  transition: transform 0.3s ease-in-out; /* Efeito de transição para o aumento de tamanho */
-}
-
-.slide:hover img {
-  transform: scale(1.1); /* Aumentar o tamanho da imagem ao passar o mouse */
-}
-
-/* ... (outras regras de estilo omitidas para brevidade) */
-
-/* Estilo para o conteúdo da descrição */
 .about-description {
   flex: 1;
   max-width: 50%; /* Ajuste conforme necessário */
 }
 
-/* Responsividade para dispositivos menores */
-
 /* About Section */
+section {
+  top: 30px;
+}
 .about-me {
   margin-top: -85px;
   background-color: #06121e;
@@ -661,10 +628,16 @@ header {
 }
 
 .close {
+  margin-top: -22px;
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.text-content {
+  display: block;
+  margin-top: 35px;
 }
 
 .close:hover,
@@ -761,29 +734,11 @@ header {
   overflow: hidden;
 }
 
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 0px 0px 10px 11px;
-}
-
 .img-equipe {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%; /* Para garantir que a imagem não ultrapasse seu contêiner */
-}
-
-.about-container img {
-  max-width: 100%;
-  height: 350px;
-}
-
-.about-container div {
-  align-self: normal;
 }
 
 .about-description h2 {
@@ -844,15 +799,76 @@ header {
   cursor: pointer;
 }
 
-.carousel-controls {
-  position: absolute;
-  top: 50%;
+/* carrousel */
+
+.containerImage {
+  position: relative;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
+  overflow: hidden;
+  height: 250px; /* Altura para que as imagens não sejam cortadas */
 }
 
+.about-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.gallery-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery {
+  display: flex;
+  gap: 15px; /* Espaçamento entre as imagens */
+  transition: transform 0.5s ease;
+  width: fit-content;
+}
+
+.item {
+  width: 250px;
+  height: 250px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+.current-item {
+  opacity: 1;
+  transform: scale(1.4); /* Aumentar o tamanho da imagem central */
+}
+
+.about-container img {
+  width: auto;
+  height: 350px;
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/*=============> DISPOSITIVOS MÓVEIS <====================*/
 @media screen and (max-width: 768px) {
   .haircuts {
     padding: 0 14px 34px 14px;
@@ -947,19 +963,4 @@ header {
     cursor: pointer;
     text-decoration: none;
   } /*# sourceMappingURL=style.css.map */
-
-  .carousel-controls .prev,
-  .carousel-controls .next {
-    cursor: pointer;
-    font-size: 2rem;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0.5rem;
-    border-radius: 50%;
-  }
-
-  .carousel-controls .prev:hover,
-  .carousel-controls .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
 }

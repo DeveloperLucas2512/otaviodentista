@@ -4,17 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const aboutMeBtn = document.getElementById("aboutMeBtn");
   const aboutMeModal = document.getElementById("aboutMeModal");
   const closeBtn = document.getElementsByClassName("close")[0];
-  const slides = document.querySelectorAll(".slide");
-  let currentIndex = 0;
-
-  document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".header-content").classList.toggle("menu-open");
-  });
 
   // Abrir/fechar menu ao clicar no ícone do menu
   menuIcon.addEventListener("click", function (event) {
     event.stopPropagation(); // Impede a propagação do evento para o documento
     menu.classList.toggle("open");
+    document.querySelector(".header-content").classList.toggle("menu-open");
   });
 
   // Fechar menu ao clicar fora do menu e do ícone do menu
@@ -29,32 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Script para alternar o menu em dispositivos móveis
-  document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".menu").classList.toggle("menu-visible");
-  });
-
   // Script para abrir e fechar o modal "Sobre o Dr. Otávio"
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("aboutMeModal");
-    const btn = document.querySelector(".about-me-icon");
-    const span = document.querySelector(".close");
-
-    btn.onclick = function () {
-      modal.style.display = "block";
-    };
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  });
-
   aboutMeBtn.onclick = () => {
     aboutMeModal.style.display = "block";
   };
@@ -70,89 +40,102 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
-$(document).ready(function () {
-  $(".slider").slick({
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: true,
-    arrows: false,
-  });
-});
+// Carrousel
+document.addEventListener("DOMContentLoaded", function () {
+  const gallery = document.querySelector(".gallery");
+  const items = Array.from(document.querySelectorAll(".item"));
+  const totalItems = items.length;
+  let currentIndex = 0;
 
-// Função para abrir o modal pelo ID
-function openModal(id) {
-  document.getElementById(id).style.display = "block";
-}
-$(document).ready(function () {
-  $(".slider").slick({
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    prevArrow:
-      '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-    nextArrow:
-      '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
+  const prevButton = document.querySelector(".arrow-left");
+  const nextButton = document.querySelector(".arrow-right");
 
-  // Modal
-  const aboutMeBtn = document.getElementById("aboutMeBtn");
-  const aboutMeModal = document.getElementById("aboutMeModal");
-  const aboutMeModalMe = document.getElementById("aboutMeModalMe");
-  const close = document.getElementsByClassName("close")[0];
+  // Clone the first and last items to create an infinite scroll effect
+  const firstItemClone = items[0].cloneNode(true);
+  const lastItemClone = items[totalItems - 1].cloneNode(true);
+  gallery.appendChild(firstItemClone); // Append clone to end
+  gallery.insertBefore(lastItemClone, items[0]); // Insert clone to start
 
-  aboutMeBtn.addEventListener("click", function () {
-    aboutMeModal.style.display = "block";
-  });
+  const adjustedItems = Array.from(document.querySelectorAll(".item")); // Updated list of items
+  const itemWidth = adjustedItems[0].offsetWidth + 15; // Including gap
 
-  close.addEventListener("click", function () {
-    aboutMeModal.style.display = "none";
-  });
+  // Move gallery to the position of the first item clone
+  gallery.style.transform = `translateX(-${itemWidth}px)`;
 
-  window.addEventListener("click", function (event) {
-    if (event.target == aboutMeModal) {
-      aboutMeModal.style.display = "none";
+  function updateCarousel() {
+    adjustedItems.forEach((item, index) => {
+      item.classList.remove("current-item");
+      item.style.opacity = "0.6";
+      item.style.transform = "scale(1)";
+    });
+
+    adjustedItems[currentIndex + 1].classList.add("current-item");
+    adjustedItems[currentIndex + 1].style.opacity = "1";
+    adjustedItems[currentIndex + 1].style.transform = "scale(1.4)";
+
+    // Move the gallery to the position of the current item
+    gallery.style.transition = "transform 0.5s ease";
+    gallery.style.transform = `translateX(-${
+      (currentIndex + 1) * itemWidth
+    }px)`;
+  }
+
+  function autoScroll() {
+    currentIndex++;
+    if (currentIndex >= totalItems) {
+      currentIndex = 0;
+      gallery.style.transition = "none"; // Disable transition for smooth jump
+      gallery.style.transform = `translateX(-${itemWidth}px)`; // Jump to the real first item
+      setTimeout(() => {
+        gallery.style.transition = "transform 0.5s ease"; // Re-enable transition
+        currentIndex = 0; // Reset index
+      }, 50); // Small delay to ensure transition kicks in
     }
+    updateCarousel();
+  }
+
+  function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(autoScroll, 3000);
+  }
+
+  prevButton.addEventListener("click", () => {
+    if (currentIndex === 0) {
+      currentIndex = totalItems - 1;
+      gallery.style.transition = "none";
+      gallery.style.transform = `translateX(-${
+        (totalItems + 1) * itemWidth
+      }px)`;
+      setTimeout(() => {
+        gallery.style.transition = "transform 0.5s ease";
+        gallery.style.transform = `translateX(-${totalItems * itemWidth}px)`;
+        currentIndex = totalItems - 1;
+      }, 50);
+    } else {
+      currentIndex--;
+    }
+    updateCarousel();
+    resetAutoScroll();
   });
+
+  nextButton.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex >= totalItems) {
+      currentIndex = 0;
+      gallery.style.transition = "none";
+      gallery.style.transform = `translateX(-${itemWidth}px)`;
+      setTimeout(() => {
+        gallery.style.transition = "transform 0.5s ease";
+        gallery.style.transform = `translateX(-${itemWidth}px)`;
+      }, 50);
+    }
+    updateCarousel();
+    resetAutoScroll();
+  });
+
+  // Initial display
+  updateCarousel();
+
+  // Automatic scroll every 3 seconds
+  let autoScrollInterval = setInterval(autoScroll, 3000);
 });
-
-document.querySelector(".next").addEventListener("click", () => {
-  slides[currentIndex].classList.remove("active");
-  currentIndex = (currentIndex + 1) % slides.length;
-  slides[currentIndex].classList.add("active");
-  updateSliderPosition();
-});
-
-document.querySelector(".prev").addEventListener("click", () => {
-  slides[currentIndex].classList.remove("active");
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  slides[currentIndex].classList.add("active");
-  updateSliderPosition();
-});
-
-function updateSliderPosition() {
-  const slider = document.querySelector(".slider");
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Initialize the first slide as active
-slides[0].classList.add("active");
