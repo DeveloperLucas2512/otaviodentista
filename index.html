@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DR Otávio, Cirurgião Dentista especializado em cuidados dentários completos."
+    />
+    <meta
+      name="keywords"
+      content="dr otavio, dentista, cirurgião dentista, dentista zona sul ribeirao preto, implantes zona sul ribeirao preto, especialista em implantes"
+    />
+    <meta name="author" content="DR Otávio" />
 
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -24,9 +26,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
+
     <title>DR Otávio | Cirurgião Dentista</title>
   </head>
+
   <body>
     <!--Header-->
     <div class="image-home">
@@ -103,7 +116,7 @@
             <div class="about-me-text">
               <h2>Dr. Otávio | Minhas Especialidades</h2>
               <p>Cirurgião Bucomaxilofacial e Dentista</p>
-              <button id="aboutMeBtn" class="btn-learn-more">Saiba Mais</button>
+              <button class="btn-saiba-mais">Saiba Mais</button>
             </div>
           </div>
         </div>
@@ -135,19 +148,207 @@
       </div>
     </section>
 
-    <!-- Aside Section -->
-    <section class="services">
-      <div class="service-content container">
-        <h4>Venha me conhecer</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quae
-          cumque, dolorem tempore voluptatibus ea asperiores harum? Ipsa, optio,
-          error asperiores dolorum molestias ab dolor labore aut, fugit eos
-          cupiditate!
-        </p>
+    <section class="about">
+      <div class="containerImage">
+        <div class="about-container">
+          <button class="arrow-left control" aria-label="Previous Image">
+            &lt;
+          </button>
+          <button class="arrow-right control" aria-label="Next Image">
+            &gt;
+          </button>
+          <div class="gallery-wrapper">
+            <div class="gallery">
+              <img
+                src="assets/drOtavio.png"
+                alt="Dr. Otávio | Ortognática"
+                class="item current-item"
+              />
+              <img
+                src="assets/OtavioEmCirurgia.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+              <img
+                src="assets/OtavioHospitalSaoLucas.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+              <img
+                src="assets/OtavioEmCirurgia2.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+              <img
+                src="assets/OtavioIBRA.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Me Section -->
+      <section class="about-me">
+        <div class="about-me-content container">
+          <div class="about-me-image">
+            <div class="about-me-text">
+              <h2>Dr. Otávio | Quem sou</h2>
+              <p>Cirurgião Bucomaxilofacial e Dentista</p>
+              <button class="btn-sobre-eu">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me Modal -->
+      <div class="about-me-modal" id="aboutMeModalMe">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Especialista em Cirurgia Ortognática</h2>
+          <p>
+            Cirurgião Bucomaxilofacial com expertise em
+            <strong>cirurgia ortognática</strong>, com formação em residência no
+            renomado Hospital de Cirurgia Facial de São Paulo.
+          </p>
+          <p>
+            Formado em Odontologia pela Universidade Federal de Minas Gerais
+            (UFMG).
+          </p>
+          <p>
+            Coordenador do Centro de Cirurgia Ortognática do Hospital das
+            Clínicas de São Paulo.
+          </p>
+          <p>
+            Mentor e palestrante em eventos nacionais e internacionais sobre
+            cirurgia ortognática e técnicas avançadas de reconstrução facial.
+          </p>
+        </div>
       </div>
     </section>
 
+    <section class="about">
+      <div class="containerImage">
+        <div class="about-container">
+          <button class="arrow-left control" aria-label="Previous Image">
+            &lt;
+          </button>
+          <button class="arrow-right control" aria-label="Next Image">
+            &gt;
+          </button>
+          <div class="gallery-wrapper">
+            <div class="gallery">
+              <img
+                src="assets/minhaEquipe.png"
+                alt="Dr. Otávio | Ortognática"
+                class="item current-item"
+              />
+              <img
+                src="assets/drAndreSampaio.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+              <img
+                src="assets/drKelly.png"
+                alt="Placeholder Image"
+                class="item"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Me Section -->
+      <section class="about-me">
+        <div class="about-me-content container">
+          <div class="about-me-image">
+            <div class="about-me-text">
+              <h2>Dr. Otávio | Minha equipe</h2>
+              <p>Cirurgião Bucomaxilofacial e Dentista</p>
+              <button class="btn-minha-equipe">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me Modal -->
+      <div class="about-me-modal" id="aboutMeModalEquipe">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Especialista em Cirurgia Ortognática</h2>
+          <p>
+            Cirurgião Bucomaxilofacial com expertise em
+            <strong>cirurgia ortognática</strong>, com formação em residência no
+            renomado Hospital de Cirurgia Facial de São Paulo.
+          </p>
+          <p>
+            Formado em Odontologia pela Universidade Federal de Minas Gerais
+            (UFMG).
+          </p>
+          <p>
+            Coordenador do Centro de Cirurgia Ortognática do Hospital das
+            Clínicas de São Paulo.
+          </p>
+          <p>
+            Mentor e palestrante em eventos nacionais e internacionais sobre
+            cirurgia ortognática e técnicas avançadas de reconstrução facial.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="services">
+      <h2>Venha nos conhecer!!</h2>
+    </div>
+
+    <iframe
+      width="100%"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.809737203635!2d-47.810103724738845!3d-21.199715880492697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bed738a7b7fb%3A0xd52cd8d2cd0ba45a!2sTrio%20Ribeir%C3%A3o%20Preto!5e0!3m2!1spt-BR!2sbr!4v1721483968727!5m2!1spt-BR!2sbr"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <footer class="footer">
+      <div class="logo-cliente">
+        <img
+          class="logo-cliente-content"
+          src="assets/logo.png"
+          alt="Logo footer"
+        />
+      </div>
+      <div class="footer-icons">
+        <a href="#">
+          <i class="fa-brands fa-instagram fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-facebook fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-tiktok fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-twitter fa-2x"></i>
+        </a>
+      </div>
+
+      <p class="descriptionDireitosReservados">
+        Copyritgh 2024 | Dev Barbearia - Todos os direitos reservados
+      </p>
+    </footer>
+    <a
+      href="https://api.whatsapp.com/send?phone=5516997897371&text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20no%20imovel%20do%20centro"
+      class="btn-whatsapp"
+      target="_blank"
+      data-aos="zoom-in-up"
+      data-aos-delay="600"
+    >
+      <img src="assets/whatssapp.svg" alt="Botao Whatsapp" />
+      <span class="tooltip-text">Agende seu horário</span>
+    </a>
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

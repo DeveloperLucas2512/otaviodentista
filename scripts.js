@@ -24,22 +24,81 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Script para abrir e fechar o modal "Sobre o Dr. Otávio"
-  aboutMeBtn.onclick = () => {
-    aboutMeModal.style.display = "block";
+  var modal = document.getElementById("aboutMeModal");
+
+  // Obtém o botão que abre o modal
+  var btn = document.querySelector(".btn-saiba-mais");
+
+  // Obtém o <span> que fecha o modal
+  var span = document.querySelector(".close");
+
+  // Quando o usuário clica no botão, abre o modal
+  btn.onclick = function () {
+    modal.style.display = "block";
   };
 
-  closeBtn.onclick = () => {
-    aboutMeModal.style.display = "none";
+  // Quando o usuário clica no <span> (x), fecha o modal
+  span.onclick = function () {
+    modal.style.display = "none";
   };
 
-  window.onclick = (event) => {
-    if (event.target === aboutMeModal) {
-      aboutMeModal.style.display = "none";
+  // Quando o usuário clica fora do modal, fecha o modal
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
   };
 });
 
+var modal = document.getElementById("aboutMeModalMe");
+
+// Obtém o botão que abre o modal
+var btn = document.querySelector(".btn-sobre-eu");
+
+// Obtém o <span> que fecha o modal
+var span = document.querySelector(".close");
+
+// Quando o usuário clica no botão, abre o modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// Quando o usuário clica no <span> (x), fecha o modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// Quando o usuário clica fora do modal, fecha o modal
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+var modal = document.getElementById("aboutMeModalEquipe");
+
+// Obtém o botão que abre o modal
+var btn = document.querySelector(".btnminha-equipe");
+
+// Obtém o <span> que fecha o modal
+var span = document.querySelector(".close");
+
+// Quando o usuário clica no botão, abre o modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// Quando o usuário clica no <span> (x), fecha o modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// Quando o usuário clica fora do modal, fecha o modal
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 // Carrousel
 document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.querySelector(".gallery");
