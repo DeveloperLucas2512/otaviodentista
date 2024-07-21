@@ -265,6 +265,69 @@ p {
   background-color: #a30c19; /* Cor de fundo ao passar o mouse */
 }
 
+/*Teste  carrousel*/
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+.scroll {
+  overflow: hidden;
+  padding: 30px 0;
+  background: white;
+  position: relative;
+}
+
+.scroll:before,
+.scroll:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.scroll:before {
+  left: 0;
+  background: linear-gradient(to left, rgba (255, 255, 255, 0), white);
+}
+
+.scroll:after {
+  right: 0;
+  background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
+}
+
+.scroll:hover .scroll_container {
+  animation-play-state: paused;
+}
+
+.scroll_container {
+  display: flex;
+  white-space: nowrap;
+  animation: 50s slide infinite linear;
+}
+
+.scroll_container img {
+  height: 30rem;
+  margin: 0 5px;
+}
+
+/* Estilo para o clone */
+.clone {
+  display: flex;
+}
+
+.scroll-container-img {
+  width: 800px;
+  height: auto;
+}
+
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
   .header-content {
@@ -370,10 +433,68 @@ p {
     font-weight: 400;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
   }
-}
-/* Ajuste para overflow vertical */
-.hero {
-  overflow-y: auto; /* Ativa o overflow vertical */
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translate(-100%);
+    }
+  }
+
+  .scroll {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    position: relative;
+  }
+
+  .scroll:before,
+  .scroll:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .scroll:before {
+    left: 0;
+    background: linear-gradient(to left, rgba (255, 255, 255, 0), white);
+  }
+
+  .scroll:after {
+    right: 0;
+    background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
+  }
+
+  .scroll:hover .scroll_container {
+    animation-play-state: paused;
+  }
+
+  .scroll_container {
+    display: flex;
+    white-space: nowrap;
+    animation: 50s slide infinite linear;
+  }
+
+  .scroll_container img {
+    height: 30rem;
+    margin: 0 5px;
+  }
+
+  /* Estilo para o clone */
+  .clone {
+    display: flex;
+  }
+
+  .scroll-container-img img {
+    padding-right: 0px;
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .container {
@@ -812,15 +933,13 @@ p {
 }
 
 .haircut-info {
-  position: absolute; /* Ajuste para sobrepor na imagem */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
-  padding: 8px 12px;
+  margin-top: -5px;
+  z-index: 99;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 14px;
+  background-color: #fff;
 }
 
 .haircut-info button {
@@ -830,56 +949,6 @@ p {
   border-radius: 4px;
   border: 0;
   cursor: pointer;
-}
-
-/* carrousel */
-
-.containerImage {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 50px 30px; /* Ajuste a altura conforme necessário */
-}
-
-.gallery {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-/* Ajuste o tamanho das imagens no carrossel */
-.gallery .item img {
-  width: 100%; /* Ajusta a imagem para ocupar a largura do item */
-  height: auto; /* Mantém a proporção da imagem */
-  object-fit: cover; /* Faz com que a imagem cubra o container sem distorcer */
-}
-
-/* Centraliza o conteúdo dentro do item */
-.gallery .item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.item {
-  flex: 0 0 auto;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.about-container img {
-  width: auto;
-  height: 440px;
-}
-
-.arrow-left,
-.arrow-right {
-  display: none;
 }
 
 /* Estilos do Modal */
@@ -966,6 +1035,7 @@ img:hover {
 }
 
 .tooltip-text {
+  height: 30px;
   visibility: hidden;
   width: 120px;
   background-image: linear-gradient(to bottom, #080707, #2c1c1c, #2e1e1e);
@@ -975,8 +1045,8 @@ img:hover {
   padding: 5px;
   position: relative;
   z-index: 1;
-  bottom: 125%; /* Posição do tooltip */
-  left: -90%;
+  bottom: 125%;
+  left: -4rem;
   margin-left: -140px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1094,6 +1164,10 @@ img:hover {
   justify-content: center;
 }
 
+.box-shadow-map {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.9);
+}
+
 .map {
   flex: 3;
   max-width: 80%;
@@ -1177,6 +1251,13 @@ img:hover {
   }
 }
 
+.logo-cliente {
+  width: 700px;
+  height: auto;
+  font-weight: 900;
+  margin-bottom: -50px;
+}
+
 /*=============> DISPOSITIVOS MÓVEIS <====================*/
 
 @media screen and (max-width: 768px) {
@@ -1189,6 +1270,31 @@ img:hover {
     max-width: 740px;
   }
 
+  .haircut:hover img {
+    transform: scale(1.1);
+  }
+
+  .haircut-info {
+    margin-top: -10px;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #fff;
+  }
+
+  .haircut-info button {
+    color: #fff;
+    background-color: #d94140;
+    padding: 3px 5px;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    max-width: 80px;
+    font-size: 8px;
+  }
+
   .map-container {
     flex-direction: column;
   }
@@ -1199,6 +1305,29 @@ img:hover {
 
   .image {
     margin-top: 1rem; /* Adiciona um espaço entre o mapa e a imagem */
+  }
+
+  .services .expandMaps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .toggle-btn {
+    font-size: 10pt;
+    font-family: Verdana, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .logo-cliente {
+    width: 700px;
+    height: auto;
+    font-weight: 900;
+    margin-bottom: -50px;
   }
 
   .btn-whatsapp {
