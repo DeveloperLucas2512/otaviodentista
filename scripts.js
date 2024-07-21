@@ -61,21 +61,27 @@ document.addEventListener("DOMContentLoaded", function () {
 // Carrossel
 
 document.addEventListener("DOMContentLoaded", function () {
-  const saibaMaisBtn = document.getElementById("saibaMaisBtn");
-  const modal = document.getElementById("conteudo-ortognatica");
-  const closeBtn = document.getElementById("closeBtn");
+  const toggleBtn = document.querySelector(".toggle-btn");
+  const mapContainer = document.getElementById("map-container");
+  const image = document.querySelector(".image img");
 
-  saibaMaisBtn.addEventListener("click", function () {
-    modal.style.display = "block";
-  });
+  toggleBtn.addEventListener("click", function () {
+    if (mapContainer.classList.contains("collapsed")) {
+      mapContainer.classList.remove("collapsed");
+      mapContainer.classList.add("expanded");
+      toggleBtn.classList.remove("fa-arrow-down");
+      toggleBtn.classList.add("fa-arrow-up");
 
-  closeBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
+      // Adiciona a animação à imagem quando expandida
+      image.classList.add("animate");
+    } else {
+      mapContainer.classList.remove("expanded");
+      mapContainer.classList.add("collapsed");
+      toggleBtn.classList.remove("fa-arrow-up");
+      toggleBtn.classList.add("fa-arrow-down");
 
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
+      // Remove a animação da imagem quando recolhida
+      image.classList.remove("animate");
     }
   });
 });

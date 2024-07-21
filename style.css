@@ -316,7 +316,7 @@ p {
 .scroll_container {
   display: flex;
   white-space: nowrap;
-  animation: 10s slide infinite linear; /*temporizador carrousel*/
+  animation: 100000s slide infinite linear; /*temporizador carrousel*/
 }
 
 .scroll_container img {
@@ -483,7 +483,7 @@ p {
   .scroll_container {
     display: flex;
     white-space: nowrap;
-    animation: 50s slide infinite linear;
+    animation: 10000s slide infinite linear; /*temporizador mobile*/
   }
 
   .scroll_container img {
@@ -1305,13 +1305,13 @@ img:hover {
   }
 
   .haircut-info {
-    margin-top: -10px;
+    margin-bottom: -7px;
     z-index: 99;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: #fff;
+    justify-content: start;
+    left: 8rem;
+    padding: 10px 0px;
   }
 
   .haircut-info button {
