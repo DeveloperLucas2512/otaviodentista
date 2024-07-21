@@ -554,13 +554,14 @@ p {
 }
 
 .services {
+  margin-top: -35px;
   background-color: #fff;
   color: #232224;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 54px 14px;
+  padding: 5px 0px;
 }
 
 .service-content h2 {
@@ -943,7 +944,7 @@ img:hover {
   max-width: 100vw;
   justify-content: center;
   align-items: center;
-  color: #ccc;
+  color: #181111f5;
 }
 
 .btn-whatsapp {
@@ -1076,6 +1077,106 @@ img:hover {
   cursor: pointer;
 }
 
+/*Maps + img Trio Office*/
+/* Estilos gerais */
+
+.map-container {
+  height: auto;
+  display: flex;
+  align-items: normal;
+  gap: 2rem;
+  width: 80%;
+}
+
+.services h2 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  flex: 3;
+  max-width: 80%;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Imagem no desktop */
+.image {
+  flex: 1; /* Reduz a largura da imagem em relação ao mapa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  animation: slideIn 1s ease-out;
+}
+
+.expandMaps {
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: blue;
+}
+.expandMaps:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Ícone do botão de expansão */
+/* Ícone do botão de expansão */
+
+.toggle-btn {
+  padding: 10px;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Inicialmente, a seção está colapsada */
+.map-container.collapsed {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+/* Quando expandido */
+.map-container.expanded {
+  height: auto;
+  opacity: 1;
+  transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+/* Transição da imagem */
+.image img {
+  max-width: 100%;
+  max-height: auto;
+  transition: transform 0.5s ease;
+}
+
+.map-container.expanded .image img {
+  transform: scale(1.015); /* Aumenta a escala da imagem quando expandida */
+}
+
+/* Animação da imagem */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /*=============> DISPOSITIVOS MÓVEIS <====================*/
 
 @media screen and (max-width: 768px) {
@@ -1083,8 +1184,21 @@ img:hover {
     flex-direction: column;
     padding: 0 14px 34px 14px;
   }
+
   .haircut img {
     max-width: 740px;
+  }
+
+  .map-container {
+    flex-direction: column;
+  }
+
+  .map {
+    max-width: 100%;
+  }
+
+  .image {
+    margin-top: 1rem; /* Adiciona um espaço entre o mapa e a imagem */
   }
 
   .btn-whatsapp {
@@ -1182,6 +1296,6 @@ img:hover {
     max-width: 100vw;
     justify-content: center;
     align-items: center;
-    color: #ccc;
+    color: #181111f5;
   }
 }
