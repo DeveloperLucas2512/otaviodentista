@@ -233,7 +233,36 @@ p {
 }
 
 .about-me {
-  margin-top: -55px;
+  background-color: #fff;
+  color: #000;
+  padding: 60px 0;
+  text-align: center;
+}
+
+/*Botoes de Ação*/
+
+/* Estilo comum para todos os botões "Saiba Mais" */
+.btn-saiba-mais,
+.btn-sobre-eu,
+.btn-especialidades,
+.btn-minha-equipe {
+  background-color: #e63946; /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-saiba-mais:hover,
+.btn-sobre-eu:hover,
+.btn-especialidades:hover,
+.btn-minha-equipe:hover {
+  background-color: #a30c19; /* Cor de fundo ao passar o mouse */
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -278,7 +307,7 @@ p {
       0.8
     ); /* Fundo #ccc semitransparente */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra para destaque */
-    width: 50%;
+    width: 55%;
     padding: 20px;
   }
 
@@ -304,7 +333,8 @@ p {
   }
 
   .menu-open .menu {
-    margin-right: 8px;
+    margin-top: 10px;
+    margin-right: 0px;
     padding: 20px;
     display: flex;
   }
@@ -393,6 +423,7 @@ p {
   font-size: 18px;
   font-weight: 600;
   margin: 14px 0;
+  cursor: pointer;
 }
 .hero .button-contact:hover {
   animation: scaleButton 0.8s alternate infinite;
@@ -438,7 +469,6 @@ p {
   background-position: center;
   opacity: 0.7;
 }
-
 .button-contact {
   padding: 14px 28px;
   color: #ffffff;
@@ -817,24 +847,28 @@ p {
   padding: 50px 30px; /* Ajuste a altura conforme necessário */
 }
 
-.gallery-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
 .gallery {
   display: flex;
   transition: transform 0.5s ease;
 }
 
+/* Ajuste o tamanho das imagens no carrossel */
+.gallery .item img {
+  width: 100%; /* Ajusta a imagem para ocupar a largura do item */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Faz com que a imagem cubra o container sem distorcer */
+}
+
+/* Centraliza o conteúdo dentro do item */
+.gallery .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .item {
   flex: 0 0 auto;
   transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.current-item {
-  opacity: 1;
-  transform: scale(1.4);
 }
 
 .about-container img {
@@ -845,66 +879,6 @@ p {
 .arrow-left,
 .arrow-right {
   display: none;
-}
-
-/* Botão Sobre eu */
-.btn-sobre-eu {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.btn-sobre-eu:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-
-/* Botão Saiba Mais */
-.btn-saiba-mais {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.btn-saiba-mais:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-
-/* Botão Minha Equipe */
-.btn-minha-equipe {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.btn-minha-equipe:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
 }
 
 /* Estilos do Modal */
@@ -960,6 +934,10 @@ img {
   padding-right: 10px;
 }
 
+img:hover {
+  transform: scale(1.05);
+}
+
 .descriptionDireitosReservados {
   font-size: 12pt;
   max-width: 100vw;
@@ -968,20 +946,134 @@ img {
   color: #ccc;
 }
 
+.btn-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+}
+
+.btn-whatsapp img {
+  max-width: 74px; /* Ajuste o tamanho conforme necessário */
+  display: block;
+}
+
+.btn-whatsapp img:hover {
+  transform: scale(1.15);
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-image: linear-gradient(to bottom, #080707, #2c1c1c, #2e1e1e);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+  bottom: 125%; /* Posição do tooltip */
+  left: -90%;
+  margin-left: -140px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 54px 0;
+  padding: 8px 0;
   gap: 22px;
-  color: #fff;
+  color: #ccc;
+  background-image: linear-gradient(to bottom, #b3b3b3, #ccc, #e6e6e6);
 }
 
 .footer-icons {
   display: flex;
   gap: 8px;
   color: #fff;
+}
+/*CSS Minha Equipe*/
+
+.containerImage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.gallery-wrapper {
+  top: -35px;
+  position: relative;
+  overflow: hidden;
+}
+.gallery {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*=============> DISPOSITIVOS MÓVEIS <====================*/
@@ -995,14 +1087,29 @@ img {
     max-width: 740px;
   }
 
+  .btn-whatsapp {
+    max-width: 55px;
+    max-height: auto;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-whatsapp img {
+    max-width: 30px;
+  }
+
   .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 54px 0;
+    padding: 8px 0;
     gap: 22px;
-    color: #fff;
+    color: #ccc;
   }
 
   .footer-icons {
@@ -1011,45 +1118,6 @@ img {
     color: #fff;
   }
 
-  .btn-whatsapp {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 99;
-  }
-  .btn-whatsapp img {
-    max-width: 74px;
-    transition: transform 0.6s;
-  }
-  .btn-whatsapp img:hover {
-    transform: scale(1.15);
-  }
-
-  .btn-whatsapp .tooltip-text {
-    visibility: hidden;
-    position: absolute;
-    width: 120px;
-    top: 8px;
-    left: -130px;
-    background-color: #232224;
-    color: #fff;
-    padding: 6px;
-    border-radius: 8px;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
-  }
-
-  .btn-whatsapp:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  @media screen and (max-width: 768px) {
-    .btn-whatsapp {
-      max-width: 54px;
-    }
-  }
   body {
     font-family: "Sora", sans-serif;
     width: 100%;
