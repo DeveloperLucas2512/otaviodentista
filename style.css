@@ -7,7 +7,7 @@
 }
 
 :root {
-  --primary-color: #e63946;
+  --primary-color: #2e8b57;
   --secondary-color: #ffffff;
   --background-color: rgba(0, 0, 0, 0.5);
   --text-shadow: rgba(0, 0, 0, 0.7);
@@ -41,7 +41,7 @@ header {
 }
 
 .header-icons {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ p {
 
 .menu {
   border-radius: 5px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
 }
 
@@ -118,7 +118,7 @@ p {
   left: 0;
   width: 100%;
   height: 2px; /* Altura da linha */
-  background-color: #e63946; /* Cor da linha */
+  background-color: #2e8b57; /* Cor da linha */
   transform: scaleX(0); /* Inicialmente, a linha está invisível */
   transform-origin: right; /* Origem da transformação */
   transition: transform 0.3s ease-in-out; /* Transição suave */
@@ -130,7 +130,7 @@ p {
 }
 
 .menu-link:hover {
-  color: #e63946; /* Altera a cor do texto ao passar o mouse */
+  color: #2e8b57; /* Altera a cor do texto ao passar o mouse */
 }
 
 /* Estilizando especificamente o link 'Serviços' */
@@ -187,8 +187,8 @@ p {
 }
 
 .header-button:hover {
-  border: 1px solid #e63946;
-  background-color: #e63946;
+  border: 1px solid #2e8b57;
+  background-color: #2e8b57;
 }
 
 .header-logo {
@@ -232,18 +232,25 @@ p {
   opacity: 0.7;
 }
 
-.about-me {
-  background-color: #fff;
-  color: #000;
-  padding: 60px 0;
-  text-align: center;
+.about-me-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/*Botoes de Ação*/
-
-/* Estilo comum para todos os botões "Saiba Mais" */
+.about-me-text {
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  flex-direction: column;
+  display: flex;
+  margin-top: 60px;
+  color: #000;
+}
 
 .btn-especialidades {
+  max-width: 180px;
   background-color: #2e8b57; /* Cor de fundo */
   color: #fff; /* Cor do texto */
   border: none;
@@ -251,12 +258,15 @@ p {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 21px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  font-weight: bold;
-  letter-spacing: 3px;
+}
+
+.btn-especialidades:hover {
+  background-color: #2ca05e; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05);
 }
 
 .icone_Mais {
@@ -374,188 +384,9 @@ p {
   cursor: pointer;
 }
 
-/* --------------------->> dispositivos móveis <<------------------------ */
-@media screen and (max-width: 768px) {
-  .header-content {
-    display: flex;
-    width: 88%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-  .background-in-mobile {
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 105%;
-    height: 80px;
-    margin: 0 -2.5%;
-    padding: 0;
-  }
-
-  .header-logo img {
-    font-weight: 900;
-    width: 290px;
-    height: auto;
-    padding: 0px 0 82px 0px;
-  }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: rgba(
-      204,
-      204,
-      204,
-      0.8
-    ); /* Fundo #ccc semitransparente */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra para destaque */
-    width: 55%;
-    padding: 20px;
-  }
-
-  .menu-icon {
-    padding-top: 14px;
-    align-self: baseline;
-    display: block;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000; /* Para garantir que fique acima de outros elementos */
-  }
-
-  .menu-icon i {
-    color: #ccc;
-  }
-  .menu-link {
-    padding: 10px 0;
-    font-size: 18px;
-  }
-  .menu-visible {
-    display: flex;
-  }
-
-  .menu-open .menu {
-    margin-top: 10px;
-    margin-right: 0px;
-    padding: 20px;
-    display: flex;
-  }
-  .header-icons {
-    margin-top: 15px;
-    margin-bottom: 30px;
-  }
-  .header-button {
-    display: none;
-  }
-  .title-subtitle {
-    text-align: center;
-    max-width: 940px;
-    padding: 20px;
-    background-color: rgba(
-      204,
-      204,
-      204,
-      0.801
-    ); /* Fundo #ccc semitransparente */
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-  }
-
-  .title-subtitle h1 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
-  }
-  .title-subtitle p {
-    font-size: 24px;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
-  }
-
-  /* Ajustes no CSS */
-
-  .scroll {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .scroll:before,
-  .scroll:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    z-index: 1;
-  }
-
-  .scroll:before {
-    left: 0;
-    background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
-  }
-
-  .scroll:after {
-    right: 0;
-    background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
-  }
-
-  .scroll:hover .scroll_container {
-    animation-play-state: paused;
-  }
-
-  .scroll_container {
-    display: flex;
-    white-space: nowrap;
-    animation: slide 10s linear infinite;
-  }
-
-  .scroll_container img {
-    height: 30rem;
-    margin: 0 5px;
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% + 100vw));
-    }
-  }
-
-  /* Estilo para o clone */
-  .clone {
-    display: flex;
-  }
-
-  .scroll-container-img img {
-    padding-right: 0px;
-    width: 200px;
-    height: 200px;
-  }
-
-  /*Botoes de Ação*/
-
-  /* Estilo comum para todos os botões "Saiba Mais" */
-
-  .icone_Mais {
-    font-size: 20px;
-    padding: 15px 0px;
-  }
-}
-
 .container {
   max-width: 1440px;
-  margin: 0 auto;
+  margin: auto 10px;
 }
 
 .image-home::before {
@@ -692,25 +523,6 @@ p {
   line-height: 150%;
 }
 
-/* Responsividade para dispositivos móveis */
-@media screen and (max-width: 768px) {
-  .services .haircuts {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .services .haircut {
-    padding: 20px;
-  }
-  .services .haircut img {
-    max-width: 100%;
-  }
-  .about-me {
-    background-color: #06121e;
-    color: #ffffff;
-    padding: 0px 0;
-    text-align: center;
-  }
-}
 /* Efeitos visuais adicionais */
 .haircut img {
   width: 100%;
@@ -750,14 +562,6 @@ p {
 .about-description {
   flex: 1;
   max-width: 50%; /* Ajuste conforme necessário */
-}
-
-.about-me {
-  margin-top: -85px;
-  background-color: #06121e;
-  color: #ffffff;
-  padding: 60px 0;
-  text-align: center;
 }
 
 .about-me-image {
@@ -824,26 +628,6 @@ p {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-/* About Section */
-.about-me {
-  background-color: #fff;
-  color: #000;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.about-me-image {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-me-text {
-  margin-top: 20px;
-  color: #000;
 }
 
 .btn-learn-more {
@@ -933,15 +717,19 @@ p {
 }
 
 .haircut-info {
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
   cursor: pointer;
   position: absolute;
   left: 4rem;
   transform: translateX(-50%);
+  bottom: 15px;
 }
 
 .haircut-info button {
   color: #fff;
-  background-color: #d94140;
+  background-color: #2e8b57;
   padding: 4px 8px;
   border-radius: 4px;
   border: 0;
@@ -1208,6 +996,12 @@ img:hover {
   }
 }
 
+.about-me {
+  color: #ffffff;
+  padding: 0px 0;
+  text-align: center;
+}
+
 .logo-cliente {
   width: 700px;
   height: auto;
@@ -1215,9 +1009,237 @@ img:hover {
   margin-bottom: -50px;
 }
 
-/*=============> DISPOSITIVOS MÓVEIS <====================*/
+/* --------------------->> dispositivos móveis <<------------------------ */
+@media screen and (min-width: 1441px) {
+  .container {
+    max-width: 1900px;
+    margin: auto 10px;
+  }
+}
 
+/* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
+  .container {
+    max-width: 1440px;
+    margin: 0 10px;
+  }
+  .header-content {
+    display: flex;
+    width: 88%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .about-me {
+    color: #ffffff;
+    padding: 0px 0;
+    text-align: center;
+  }
+
+  .background-in-mobile {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 105%;
+    height: 80px;
+    margin: 0 -2.5%;
+    padding: 0;
+  }
+
+  .header-logo img {
+    font-weight: 900;
+    width: 290px;
+    height: auto;
+    padding: 0px 0 82px 0px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(
+      204,
+      204,
+      204,
+      0.8
+    ); /* Fundo #ccc semitransparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra para destaque */
+    width: 55%;
+    padding: 20px;
+  }
+
+  .menu-icon {
+    padding-top: 14px;
+    align-self: baseline;
+    display: block;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+  }
+
+  .menu-icon i {
+    color: #ccc;
+  }
+  .menu-link {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+  .menu-visible {
+    display: flex;
+  }
+
+  .menu-open .menu {
+    margin-top: 10px;
+    margin-right: 0px;
+    padding: 20px;
+    display: flex;
+  }
+  .header-icons {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+  .header-button {
+    display: none;
+  }
+  .title-subtitle {
+    text-align: center;
+    max-width: 940px;
+    padding: 20px;
+    background-color: rgba(
+      204,
+      204,
+      204,
+      0.801
+    ); /* Fundo #ccc semitransparente */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  }
+
+  .title-subtitle h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  }
+  .title-subtitle p {
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translate(-100%);
+    }
+  }
+
+  .scroll {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    position: relative;
+  }
+
+  .scroll:before,
+  .scroll:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .scroll:before {
+    left: 0;
+    background: linear-gradient(to left, rgba (255, 255, 255, 0), white);
+  }
+
+  .scroll:after {
+    right: 0;
+    background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
+  }
+
+  .scroll:hover .scroll_container {
+    animation-play-state: paused;
+  }
+
+  .scroll_container {
+    display: flex;
+    white-space: nowrap;
+    animation: 100000s slide infinite linear; /*temporizador mobile*/
+  }
+
+  .scroll_container img {
+    height: 30rem;
+    margin: 0 5px;
+  }
+
+  /* Estilo para o clone */
+  .clone {
+    display: flex;
+  }
+
+  .scroll-container-img img {
+    padding-right: 0px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn-especialidades {
+    width: 100px;
+    background-color: #2e8b57; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .btn-especialidades:hover {
+    background-color: #2ca05e; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05);
+  }
+
+  .icone_Mais {
+    font-size: 20px;
+    padding: 15px 0px;
+  }
+
+  .about-me-text {
+    padding-top: 10px;
+    flex-direction: column;
+    display: flex;
+    margin-top: 60px;
+    color: #000;
+  }
+
+  .services .haircuts {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .services .haircut {
+    padding: 20px;
+  }
+  .services .haircut img {
+    max-width: 100%;
+  }
+
   .haircuts {
     flex-direction: column;
     padding: 0 14px 34px 14px;
@@ -1232,16 +1254,19 @@ img:hover {
   }
 
   .haircut-info {
-    z-index: 99;
-    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
     display: flex;
-    justify-content: start;
-    left: 8rem;
+    cursor: pointer;
+    position: absolute;
+    left: 3rem;
+    transform: translateX(-50%);
+    bottom: 10px;
   }
 
   .haircut-info button {
     color: #fff;
-    background-color: #d94140;
+    background-color: #2e8b57;
     padding: 3px 5px;
     border-radius: 4px;
     border: 0;
