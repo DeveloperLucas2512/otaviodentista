@@ -60,7 +60,7 @@ header {
 
 .header-icons a:hover i {
   animation: translateYIcon 0.6s infinite alternate;
-  color: #e63946; /* Usando a cor vermelha clara */
+  color: #2e8b57;
 }
 
 @keyframes translateYIcon {
@@ -242,11 +242,9 @@ p {
 /*Botoes de Ação*/
 
 /* Estilo comum para todos os botões "Saiba Mais" */
-.btn-saiba-mais,
-.btn-sobre-eu,
-.btn-especialidades,
-.btn-minha-equipe {
-  background-color: #e63946; /* Cor de fundo */
+
+.btn-especialidades {
+  background-color: #2e8b57; /* Cor de fundo */
   color: #fff; /* Cor do texto */
   border: none;
   padding: 10px 10px;
@@ -257,18 +255,13 @@ p {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-weight: bold;
+  letter-spacing: 3px;
 }
 
 .icone_Mais {
   font-size: 20px;
   padding: 15px 0px;
-}
-
-.btn-saiba-mais:hover,
-.btn-sobre-eu:hover,
-.btn-especialidades:hover,
-.btn-minha-equipe:hover {
-  background-color: #a30c19; /* Cor de fundo ao passar o mouse */
 }
 
 /*Teste  carrousel*/
@@ -316,7 +309,7 @@ p {
 .scroll_container {
   display: flex;
   white-space: nowrap;
-  animation: 10s slide infinite linear; /*temporizador carrousel*/
+  animation: 100000s slide infinite linear; /*temporizador carrousel*/
 }
 
 .scroll_container img {
@@ -332,6 +325,53 @@ p {
 .scroll-container-img {
   position: relative;
   text-align: center;
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.expandable-content.expanded {
+  max-height: 200px; /* Ajuste conforme necessário */
+}
+
+/* Estilo para a modal */
+/* Adicione ao seu arquivo CSS existente */
+
+.modal {
+  display: none;
+  position: absolute; /* Altere de fixed para absolute */
+  z-index: 1;
+  padding-top: 20px;
+  left: 0;
+  top: 0;
+  width: auto; /* Defina a largura automática */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -440,40 +480,32 @@ p {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
   }
 
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translate(-100%);
-    }
-  }
+  /* Ajustes no CSS */
 
   .scroll {
-    overflow: hidden;
-    padding: 60px 0;
-    background: white;
     position: relative;
+    overflow: hidden;
+    width: 100%;
   }
 
   .scroll:before,
   .scroll:after {
+    content: "";
     position: absolute;
     top: 0;
-    width: 250px;
-    height: 100%;
-    content: "";
-    z-index: 2;
+    bottom: 0;
+    width: 50px;
+    z-index: 1;
   }
 
   .scroll:before {
     left: 0;
-    background: linear-gradient(to left, rgba (255, 255, 255, 0), white);
+    background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
   }
 
   .scroll:after {
     right: 0;
-    background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
+    background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
   }
 
   .scroll:hover .scroll_container {
@@ -483,12 +515,21 @@ p {
   .scroll_container {
     display: flex;
     white-space: nowrap;
-    animation: 100s slide infinite linear; /*temporizador mobile*/
+    animation: slide 10s linear infinite;
   }
 
   .scroll_container img {
     height: 30rem;
     margin: 0 5px;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% + 100vw));
+    }
   }
 
   /* Estilo para o clone */
@@ -505,38 +546,15 @@ p {
   /*Botoes de Ação*/
 
   /* Estilo comum para todos os botões "Saiba Mais" */
-  .btn-saiba-mais,
-  .btn-sobre-eu,
-  .btn-especialidades,
-  .btn-minha-equipe {
-    background-color: #e63946; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    border: none;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
 
   .icone_Mais {
     font-size: 20px;
     padding: 15px 0px;
   }
-
-  .btn-saiba-mais:hover,
-  .btn-sobre-eu:hover,
-  .btn-especialidades:hover,
-  .btn-minha-equipe:hover {
-    background-color: #a30c19; /* Cor de fundo ao passar o mouse */
-  }
 }
 
 .container {
-  max-width: 1540px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -764,30 +782,6 @@ p {
   color: var(--secondary-color);
 }
 
-.about-me-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 8px;
-  text-align: left;
-  color: #000;
-}
-
 /* Estilo para as setas de navegação */
 .arrow {
   position: absolute;
@@ -867,30 +861,6 @@ p {
   color: var(--secondary-color);
 }
 
-.about-me-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 8px;
-  text-align: left;
-  color: #000;
-}
-
 .close {
   color: #aaa;
   float: right;
@@ -963,9 +933,9 @@ p {
 }
 
 .haircut-info {
+  cursor: pointer;
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  left: 4rem;
   transform: translateX(-50%);
 }
 
@@ -1120,27 +1090,6 @@ img:hover {
   color: black;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
 .close-button {
   color: #aaa;
   float: right;
@@ -1283,13 +1232,11 @@ img:hover {
   }
 
   .haircut-info {
-    margin-bottom: -7px;
     z-index: 99;
     width: 100%;
     display: flex;
     justify-content: start;
     left: 8rem;
-    padding: 10px 0px;
   }
 
   .haircut-info button {
