@@ -347,9 +347,6 @@ p {
   max-height: 200px; /* Ajuste conforme necessário */
 }
 
-/* Estilo para a modal */
-/* Adicione ao seu arquivo CSS existente */
-
 .modal {
   display: none;
   position: absolute; /* Altere de fixed para absolute */
@@ -918,6 +915,12 @@ img:hover {
   max-width: 80%;
 }
 
+html,
+body,
+#mapDiv {
+  top: -12px;
+}
+
 .map iframe {
   width: 100%;
   height: 100%;
@@ -932,16 +935,20 @@ img:hover {
   justify-content: center;
 }
 
-.image img {
-  max-width: 100%;
-  height: auto;
-  animation: slideIn 1s ease-out;
-}
-
 .expandMaps {
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  margin-top: 20px;
   letter-spacing: 3px;
   font-weight: bold;
   color: blue;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700; /* Peso mais forte para o título */
+  font-size: 2.5rem; /* Tamanho maior para dar destaque */
 }
 .expandMaps:hover {
   text-decoration: underline;
@@ -958,30 +965,15 @@ img:hover {
   transition: transform 0.3s ease;
 }
 
-/* Inicialmente, a seção está colapsada */
-.map-container.collapsed {
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: height 0.5s ease, opacity 0.5s ease;
-}
-
-/* Quando expandido */
-.map-container.expanded {
-  height: auto;
-  opacity: 1;
-  transition: height 0.5s ease, opacity 0.5s ease;
-}
-
-/* Transição da imagem */
 .image img {
-  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: -6rem;
+  max-width: 70%;
   max-height: auto;
-  transition: transform 0.5s ease;
-}
-
-.map-container.expanded .image img {
-  transform: scale(1.015); /* Aumenta a escala da imagem quando expandida */
+  transition: transform 1s ease;
 }
 
 /* Animação da imagem */
@@ -1009,7 +1001,7 @@ img:hover {
   margin-bottom: -50px;
 }
 
-/* --------------------->> dispositivos móveis <<------------------------ */
+/* --------------------->> dispositivos LG <<------------------------ */
 @media screen and (min-width: 1441px) {
   .container {
     max-width: 1900px;
@@ -1030,6 +1022,18 @@ img:hover {
     align-items: center;
     justify-content: space-between;
     position: relative;
+  }
+
+  .image img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0rem;
+    max-width: 100%;
+    max-height: auto;
+    transition: transform 1s ease;
+    margin-top: -30px;
   }
 
   .about-me {
@@ -1120,34 +1124,6 @@ img:hover {
     ); /* Fundo #ccc semitransparente */
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-  }
-
-  .title-subtitle h1 {
-    font-size: 48px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
-  }
-  .title-subtitle p {
-    font-size: 24px;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translate(-100%);
-    }
-  }
-
-  .scroll {
-    overflow: hidden;
-    padding: 60px 0;
-    background: white;
-    position: relative;
   }
 
   .scroll:before,
@@ -1287,14 +1263,17 @@ img:hover {
     margin-top: 1rem; /* Adiciona um espaço entre o mapa e a imagem */
   }
 
-  .services .expandMaps {
-    display: flex;
-    flex-direction: column;
+  .expandMaps {
     justify-content: center;
+    flex-direction: row;
+    display: flex;
+    margin-top: 20px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: blue;
     align-items: center;
-    align-self: center;
-    font-size: 9px;
     white-space: nowrap;
+    font-size: 20px;
   }
 
   .toggle-btn {
