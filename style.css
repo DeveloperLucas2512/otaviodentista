@@ -319,7 +319,7 @@ p {
 .scroll_container {
   display: flex;
   white-space: nowrap;
-  animation: 100000s slide infinite linear; /*temporizador carrousel*/
+  animation: 50s slide infinite linear; /*temporizador carrousel*/
 }
 
 .scroll_container img {
@@ -1153,7 +1153,7 @@ body,
   .scroll_container {
     display: flex;
     white-space: nowrap;
-    animation: 100000s slide infinite linear; /*temporizador mobile*/
+    animation: 50s slide infinite linear; /*temporizador mobile*/
   }
 
   .scroll_container img {
