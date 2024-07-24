@@ -349,22 +349,24 @@ p {
 
 .modal {
   display: none;
-  position: absolute; /* Altere de fixed para absolute */
+  position: fixed;
   z-index: 1;
-  padding-top: 20px;
   left: 0;
   top: 0;
-  width: auto; /* Defina a largura automática */
-  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 5px auto;
+  background-color: #fff;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-width: 600px;
 }
 
 .close {
@@ -379,6 +381,10 @@ p {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.collapsed {
+  display: none;
 }
 
 .container {
@@ -751,17 +757,6 @@ p {
   cursor: pointer;
 }
 
-.logo-cliente {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-cliente-content {
-  max-width: 30%;
-  height: auto;
-}
-
 img {
   gap: 30px;
   padding-left: 10px;
@@ -828,7 +823,7 @@ img:hover {
   justify-content: center;
   padding: 8px 0;
   gap: 22px;
-  color: #ccc;
+  color: #6b5d5d;
   background-image: linear-gradient(to bottom, #b3b3b3, #ccc, #e6e6e6);
 }
 
@@ -927,9 +922,10 @@ body,
   border: 0;
 }
 
-/* Imagem no desktop */
+/* Imagem Trio Office no desktop */
 .image {
-  flex: 1; /* Reduz a largura da imagem em relação ao mapa */
+  width: 500px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -950,13 +946,6 @@ body,
   font-weight: 700; /* Peso mais forte para o título */
   font-size: 2.5rem; /* Tamanho maior para dar destaque */
 }
-.expandMaps:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* Ícone do botão de expansão */
-/* Ícone do botão de expansão */
 
 .toggle-btn {
   padding: 10px;
@@ -995,10 +984,16 @@ body,
 }
 
 .logo-cliente {
-  width: 700px;
+  margin-bottom: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-cliente-content {
+  width: 180px;
   height: auto;
   font-weight: 900;
-  margin-bottom: -50px;
 }
 
 /* --------------------->> dispositivos LG <<------------------------ */
@@ -1012,8 +1007,8 @@ body,
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
   .container {
-    max-width: 1440px;
-    margin: 0 10px;
+    max-width: 1300px;
+    margin: 0 25px;
   }
   .header-content {
     display: flex;
@@ -1022,6 +1017,27 @@ body,
     align-items: center;
     justify-content: space-between;
     position: relative;
+  }
+
+  .map-container {
+    padding-bottom: 20px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    flex-direction: column;
+  }
+
+  /* Imagem no desktop */
+  .image {
+    padding-top: 1rem;
+    width: 200px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
   }
 
   .image img {
@@ -1079,10 +1095,12 @@ body,
   }
 
   .menu-icon {
-    padding-top: 14px;
+    border-radius: 5px;
+    padding: 3px 5px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 13px;
     align-self: baseline;
     display: block;
-    top: 20px;
     right: 20px;
     cursor: pointer;
     z-index: 1000; /* Para garantir que fique acima de outros elementos */
@@ -1166,6 +1184,14 @@ body,
     display: flex;
   }
 
+  .modal-content {
+    font-size: 20px;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 300px;
+    width: 90%;
+  }
+
   .scroll-container-img img {
     padding-right: 0px;
     width: 200px;
@@ -1198,10 +1224,10 @@ body,
   }
 
   .about-me-text {
-    padding-top: 10px;
+    padding-top: 2px;
     flex-direction: column;
     display: flex;
-    margin-top: 60px;
+    margin-top: 8px;
     color: #000;
   }
 
@@ -1251,42 +1277,14 @@ body,
     font-size: 8px;
   }
 
-  .map-container {
-    flex-direction: column;
-  }
-
   .map {
     max-width: 100%;
-  }
-
-  .image {
-    margin-top: 1rem; /* Adiciona um espaço entre o mapa e a imagem */
-  }
-
-  .expandMaps {
-    justify-content: center;
-    flex-direction: row;
-    display: flex;
-    margin-top: 20px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    color: blue;
-    align-items: center;
-    white-space: nowrap;
-    font-size: 20px;
   }
 
   .toggle-btn {
     font-size: 10pt;
     font-family: Verdana, sans-serif;
     text-transform: uppercase;
-  }
-
-  .logo-cliente {
-    width: 700px;
-    height: auto;
-    font-weight: 900;
-    margin-bottom: -50px;
   }
 
   .btn-whatsapp {
@@ -1311,13 +1309,14 @@ body,
     justify-content: center;
     padding: 8px 0;
     gap: 22px;
-    color: #ccc;
+    color: #6b5d5d;
   }
 
   .footer-icons {
     display: flex;
-    gap: 8px;
-    color: #fff;
+    gap: 11px;
+    padding-top: 10px;
+    margin-bottom: -15px;
   }
 
   body {
@@ -1370,13 +1369,15 @@ body,
   }
 
   .logo-cliente {
+    margin-bottom: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .logo-cliente-content {
-    max-width: 30%;
+    margin-top: -35px;
+    max-width: 50rem;
     height: auto;
   }
 
@@ -1386,5 +1387,31 @@ body,
     justify-content: center;
     align-items: center;
     color: #181111f5;
+  }
+
+  .fa-phone {
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .footer-icons {
+    margin-top: -10px;
+    gap: 15px;
+  }
+
+  .fa-whatsapp,
+  .fa-instagram,
+  .fa-phone {
+    font-size: 25px;
+    color: #fff;
+  }
+
+  .fa-phone {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+
+  .logo-cliente {
+    background: rgba(0, 0, 0, 0.5);
   }
 }
