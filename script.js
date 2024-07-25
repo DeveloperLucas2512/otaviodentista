@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const headerContent = document.querySelector(".header-content");
 
   // Modal
-  var modal = document.getElementById("genericModal");
-  var modalBody = document.getElementById("modal-body");
-  var span = document.getElementsByClassName("close")[0];
+  const modal = document.getElementById("genericModal");
+  const modalBody = document.getElementById("modal-body");
+  const span = document.getElementsByClassName("close")[0];
 
   if (menuIcon && menu && headerContent) {
     menuIcon.addEventListener("click", function (event) {
@@ -59,10 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   saibaMaisBtns.forEach(function (btn) {
     btn.addEventListener("click", function (event) {
-      var contentId = this.getAttribute("data-content");
+      const contentId = this.getAttribute("data-content");
       modalBody.innerHTML = contentData[contentId];
-
-      // Mostrar o modal
       modal.style.display = "block";
     });
   });
@@ -78,10 +76,81 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Toggle Map
-  var toggleBtn = document.querySelector(".toggle-btn");
-  var mapContainer = document.getElementById("map-container");
+  const toggleBtn = document.querySelector(".toggle-btn");
+  const mapContainer = document.getElementById("map-container");
 
-  toggleBtn.addEventListener("click", function () {
-    mapContainer.classList.toggle("collapsed");
-  });
+  if (toggleBtn && mapContainer) {
+    toggleBtn.addEventListener("click", function () {
+      mapContainer.classList.toggle("collapsed");
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btnEspecialidades = document.getElementById("btn-especialidades");
+  const modalTratamento = document.getElementById("modalTratamentos");
+  const caretIcon = document.getElementById("caret-icon");
+  const spanTratamento = document.getElementsByClassName("close-tratamento")[0];
+
+  btnEspecialidades.onclick = function () {
+    modalTratamento.classList.toggle("show");
+    caretIcon.classList.toggle("fa-caret-down");
+    caretIcon.classList.toggle("fa-caret-up");
+  };
+
+  spanTratamento.onclick = function () {
+    modalTratamento.classList.remove("show");
+    caretIcon.classList.toggle("fa-caret-down");
+    caretIcon.classList.toggle("fa-caret-up");
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modalTratamento) {
+      modalTratamento.classList.remove("show");
+      caretIcon.classList.toggle("fa-caret-down");
+      caretIcon.classList.toggle("fa-caret-up");
+    }
+  };
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btnEspecialidades = document.getElementById("btn-especialidades");
+  const modalTratamento = document.getElementById("modalTratamentos");
+  const caretIcon = document.getElementById("caret-icon");
+  const closeTratamento = document.querySelector(".close-tratamento");
+  const tratamentoLista = document.getElementById("tratamento-lista");
+
+  // Dados para a lista de tratamentos
+  const tratamentoData = `
+        <li>Cirurgia Ortognatica</li>
+        <li>Tratamentos de DTM/ATM</li>
+        <li>Implantes Dentários</li>
+        <li>Sisos Complexos</li>
+        <li>Preenchimento, Toxina Botulínica</li>
+        <li>Bioestimuladores de Colágeno e Fios de PDO</li>
+    `;
+
+  // Função para abrir a modal
+  btnEspecialidades.onclick = function () {
+    modalTratamento.classList.add("show");
+    caretIcon.classList.toggle("fa-caret-down");
+    caretIcon.classList.toggle("fa-caret-up");
+    tratamentoLista.innerHTML = tratamentoData;
+  };
+
+  // Função para fechar a modal ao clicar no "X"
+  closeTratamento.onclick = function () {
+    modalTratamento.classList.remove("show");
+    caretIcon.classList.toggle("fa-caret-down");
+    caretIcon.classList.toggle("fa-caret-up");
+  };
+
+  // Fechar a modal ao clicar fora dela
+  window.onclick = function (event) {
+    if (event.target == modalTratamento) {
+      modalTratamento.classList.remove("show");
+      caretIcon.classList.toggle("fa-caret-down");
+      caretIcon.classList.toggle("fa-caret-up");
+    }
+  };
 });

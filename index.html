@@ -16,8 +16,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -186,6 +188,282 @@
         </div>
       </div>
 
+         <!-- Especialidades Section -->
+         <div class="about-me">
+        <!-- Botão para abrir a modal de tratamentos -->
+        <div class="about-me-content container">
+            <div class="about-me-image">
+                <div class="btn-especialidades" id="btn-especialidades">
+                    <button>Dr. Otávio | Nossos Tratamentos de Destaque <i class="fas fa-caret-down" id="caret-icon"></i></button>                               
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para tratamentos -->
+        <div id="modalTratamentos" class="modal-tratamento">
+            <div class="modal-tratamento-content">
+                <span class="close-tratamento">&times;</span>
+                <h4>Tratamentos realizados</h4>
+                <ul id="tratamento-lista">
+                    <!-- Lista será preenchida dinamicamente pelo JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+
+     <section>
+      <div class="scroll">
+        <div class="scroll_container">
+          <!-- img 1 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioExplicandoOrtognatica.png"
+              alt="Dr. Otávio | Ortognática"
+              title="Dr. Otávio | O que é Ortognática"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="1">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-ortognatica"></div>
+            </div>
+          </div>
+
+          <!-- img 2 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade1.png"
+              alt="Dr. Otávio | Implante Dentário"
+              title="Dr. Otávio | Implante Dentário"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="2">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-implante"></div>
+            </div>
+          </div>
+
+          <!-- img 3 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade2.png"
+              alt="Dr. Otávio | Excesso Vertical de Maxila"
+              title="Dr. Otávio | Excesso Vertical de Maxila"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="3">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-excesso"></div>
+            </div>
+          </div>
+
+          <!-- img 4 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade3.png"
+              alt="Dr. Otávio | Sorriso Gengival"
+              title="Dr. Otávio | Sorriso Gengival"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="4">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-sorriso"></div>
+            </div>
+          </div>
+        
+          <!-- img 1 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioExplicandoOrtognatica.png"
+              alt="Dr. Otávio | Ortognática"
+              title="Dr. Otávio | O que é Ortognática"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="1">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-ortognatica"></div>
+            </div>
+          </div>
+
+          <!-- img 2 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade1.png"
+              alt="Dr. Otávio | Implante Dentário"
+              title="Dr. Otávio | Implante Dentário"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="2">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-implante"></div>
+            </div>
+          </div>
+
+          <!-- img 3 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade2.png"
+              alt="Dr. Otávio | Excesso Vertical de Maxila"
+              title="Dr. Otávio | Excesso Vertical de Maxila"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="3">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-excesso"></div>
+            </div>
+          </div>
+
+          <!-- img 4 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade3.png"
+              alt="Dr. Otávio | Sorriso Gengival"
+              title="Dr. Otávio | Sorriso Gengival"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="4">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-sorriso"></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Modal Genérica -->
+      <div id="genericModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modal-body">
+            <!-- Conteúdo dinâmico será carregado aqui -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Especialidades Section -->
+      <div class="about-me">
+        <div class="about-me-content container">
+          <div class="about-me-image">
+            <div class="about-me-text">
+              <h2>Dr. Otávio | Tratamentos Realizados</h2>
+              <p>Cirurgião Bucomaxilofacial e Dentista</p>
+              <button class="btn-especialidades">
+                <span class="icone_Mais">+</span> Detalhes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section>
+      <div class="scroll">
+        <div class="scroll_container">
+          <!-- img 1 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioExplicandoOrtognatica.png"
+              alt="Dr. Otávio | Ortognática"
+              title="Dr. Otávio | Especialista em "
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="1">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-ortognatica"></div>
+            </div>
+          </div>
+
+          <!-- img 2 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade1.png"
+              alt="Dr. Otávio | Implante Dentário"
+              title="Dr. Otávio | Implante Dentário"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="2">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-implante"></div>
+            </div>
+          </div>
+
+          <!-- img 3 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade2.png"
+              alt="Dr. Otávio | Excesso Vertical de Maxila"
+              title="Dr. Otávio | Excesso Vertical de Maxila"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="3">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-excesso"></div>
+            </div>
+          </div>
+
+          <!-- img 4 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade3.png"
+              alt="Dr. Otávio | Sorriso Gengival"
+              title="Dr. Otávio | Sorriso Gengival"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="4">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-sorriso"></div>
+            </div>
+          </div>
+        
+          <!-- img 1 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioExplicandoOrtognatica.png"
+              alt="Dr. Otávio | Ortognática"
+              title="Dr. Otávio | O que é Ortognática"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="1">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-ortognatica"></div>
+            </div>
+          </div>
+
+          <!-- img 2 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade1.png"
+              alt="Dr. Otávio | Implante Dentário"
+              title="Dr. Otávio | Implante Dentário"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="2">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-implante"></div>
+            </div>
+          </div>
+
+          <!-- img 3 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade2.png"
+              alt="Dr. Otávio | Excesso Vertical de Maxila"
+              title="Dr. Otávio | Excesso Vertical de Maxila"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="3">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-excesso"></div>
+            </div>
+          </div>
+
+          <!-- img 4 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/OtavioEspecialidade3.png"
+              alt="Dr. Otávio | Sorriso Gengival"
+              title="Dr. Otávio | Sorriso Gengival"
+            />
+            <div class="haircut-info">
+              <button class="saibaMaisBtn" data-content="4">Saiba Mais</button>
+              <div class="expandable-content" id="conteudo-sorriso"></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Modal Genérica -->
+      <div id="genericModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modal-body">
+            <!-- Conteúdo dinâmico será carregado aqui -->
+          </div>
+        </div>
+      </div>
+
       <!-- Especialidades Section -->
       <div class="about-me">
         <div class="about-me-content container">
@@ -202,10 +480,12 @@
       </div>
     </section>
 
-    <div class="services">
-      <div class="expandMaps">
-     <h1 class="fas fa-arrow-down toggle-btn">Saiba como me encontrar!!</h1>
-      </div>
+    <aside class="services">
+        <div class="expandMaps">
+            <h1 class="toggle-btn">
+                <i class="fas fa-map-marker-alt location-icon"></i>Saiba como me encontrar!!
+            </h1>
+        </div>
       <div class="map-container collapsed" id="map-container">
         <div class="map box-shadow-map">
           <iframe
@@ -219,27 +499,68 @@
           <img src="assets/trioOffice.png" alt="Trio Office" />
         </div>
       </div>
+    </aside>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>Atendimento</h3>
+      <div class="cor_links_topo">
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Domingo: </span><span class="cor_links_topo_fechado">Fechado</span>
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Segunda-feira: </span>09:00 às 18:00
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Terça-feira: </span>09:00 às 18:00
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Quarta-feira: </span>09:00 às 18:00
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Quinta-feira: </span>09:00 às 18:00
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Sexta-feira: </span>09:00 às 18:00
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Sábado: </span><span class="cor_links_topo_fechado">Fechado</span>
+        </p>
+        <p class="margin-bottom-0 line-height-22 text-clock">
+          <i class="go goicon-angle-right font-size-10 font-color-secundaria"></i><span class="font-color-secundaria"> Feriado: </span><span class="cor_links_topo_fechado">Fechado</span>
+        </p>
+      </div>
     </div>
+    <div class="footer-column">
+      <h3>Fale Conosco</h3>
+      <ul class="footer-list">
+        <li class=""><i class="fas fa-envelope " style="color:#1e90ff"></i> <span class="font-color-secundaria">Email:</span> contato@exemplo.com</li>
+        
+        <li><i class="fas fa-phone" style="color:#646161; font-weight: 800; font-size: 19px;"></i><span class="font-color-secundaria">Telefone:</span> +55 11 9999-9999</li>
 
-    <footer class="footer">
-      <div class="logo-cliente">
-        <img
-          class="logo-cliente-content"
-          src="assets/logoSemFundo.png"
-          alt="Logo footer"
-        />
+        <li><a href="https://wa.me/5511999999999" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366"></i><span class="font-color-secundaria">WhatsApp:</span> +55 11 9999-9999</a></li>
+        <li><a href="https://www.instagram.com/exemplo" target="_blank"><i class="fab fa-instagram" style="color:#e4405f"></i><span class="font-color-secundaria">Instagram</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-column logo-cliente">
+      <img class="logo-cliente-content" src="assets/logoSemFundo.png" alt="Logo footer" />
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/exemplo" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5511999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+5511999999999" target="_blank"><i class="fas fa-phone"></i></a>
       </div>
-      <div class="footer-icons">      
-         <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-            <a href="#"><i class="fab fa-whatsapp fa-2x"></i></a>
-            <a href="#"><i class="fas fa-phone fa-2x"></i></a>       
-      </div>
-      <p>&copy; Dr. Otávio. Todos os direitos reservados.</p>
-    </footer>
+    </div>
+  </div>
+  <p>&copy; Dr. Otávio. Todos os direitos reservados.</p>
+</footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="script.js"></script>
+
+
+
   </body>
 </html>
