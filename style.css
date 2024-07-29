@@ -309,11 +309,6 @@ p {
   /*animation: 1000s slide infinite linear; /*temporizador carrousel*/
 }
 
-.scroll_container img {
-  height: 26rem;
-  margin: 0 5px;
-}
-
 /* Estilo para o clone */
 .clone {
   display: flex;
@@ -1516,11 +1511,11 @@ button .fa-caret-down,
   .scroll_container {
     display: flex;
     white-space: nowrap;
-    animation: 50s slide infinite linear; /*temporizador mobile*/
+    /*animation: 50s slide infinite linear; /*temporizador mobile*/
   }
 
   .scroll_container img {
-    height: 25rem;
+    height: 10rem;
     margin: 0 5px;
   }
 
