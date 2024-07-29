@@ -1146,13 +1146,13 @@ body,
   max-height: 200px;
 }
 
-.cor_links_topo p:hover {
+.cor_links_topo p {
   color: rgb(61, 187, 61);
   font-weight: 700;
   font-size: 15px;
 }
 
-.cor_links_topo_fechado:hover {
+.cor_links_topo_fechado {
   color: red;
   font-weight: 700;
 }
