@@ -306,8 +306,7 @@ p {
 
 .scroll_container {
   display: flex;
-  white-space: nowrap;
-  /*animation: 1000s slide infinite linear; /*temporizador carrousel*/
+  white-space: nowrap; 
 }
 
 /* Estilo para o clone */
@@ -1280,8 +1279,8 @@ button .fa-caret-down,
   text-decoration: none;
 }
 
-/* --------------------->> dispositivos LG <<------------------------ */
-@media screen and (min-width: 1441px) {
+/* --------------------->> dispositivos Desktop <<------------------------ */
+@media screen and (min-width: 1300px) {
   .container {
     max-width: 1900px;
     margin: auto 30px;
@@ -1297,11 +1296,12 @@ button .fa-caret-down,
 }
 
 .scroll_container {
+  max-width: 1350px;
   gap: 10px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  /*animation: 1000s slide infinite linear; /*temporizador carrousel*/
 }
 
 .scroll-container-img {
@@ -1312,7 +1312,45 @@ button .fa-caret-down,
 }
 
 .scroll_container img {
-  height: 26rem;
+  height: 18rem;
+  margin: 0 5px;
+  padding: 0px 10px 50px;
+}
+
+/* --------------------->> dispositivos Tablet <<------------------------ */
+@media screen and (min-width: 769px) {
+  .container {
+    max-width: 1900px;
+    margin: auto 30px;
+    padding-top: 40px;
+  }
+}
+
+.direitos-reservados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.scroll_container {
+  max-width: 1350px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-container-img {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  position: relative;
+  text-align: center;
+}
+
+.scroll_container img {
+  height: 9rem;
   margin: 0 5px;
   padding: 0px 10px 50px;
 }
