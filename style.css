@@ -1328,10 +1328,38 @@ button .fa-caret-down,
     position: relative;
   }
 
+  .scroll_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll_container img {
+    height: 20rem;
+    margin: 0 5px;
+    padding: 0px 10px 31px;
+  }
+
   .scroll-container-img {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 17px 33px rgba(0, 0, 0, 0.9);
     position: relative;
     text-align: center;
+  }
+
+  .scroll-container-img img {
+    width: 15rem;
+    height: auto;
+  }
+
+  .haircut-info button {
+    color: #fff;
+    background-color: #d94140;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    width: 100%;
+    font-size: 11px;
+    height: auto;
   }
 
   .btn-especialidades button {
@@ -1504,21 +1532,6 @@ button .fa-caret-down,
     background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
   }
 
-  .scroll:hover .scroll_container {
-    animation-play-state: paused;
-  }
-
-  .scroll_container {
-    display: flex;
-    white-space: nowrap;
-    /*animation: 50s slide infinite linear; /*temporizador mobile*/
-  }
-
-  .scroll_container img {
-    height: 10rem;
-    margin: 0 5px;
-  }
-
   /* Estilo para o clone */
   .clone {
     display: flex;
@@ -1535,12 +1548,6 @@ button .fa-caret-down,
   .modal-tratamento-content {
     width: 90%; /* Ajuste a largura para dispositivos móveis */
     padding: 15px;
-  }
-
-  .scroll-container-img img {
-    padding-right: 0px;
-    width: 200px;
-    height: 200px;
   }
 
   .btn-especialidades:hover {
@@ -1594,17 +1601,6 @@ button .fa-caret-down,
     left: 3rem;
     transform: translateX(-50%);
     bottom: 10px;
-  }
-
-  .haircut-info button {
-    color: #fff;
-    background-color: #d94140;
-    padding: 3px 5px;
-    border-radius: 4px;
-    border: 0;
-    cursor: pointer;
-    max-width: 80px;
-    font-size: 8px;
   }
 
   .map {
