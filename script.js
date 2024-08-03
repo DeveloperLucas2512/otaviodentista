@@ -1,140 +1,108 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.querySelector(".menu-icon");
-  const menu = document.querySelector(".menu");
-  const headerContent = document.querySelector(".header-content");
+  const openModalTratamentosButton = document.querySelector(
+    "#open-modal-tratamentos"
+  );
+  const openModalOrtognaticaButton = document.querySelector(
+    "#open-modal-ortognatica"
+  );
+  const openModalImplanteButton = document.querySelector(
+    "#open-modal-implante"
+  );
 
-  // Modal
-  const modal = document.getElementById("genericModal");
-  const modalBody = document.getElementById("modal-body");
-  const closeModal = document.querySelector(".modal-2 .close");
-  const saibaMaisBtns = document.querySelectorAll(".saibaMaisBtn");
+  const closeModalButtons = document.querySelectorAll(
+    ".close-modal-ortognatica"
+  );
+  const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
+  const modalImplante = document.querySelector("modal-implante-content");
+  const modalMaxila = document.querySelector("modal-maxila-content");
+  const modalSorrisoGengival = document.querySelector(
+    "modal-sorriso-gengival-content"
+  );
+  const modalTratamentos = document.querySelector("#modal-tratamentos-content");
+  const fade = document.querySelector(".fade");
 
-  if (menuIcon && menu && headerContent) {
-    menuIcon.addEventListener("click", function (event) {
-      event.stopPropagation();
-      menu.classList.toggle("open");
-      headerContent.classList.toggle("menu-open");
-    });
+  const toggleModalOrtognatica = (modal) => {
+    modal.classList.toggle("hide");
+    fade.classList.toggle("hide");
+  };
 
-    document.addEventListener("click", function (event) {
-      const target = event.target;
-      const isMenuOpen = menu.classList.contains("open");
-      const clickedOutsideMenu =
-        !menu.contains(target) && !menuIcon.contains(target);
+  const toggleModalImplante = (modal) => {
+    modal.classList.toggle("hide");
+    fade.classList.toggle("hide");
+  };
 
-      if (isMenuOpen && clickedOutsideMenu) {
-        menu.classList.remove("open");
-        headerContent.classList.remove("menu-open");
-      }
-    });
+  if (openModalOrtognaticaButton) {
+    openModalOrtognaticaButton.addEventListener("click", () =>
+      toggleModalOrtognatica(modalOrtognatica)
+    );
   }
 
-  // Carrossel e Saiba Mais
-  const content = {
-    ortognatica: `
-      <h3>Ortognática</h3>
-     <p>A Ortognática é uma especialidade da cirurgia bucomaxilofacial que se concentra no tratamento de irregularidades nos ossos da face e maxilares.</p>
-      <p>O objetivo é corrigir problemas como o desalinhamento dos dentes e mandíbulas, melhorando a função mastigatória, a estética facial e a saúde geral.</p>
-      <p>Este tipo de cirurgia é indicado para pessoas com discrepâncias significativas entre os maxilares superior e inferior, que podem causar dificuldades na fala, mastigação ou problemas respiratórios. A Ortognática pode também aliviar problemas de mordida e melhorar a aparência facial, proporcionando um sorriso mais harmonioso e equilibrado.</p>
-    `,
-    implante: `
-      <h3>Implante Dentário</h3>
-     <p>O implante dentário é uma solução moderna e eficaz para substituir dentes perdidos ou danificados. Consiste em um pequeno parafuso de titânio que é inserido cirurgicamente no osso maxilar, servindo como uma raiz artificial para suportar uma coroa dentária.</p>
-      <p>Esse procedimento visa restaurar a função mastigatória e melhorar a estética do sorriso, proporcionando uma aparência e sensação natural. Os implantes dentários são uma opção durável e de longo prazo, que também ajuda a preservar a estrutura óssea e a saúde bucal geral.</p>
-      <p>Ideal para pessoas que perderam dentes devido a cáries, traumas ou doenças periodontais, o implante dentário oferece uma alternativa sólida e segura às próteses removíveis e pontes dentárias, promovendo conforto e estabilidade.</p>
-    `,
-    excesso: `
-      <h3>Excesso Vertical de Maxila</h3>
-      <p>O excesso vertical de maxila é uma condição onde há um aumento anormal no comprimento da maxila, a parte superior do maxilar. Este problema pode resultar em um perfil facial desproporcional, onde a parte superior da face parece exageradamente alongada em comparação com a parte inferior.</p>
-      <p>Este distúrbio pode causar dificuldades funcionais, como problemas de mordida e mastigação, além de afetar a estética facial. O tratamento para o excesso vertical de maxila geralmente envolve cirurgia ortognática para reduzir a altura da maxila e melhorar o equilíbrio facial.</p>
-      <p>O objetivo da cirurgia é restaurar a harmonia facial, melhorar a função mastigatória e promover um sorriso mais estético e confortável.</p>
-    `,
-    sorriso: `
-      <h3>Sorriso Gengival</h3>
-      <p>O sorriso gengival ocorre quando uma quantidade excessiva de gengiva é visível ao sorrir, o que pode causar desconforto estético para muitas pessoas. Esta condição pode ser causada por fatores genéticos, hiperatividade dos músculos que elevam o lábio superior, ou por um crescimento desigual dos dentes.</p>
-      <p>Os tratamentos para o sorriso gengival variam de acordo com a causa. Pode incluir procedimentos estéticos, como a correção da linha gengival através de cirurgia plástica gengival, ou tratamentos ortodônticos para ajustar a posição dos dentes. O objetivo é alcançar um sorriso mais equilibrado, onde a quantidade de gengiva visível é reduzida, melhorando a aparência e a confiança do paciente.</p>
-      <p>Em alguns casos, a correção pode envolver uma combinação de abordagens para garantir resultados duradouros e satisfatórios.</p>
-    `,
-  };
+  if (openModalImplanteButton) {
+    openModalImplanteButton.addEventListener("click", () =>
+      toggleModalImplante(modalOrtognatica)
+    );
+  }
 
-  saibaMaisBtns.forEach((button) => {
+  if (openModalTratamentosButton) {
+    openModalTratamentosButton.addEventListener("click", () =>
+      toggleModalOrtognatica(modalTratamentos)
+    );
+  }
+
+  if (openModalTratamentosButton) {
+    openModalTratamentosButton.addEventListener("click", () =>
+      toggleModalImplante(modalTratamentos)
+    );
+  }
+
+  closeModalButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const contentKey = button.getAttribute("data-content");
-      modalBody.innerHTML = content[contentKey];
-      modal.style.display = "block";
+      if (!modalOrtognatica.classList.contains("hide"))
+        toggleModalOrtognatica(modalOrtognatica);
+      if (!modalTratamentos.classList.contains("hide"))
+        toggleModalOrtognatica(modalTratamentos);
     });
   });
 
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!modalOrtognatica.classList.contains("hide"))
+        toggleModalImplante(modalOrtognatica);
+      if (!modalTratamentos.classList.contains("hide"))
+        toggleModalImplante(modalTratamentos);
+    });
   });
 
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
+  fade.addEventListener("click", () => {
+    if (!modalOrtognatica.classList.contains("hide"))
+      toggleModalOrtognatica(modalOrtognatica);
+    if (!modalTratamentos.classList.contains("hide"))
+      toggleModalOrtognatica(modalTratamentos);
   });
-});
 
-// Toggle Map
-const toggleBtn = document.querySelector(".toggle-btn");
-const mapContainer = document.getElementById("map-container");
-
-if (toggleBtn && mapContainer) {
-  toggleBtn.addEventListener("click", function () {
-    mapContainer.classList.toggle("collapsed");
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!modalOrtognatica.classList.contains("hide"))
+        toggleModalOrtognatica(modalOrtognatica);
+      if (!modalTratamentos.classList.contains("hide"))
+        toggleModalOrtognatica(modalTratamentos);
+    });
   });
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const btnEspecialidades = document.getElementById("btn-especialidades");
-  const modalTratamento = document.getElementById("modalTratamentos");
-  const caretIcon = document.getElementById("caret-icon");
-  const spanTratamento = document.getElementsByClassName("close-tratamento")[0];
+  fade.addEventListener("click", () => {
+    if (!modalOrtognatica.classList.contains("hide"))
+      toggleModalImplante(modalOrtognatica);
+    if (!modalTratamentos.classList.contains("hide"))
+      toggleModalImplante(modalTratamentos);
+  });
 
-  btnEspecialidades.onclick = function () {
-    modalTratamento.classList.toggle("show");
-    caretIcon.classList.toggle("fa-caret-down");
-    caretIcon.classList.toggle("fa-caret-up");
-  };
-
-  spanTratamento.onclick = function () {
-    modalTratamento.classList.remove("show");
-    caretIcon.classList.toggle("fa-caret-down");
-    caretIcon.classList.toggle("fa-caret-up");
-  };
-
-  window.onclick = function (event) {
-    if (event.target == modalTratamento) {
-      modalTratamento.classList.remove("show");
-      caretIcon.classList.toggle("fa-caret-down");
-      caretIcon.classList.toggle("fa-caret-up");
-    }
-  };
-});
-
-// expand botao
-
-document.addEventListener("DOMContentLoaded", function () {
-  var modal = document.getElementById("genericModal");
-  var span = document.getElementsByClassName("close")[0];
-  var tratamentoModal = document.getElementById("modalTratamentos");
-  var tratamentoSpan = document.getElementsByClassName("close-tratamento")[0];
-
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
-
-  tratamentoSpan.onclick = function () {
-    tratamentoModal.style.display = "none";
-  };
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-    if (event.target == tratamentoModal) {
-      tratamentoModal.style.display = "none";
-    }
-  };
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
 });

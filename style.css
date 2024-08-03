@@ -16,20 +16,16 @@
 html,
 body {
   margin: 0;
-  padding: 0;
+  padding: 0rem;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Estilos gerais */
-body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #f8f9fa;
   color: #343a40;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Cabeçalho e ícones */
@@ -64,6 +60,87 @@ header {
 .header-icons a:hover i {
   animation: translateYIcon 0.6s infinite alternate;
   color: #fff;
+}
+
+/*Modal dinamica*/
+#fade-ortognatica,
+#modal-ortognatica-content {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #888;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 1rem;
+  transition: 0.4s;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+#open-modal-ortognatica,
+#open-modal-implante {
+  background-color: "";
+}
+
+#fade-ortognatica {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+#modal-ortognatica-content {
+  position: fixed;
+  left: 50%;
+  top: 0%;
+  z-index: 10;
+  background-color: #ffff;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 80%;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.modal-body p {
+  margin-bottom: 1rem;
+}
+
+#modal-ortognatica-content.hide,
+#fade-ortognatica.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-ortognatica-content {
+  transform: translate(-50%, 50%);
+}
+
+#modal-ortognatica-content.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 100%);
 }
 
 @keyframes translateYIcon {
@@ -277,7 +354,6 @@ p {
   background: linear-gradient(to bottom, rgba(6, 10, 10, 0.3), #0f1e2e);
   overflow: hidden;
   padding: 15px 0;
-  position: relative;
 }
 
 .scroll:before,
@@ -300,15 +376,6 @@ p {
   background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
 }
 
-.scroll:hover .scroll_container {
-  animation-play-state: paused;
-}
-
-.scroll_container {
-  display: flex;
-  white-space: nowrap; 
-}
-
 /* Estilo para o clone */
 .clone {
   display: flex;
@@ -322,46 +389,6 @@ p {
 
 .expandable-content.expanded {
   max-height: 200px; /* Ajuste conforme necessário */
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.collapsed {
-  display: none;
 }
 
 .container {
@@ -385,13 +412,14 @@ p {
 }
 
 .hero {
+  margin-top: -100px;
   color: #ffffff;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 0px;
 }
 .hero h1 {
   text-align: center;
@@ -432,22 +460,6 @@ p {
   margin: 3px 0;
 }
 
-.image-home::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.2), #0f1e2e),
-    url("../assets/OtavioEmCirurgia.png");
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 180%;
-  z-index: -1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.7;
-}
 .button-contact {
   padding: 14px 28px;
   color: #ffffff;
@@ -456,19 +468,6 @@ p {
   font-size: 18px;
   font-weight: 600;
   margin: 14px 0;
-}
-
-.button-contact:hover {
-  animation: scaleButton 0.8s alternate infinite;
-}
-
-@keyframes scaleButton {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -707,17 +706,16 @@ p {
   bottom: 15px;
 }
 
-.haircut-info button {
-  color: #fff;
-  background-color: #d94140;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-}
-
 .saibaMaisBtn {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 17px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .close {
@@ -1050,24 +1048,6 @@ body,
   transition: transform 1000s ease;
 }
 
-/* Animação da imagem */
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.about-me {
-  color: #ffffff;
-  padding: 0px 0;
-  text-align: center;
-}
-
 .logo-cliente {
   margin-bottom: -50px;
   display: flex;
@@ -1194,93 +1174,8 @@ button .fa-caret-down,
   padding: 20px;
 }
 
-.modal-2 {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content-2 {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 15%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
-}
-
-.modal-tratamento {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-tratamento-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.saibaMaisBtn:hover + .expandable-content {
-  display: block;
-}
-
-.expandable-content {
-  display: none;
-  transition: display 0.5s ease-in-out;
-}
-
-.btn-especialidades:hover + .modal-tratamento {
-  display: block;
-}
-
-.close,
-.close-tratamento {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus,
-.close-tratamento:hover,
-.close-tratamento:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.close-tratamento {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close-tratamento:hover,
-.close-tratamento:focus {
-  color: black;
-  text-decoration: none;
-}
-
 /* --------------------->> dispositivos Desktop <<------------------------ */
-@media screen and (min-width: 1300px) {
+@media (min-width: 1000px) {
   .container {
     max-width: 1900px;
     margin: auto 30px;
@@ -1296,7 +1191,7 @@ button .fa-caret-down,
 }
 
 .scroll_container {
-  max-width: 1350px;
+  max-width: 100vw;
   gap: 10px;
   display: flex;
   flex-direction: row;
@@ -1305,20 +1200,18 @@ button .fa-caret-down,
 }
 
 .scroll-container-img {
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
   position: relative;
   text-align: center;
 }
 
 .scroll_container img {
   height: 18rem;
-  margin: 0 5px;
-  padding: 0px 10px 50px;
+  margin: 0;
+  padding: 0;
 }
 
 /* --------------------->> dispositivos Tablet <<------------------------ */
-@media screen and (min-width: 769px) {
+@media (min-width: 769px) {
   .container {
     max-width: 1900px;
     margin: auto 30px;
@@ -1334,7 +1227,7 @@ button .fa-caret-down,
 }
 
 .scroll_container {
-  max-width: 1350px;
+  max-width: 100vw;
   gap: 10px;
   display: flex;
   flex-direction: row;
@@ -1343,16 +1236,8 @@ button .fa-caret-down,
 }
 
 .scroll-container-img {
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
   position: relative;
   text-align: center;
-}
-
-.scroll_container img {
-  height: 9rem;
-  margin: 0 5px;
-  padding: 0px 10px 50px;
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -1379,30 +1264,17 @@ button .fa-caret-down,
 
   .scroll_container img {
     height: 20rem;
-    margin: 0 5px;
-    padding: 0px 10px 31px;
+    margin: 0;
+    padding: 0;
   }
 
   .scroll-container-img {
-    background-color: #fff;
-    box-shadow: 0 17px 33px rgba(0, 0, 0, 0.9);
     position: relative;
     text-align: center;
   }
 
   .scroll-container-img img {
     width: 13rem;
-    height: auto;
-  }
-
-  .haircut-info button {
-    color: #fff;
-    background-color: #d94140;
-    border-radius: 4px;
-    border: 0;
-    cursor: pointer;
-    width: 100%;
-    font-size: 11px;
     height: auto;
   }
 
@@ -1429,6 +1301,35 @@ button .fa-caret-down,
     justify-content: center;
     outline: none;
     white-space: normal;
+  }
+
+  /*modal dinamica*/
+  #modal-ortognatica-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    background-color: #ffff;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 70%;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+  }
+
+  .close-modal-ortgnatica {
+    border-radius: 50% 50%;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.6rem;
+    height: auto;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: -50px;
+    margin-right: -5%;
   }
 
   .direitos-reservados {
@@ -1695,13 +1596,6 @@ button .fa-caret-down,
     position: relative;
     background-color: #06121e;
   }
-
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
   svg {
     width: 100%;
   }
