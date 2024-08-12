@@ -514,7 +514,7 @@ p {
 }
 
 .services {
-  margin-top: -35px;
+  margin-top: auto;
   background-color: #fff;
   color: #232224;
   display: flex;
@@ -1205,7 +1205,7 @@ button .fa-caret-down,
 }
 
 .scroll_container img {
-  height: 18rem;
+  height: 13rem;
   margin: 0;
   padding: 0;
 }
@@ -1238,6 +1238,19 @@ button .fa-caret-down,
 .scroll-container-img {
   position: relative;
   text-align: center;
+}
+
+.images-odonto {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.images-odonto-text {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -1690,5 +1703,18 @@ button .fa-caret-down,
 
   .footer-column {
     margin-bottom: 20px;
+  }
+
+  .images-odonto {
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .images-odonto-text {
+    font-size: 10px;
+    color: #fff;
+    font-weight: 700;
   }
 }
