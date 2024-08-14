@@ -1226,20 +1226,6 @@ button .fa-caret-down,
   font-size: 20px;
 }
 
-.scroll_container {
-  max-width: 100vw;
-  gap: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll-container-img {
-  position: relative;
-  text-align: center;
-}
-
 .images-odonto {
   max-width: 100%;
   display: flex;
