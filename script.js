@@ -30,4 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  imgContainer.addEventListener("click", function () {
+    const img = this.querySelector("img");
+    const overlay = document.createElement("div");
+    overlay.classList.add("dark-overlay");
+
+    const enlargedImg = document.createElement("img");
+    enlargedImg.src = img.src;
+    enlargedImg.classList.add("responsive-img");
+    enlargedImg.style.maxWidth = "90%";
+    enlargedImg.style.maxHeight = "90%";
+    enlargedImg.style.position = "fixed";
+    enlargedImg.style.top = "50%";
+    enlargedImg.style.left = "50%";
+    enlargedImg.style.transform = "translate(-50%, -50%)";
+    enlargedImg.style.zIndex = "1001";
+    enlargedImg.style.borderRadius = "8px";
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(enlargedImg);
+
+    overlay.addEventListener("click", function () {
+      document.body.removeChild(overlay);
+      document.body.removeChild(enlargedImg);
+    });
+  });
 });

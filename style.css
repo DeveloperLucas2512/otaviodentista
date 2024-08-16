@@ -1,6 +1,6 @@
 @charset "UTF-8";
 * {
-  margin: 0;
+  margin: 2px 2px;
   padding: 0;
   box-sizing: 0;
   outline: 0;
@@ -127,6 +127,10 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+.hide {
+  display: none;
+}
+
 #modal-ortognatica-content.hide,
 #fade-ortognatica.hide {
   opacity: 0;
@@ -135,6 +139,17 @@ button:hover {
 
 #modal-ortognatica-content {
   transform: translate(-50%, 50%);
+}
+
+/* Dark overlay */
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
 #modal-ortognatica-content.hide {
@@ -354,6 +369,9 @@ p {
   background: linear-gradient(to bottom, rgba(6, 10, 10, 0.3), #0f1e2e);
   overflow: hidden;
   padding: 15px 0;
+  position: relative;
+  padding: 20px;
+  text-align: center;
 }
 
 .scroll:before,
@@ -707,15 +725,13 @@ p {
 }
 
 .saibaMaisBtn {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  margin-top: 0;
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
   color: #fff;
-  font-weight: 500;
-  font-size: 17px;
+  border-radius: 5px;
   cursor: pointer;
-  white-space: nowrap;
 }
 
 .close {
@@ -1201,13 +1217,22 @@ button .fa-caret-down,
 
 .scroll-container-img {
   position: relative;
-  text-align: center;
+  flex: 1 1 45%;
+  max-width: 45%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .scroll_container img {
   height: 13rem;
   margin: 0;
   padding: 0;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* --------------------->> dispositivos Tablet <<------------------------ */
@@ -1270,6 +1295,8 @@ button .fa-caret-down,
   .scroll-container-img {
     position: relative;
     text-align: center;
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 
   .scroll-container-img img {
@@ -1284,6 +1311,10 @@ button .fa-caret-down,
   .btn-especialidades-mobile {
     margin-top: -20px;
     margin-bottom: -40px;
+  }
+
+  .saibaMaisBtn {
+    margin-top: 15px;
   }
 
   .btn-especialidades-mobile button {
