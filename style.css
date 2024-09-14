@@ -121,6 +121,7 @@ button:hover {
   border-bottom: 1px solid #ccc;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  white-space: nowrap;
 }
 
 .modal-body p {
@@ -242,6 +243,29 @@ p {
   max-height: 50%;
 }
 
+.btn-otavio {
+  background-color: #007bff; /* Azul */
+  color: #fff; /* Texto branco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Fundo escurecido quando a modal é aberta */
+#open-modal-ortognatica[open]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
 @keyframes translateY {
   from {
     transform: translateY(0) scale(1);
@@ -354,8 +378,6 @@ p {
   padding: 15px 0px;
 }
 
-/*Teste  carrousel*/
-
 @keyframes slide {
   from {
     transform: translateX(0);
@@ -372,6 +394,17 @@ p {
   position: relative;
   padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.scroll_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .scroll:before,
@@ -394,19 +427,11 @@ p {
   background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
 }
 
-/* Estilo para o clone */
-.clone {
-  display: flex;
-}
-
-.expandable-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.expandable-content.expanded {
-  max-height: 200px; /* Ajuste conforme necessário */
+.images-odonto-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .container {
@@ -488,6 +513,49 @@ p {
   margin: 14px 0;
 }
 
+/* Estilo básico para o details e summary */
+details {
+  position: relative;
+  margin: 10px;
+  padding: 0;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.modal-content {
+  display: none; /* Oculta o conteúdo inicialmente */
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+details[open] .modal-content {
+  display: block; /* Exibe o conteúdo quando details está aberto */
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.close-modal-ortognatica {
+  background: none;
+  border: none;
+  font-size: 18px; /* Ajuste o tamanho do ícone de fechar */
+  cursor: pointer;
+}
+
+/* Imagem responsiva */
+.scroll-container-img img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     min-height: 48vh;
@@ -500,10 +568,44 @@ p {
   .hero p {
     font-size: 14px;
   }
+
+  .scroll-container-img {
+    margin: 5px;
+    padding: 5px; /* Ajuste o padding conforme necessário */
+  }
+
+  .modal-content {
+    padding: 10px; /* Ajusta o padding para telas menores */
+  }
+
+  .modal-header h2 {
+    font-size: 16px; /* Ajusta o tamanho da fonte do título */
+  }
+
+  .close-modal-ortognatica {
+    font-size: 16px; /* Ajusta o tamanho do ícone de fechar */
+  }
 }
+
 @media screen and (max-width: 480px) {
   .hero h1 {
     font-size: 24px;
+  }
+
+  .scroll-container-img {
+    margin: 3px;
+  }
+
+  .modal-content {
+    padding: 8px; /* Ajusta o padding para telas muito pequenas */
+  }
+
+  .modal-header h2 {
+    font-size: 14px; /* Ajusta o tamanho da fonte do título */
+  }
+
+  .close-modal-ortognatica {
+    font-size: 14px; /* Ajusta o tamanho do ícone de fechar */
   }
 }
 
@@ -727,7 +829,7 @@ p {
 .saibaMaisBtn {
   margin-top: 20px;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 3px 9px;
   background-color: #007bff;
   color: #fff;
   border-radius: 5px;
@@ -1216,17 +1318,14 @@ button .fa-caret-down,
 }
 
 .scroll-container-img {
-  position: relative;
-  flex: 1 1 45%;
-  max-width: 45%;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
 
-.scroll_container img {
-  height: 13rem;
-  margin: 0;
-  padding: 0;
+.scroll-container-img img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .responsive-img {
@@ -1345,6 +1444,16 @@ button .fa-caret-down,
     max-width: 70%;
     padding: 1.2rem;
     border-radius: 0.5rem;
+  }
+
+  .modal-details {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .btn-otavio {
+    width: 100%;
+    font-size: 14px;
   }
 
   .close-modal-ortgnatica {
@@ -1594,6 +1703,16 @@ button .fa-caret-down,
     bottom: 10px;
   }
 
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    white-space: normal;
+  }
+
   .map {
     max-width: 100%;
   }
@@ -1730,8 +1849,9 @@ button .fa-caret-down,
     flex-direction: row;
   }
   .images-odonto-text {
-    font-size: 10px;
+    font-size: 15px;
     color: #fff;
     font-weight: 700;
+    margin-bottom: -20px;
   }
 }
