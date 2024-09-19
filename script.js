@@ -56,4 +56,93 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.removeChild(enlargedImg);
     });
   });
+
+  document.querySelectorAll('.scroll-container-img img').forEach((img) => {
+    img.addEventListener('click', function () {
+      const modal = document.createElement('div');
+      modal.classList.add('modal-img');
+      modal.innerHTML = `<img src="${this.src}" alt="${this.alt}">`;
+      document.body.appendChild(modal);
+      
+      // Exibir o modal
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 10);
+  
+      // Fechar o modal ao clicar nele
+      modal.addEventListener('click', function () {
+        modal.classList.remove('active');
+        setTimeout(() => {
+          document.body.removeChild(modal);
+        }, 300);
+      });
+    });
+  });
+
+  // Seleciona todos os elementos <details>
+const detailsElements = document.querySelectorAll('details');
+
+// Função para fechar todos os modais <details>
+function closeAllDetails() {
+  detailsElements.forEach((detail) => {
+    if (detail.open) {
+      detail.open = false;
+    }
+  });
+}
+
+// Adiciona um event listener a todos os elementos <details>
+detailsElements.forEach((detail) => {
+  const summary = detail.querySelector('summary');
+
+  // Fecha todos os <details> quando um novo <details> é clicado
+  summary.addEventListener('click', function (event) {
+    // Impede a propagação para evitar fechamento imediato ao clicar
+    event.stopPropagation();
+
+    // Fecha todos os outros <details>
+    closeAllDetails();
+
+    // Abre o detalhe clicado (se ainda não estiver aberto)
+    detail.open = true;
+  });
+});
+
+  // Fecha os <details> quando o usuário clica fora
+  document.addEventListener('click', function (event) {
+    // Verifica se o clique foi fora de qualquer <details> aberto
+    const isClickInside = [...detailsElements].some((detail) =>
+      detail.contains(event.target)
+    );
+
+    if (!isClickInside) {
+      closeAllDetails();
+    }
+  });
+
+
+
+$(document).ready(function(){
+  $('.scroll_container').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  });
+});
 });

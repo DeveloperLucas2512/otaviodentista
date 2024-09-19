@@ -1288,6 +1288,22 @@ button .fa-caret-down,
   padding: 20px;
 }
 
+.button-contact, .saibaMaisBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1e90ff;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button-contact:hover, .saibaMaisBtn:hover {
+  background-color: #1c86ee;
+}
+
+
 /* --------------------->> dispositivos Desktop <<------------------------ */
 @media (min-width: 1000px) {
   .container {
@@ -1320,8 +1336,12 @@ button .fa-caret-down,
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 18%;
+  max-width: fit-content;
   text-align: center;
+}
+
+.scroll-container-img img {
+  max-width: 12rem;
 }
 
 .responsive-img {
@@ -1374,34 +1394,35 @@ button .fa-caret-down,
     position: relative;
   }
 
-  .scroll_container {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .scroll_container img {
-    height: 20rem;
-    margin: 0;
-    padding: 0;
-  }
-
   .scroll-container-img {
-    display: flex;
-    flex-wrap: wrap;
-  flex-direction: column;
+    flex: 1 1 45%; /* Para exibir 2 imagens por linha */
+    margin-bottom: 10px;
+  }
+
+
+/* Aumentar a imagem ao clicar (modal) */
+.modal-img {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
-  text-align: center;
-  }
+}
 
-  .scroll-container-img img {
-    width: 17rem;
-    height: auto;
-  }
+.modal-img img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid white;
+}
+
+.modal-img.active {
+  display: flex; /* Exibe a imagem em tela cheia */
+}
 
   .btn-especialidades-desktop button {
     display: none;
