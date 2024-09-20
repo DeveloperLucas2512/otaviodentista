@@ -2,7 +2,8 @@
 * {
   margin: 2px 2px;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
   outline: 0;
 }
 
@@ -11,6 +12,12 @@
   --secondary-color: #ffffff;
   --background-color: rgba(0, 0, 0, 0.5);
   --text-shadow: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
 html,
@@ -527,21 +534,78 @@ summary {
 }
 
 .modal-content {
-  display: none; /* Oculta o conteúdo inicialmente */
-  padding: 15px;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-top: 5px;
+  display: none; /* Escondido inicialmente */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Largura responsiva */
+  max-width: 600px; /* Largura máxima */
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  border-radius: 8px;
 }
 
-details[open] .modal-content {
-  display: block; /* Exibe o conteúdo quando details está aberto */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .modal-header h2 {
+  font-size: 24px;
   margin: 0;
-  font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.modal-body {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Botão de fechar o modal */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+details[open] > .modal-content {
+  display: block; /* Mostra o modal quando o <details> está aberto */
+}
+
+details summary {
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: underline;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+details[open] > summary {
+  display: none; /* Esconde o botão summary quando o modal está aberto */
+}
+
+details[open] ~ .modal-backdrop {
+  display: block; /* Exibe o fundo escuro quando o modal está aberto */
+}
+
+/* Estilo para escurecer o fundo quando o modal está aberto */
+.modal-backdrop {
+  display: none; /* Escondido inicialmente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .close-modal-ortognatica {
@@ -565,16 +629,21 @@ details[open] .modal-content {
   }
 
   .modal-content {
-    padding: 10px; /* Ajusta o padding para telas menores */
+    width: 90%;
+    max-width: 400px;
   }
 
   .modal-header h2 {
-    font-size: 16px; /* Ajusta o tamanho da fonte do título */
+    font-size: 20px;
   }
 
-  .close-modal-ortognatica {
-    font-size: 16px; /* Ajusta o tamanho do ícone de fechar */
+  .modal-body {
+    font-size: 14px;
   }
+}
+
+.close-modal-ortognatica {
+  font-size: 16px; /* Ajusta o tamanho do ícone de fechar */
 }
 
 @media screen and (max-width: 480px) {
@@ -583,15 +652,12 @@ details[open] .modal-content {
   }
 
   .scroll-container-img {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 18%;
-    text-align: center;
+    grid-gap: 5px;
   }
 
+  .scroll-container-img img {
+    max-height: 150px;
+  }
   .modal-content {
     padding: 8px; /* Ajusta o padding para telas muito pequenas */
   }
@@ -1288,7 +1354,8 @@ button .fa-caret-down,
   padding: 20px;
 }
 
-.button-contact, .saibaMaisBtn {
+.button-contact,
+.saibaMaisBtn {
   display: inline-block;
   padding: 10px 20px;
   background-color: #1e90ff;
@@ -1299,18 +1366,17 @@ button .fa-caret-down,
   font-weight: bold;
 }
 
-.button-contact:hover, .saibaMaisBtn:hover {
+.button-contact:hover,
+.saibaMaisBtn:hover {
   background-color: #1c86ee;
 }
 
-
 /* --------------------->> dispositivos Desktop <<------------------------ */
-@media (min-width: 1000px) {
-  .container {
-    max-width: 1900px;
-    margin: auto 30px;
-    padding-top: 40px;
-  }
+
+.container {
+  max-width: 1900px;
+  margin: auto 30px;
+  padding-top: 40px;
 }
 
 .direitos-reservados {
@@ -1330,24 +1396,69 @@ button .fa-caret-down,
   align-items: center;
 }
 
-.scroll-container-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.scroll-container-img img {
   width: 100%;
-  max-width: fit-content;
-  text-align: center;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-.scroll-container-img img {
-  max-width: 12rem;
+.scroll-container-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-container-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .responsive-img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+@media (min-width: 1025px) {
+  .scroll-container-img {
+    display: flex;
+    justify-content: flex-start; /* Alinha as imagens à esquerda */
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    overflow: hidden; /* Remove qualquer rolagem */
+    gap: 15px; /* Espaço entre as imagens */
+  }
+
+  .scroll-container-img img {
+    width: 300px; /* Define uma largura fixa */
+    height: 300px; /* Define uma altura fixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease; /* Transição suave para sombra */
+    object-fit: cover; /* Cobre o espaço do container */
+    cursor: pointer; /* Cursor de ponteiro */
+  }
+
+  .scroll-container-img img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+  }
+
+  #ortognatica-img {
+    width: 100%; /* 100% da largura do seu container */
+    max-width: 600px; /* Limita a largura máxima para manter a proporção */
+    height: auto; /* Mantém a altura proporcional */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para hover */
+    cursor: pointer; /* Cursor de ponteiro */
+  }
+
+  #ortognatica-img:hover {
+    transform: scale(1.05); /* Efeito de escala suave ao passar o mouse */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Sombra mais intensa no hover */
+  }
 }
 
 /* --------------------->> dispositivos Tablet <<------------------------ */
@@ -1395,34 +1506,39 @@ button .fa-caret-down,
   }
 
   .scroll-container-img {
-    flex: 1 1 45%; /* Para exibir 2 imagens por linha */
-    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    grid-gap: 8px;
+    padding: 10px;
   }
 
+  .scroll-container-img img {
+    max-height: 200px;
+  }
 
-/* Aumentar a imagem ao clicar (modal) */
-.modal-img {
-  display: none; /* Inicialmente oculto */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-}
+  /* Aumentar a imagem ao clicar (modal) */
+  .modal-img {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+  }
 
-.modal-img img {
-  max-width: 90%;
-  max-height: 90%;
-  border: 2px solid white;
-}
+  .modal-img img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid white;
+  }
 
-.modal-img.active {
-  display: flex; /* Exibe a imagem em tela cheia */
-}
+  .modal-img.active {
+    display: flex; /* Exibe a imagem em tela cheia */
+  }
 
   .btn-especialidades-desktop button {
     display: none;

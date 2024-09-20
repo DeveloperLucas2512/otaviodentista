@@ -91,13 +91,12 @@
           <p>Transformando Sorrisos, Mudando Vidas e Realizando Sonhos</p>
         </div>
         <a
-        href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Ot%C3%A1vio!"
-        target="_blank"
-        class="button-contact"
-      >
-        AGENDE UMA CONSULTA
-      </a>
-      
+          href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Ot%C3%A1vio!"
+          target="_blank"
+          class="button-contact"
+        >
+          AGENDE UMA CONSULTA
+        </a>
       </div>
     </header>
 
@@ -236,10 +235,17 @@
             <details>
               <summary class="saibaMaisBtn">Dr. Otávio</summary>
               <div class="modal-content">
-                <div class="modal-header">
-                  <h2>HISTÓRIA | FORMAÇÃO</h2>
+                <div id="quemSou" class="modal-header">
+                  <h2>DR. OTÁVIO</h2>
+                  <button
+                    class="close-btn"
+                    onclick="this.closest('details').removeAttribute('open')"
+                  >
+                    &times;
+                  </button>
                 </div>
                 <div class="modal-body">
+                  <h4>HISTÓRIA | FORMAÇÃO</h4>
                   <p>
                     Natural de São Sebastião do Paraíso e com 7 anos de atuação
                     em Ribeirão Preto, cidade que me acolheu e à qual sou
@@ -260,6 +266,8 @@
                 </div>
               </div>
             </details>
+
+            <div class="modal-backdrop"></div>
           </div>
 
           <!-- Profissional 2 -->
@@ -273,9 +281,16 @@
               <summary class="saibaMaisBtn">Dr. André Sampaio</summary>
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2>HISTÓRIA | FORMAÇÃO</h2>
+                  <h2>DR. ANDRÉ SAMPAIO</h2>
+                  <button
+                    class="close-btn"
+                    onclick="this.closest('details').removeAttribute('open')"
+                  >
+                    &times;
+                  </button>
                 </div>
                 <div class="modal-body">
+                  <h4>HISTÓRIA | FORMAÇÃO</h4>
                   <p>
                     Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.
                     Cirurgião com extensa formação em cirurgias faciais, formado
@@ -287,6 +302,7 @@
                 </div>
               </div>
             </details>
+            <div class="modal-backdrop"></div>
           </div>
 
           <!-- Profissional 3 -->
@@ -300,9 +316,16 @@
               <summary class="saibaMaisBtn">Dra. Kelly</summary>
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2>HISTÓRIA | FORMAÇÃO</h2>
+                  <h2>DRA. KELLY</h2>
+                  <button
+                    class="close-btn"
+                    onclick="this.closest('details').removeAttribute('open')"
+                  >
+                    &times;
+                  </button>
                 </div>
                 <div class="modal-body">
+                  <h4>HISTÓRIA | FORMAÇÃO</h4>
                   <p>
                     Mestre e especialista em CTBMF. Fellow em Cirurgia
                     Ortognática. Professora de Pós-Graduação em Cirurgia Buco
@@ -312,6 +335,7 @@
                 </div>
               </div>
             </details>
+            <div class="modal-backdrop"></div>
           </div>
         </div>
       </div>
@@ -451,18 +475,23 @@
             alt="Logo footer"
           />
           <div class="footer-icons">
-            <a href="https://www.instagram.com/dr.otaviopelucio/" target="_blank">
+            <a
+              href="https://www.instagram.com/dr.otaviopelucio/"
+              target="_blank"
+            >
               <i class="fab fa-instagram fa-2x"></i>
             </a>
-            
-            <a href="https://api.whatsapp.com/send?phone=5516982024249" target="_blank">
+
+            <a
+              href="https://api.whatsapp.com/send?phone=5516982024249"
+              target="_blank"
+            >
               <i class="fab fa-whatsapp fa-2x"></i>
             </a>
-            
+
             <a href="tel:+5516982024249">
               <i class="fas fa-phone fa-2x"></i>
             </a>
-            
           </div>
         </div>
       </div>
