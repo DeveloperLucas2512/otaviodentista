@@ -4,12 +4,46 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
-
+  const images = document.querySelectorAll(".scroll-container-img");
+  const overlay = document.getElementById("overlay");
   const openModalOrtognaticaButton = document.querySelector(
     "#open-modal-ortognatica"
   );
+  const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(
     ".close-modal-ortognatica"
+  );
+  const fade = document.querySelector("#fade-ortognatica");
+
+  const toggleModalOrtognatica = (modal) => {
+    if (modal) {
+      modal.classList.toggle("hide");
+      fade.classList.toggle("hide");
+      modal.style.opacity = modal.classList.contains("hide") ? "0" : "1";
+      fade.style.opacity = fade.classList.contains("hide") ? "0" : "1";
+    }
+  };
+
+  if (openModalOrtognaticaButton) {
+    openModalOrtognaticaButton.addEventListener("click", () =>
+      toggleModalOrtognatica(modalOrtognatica)
+    );
+
+    closeModalButtons.forEach((button) => {
+      button.addEventListener("click", () =>
+        toggleModalOrtognatica(modalOrtognatica)
+      );
+    });
+
+    // Fecha o modal ao clicar no fundo escuro (fade)
+    fade.addEventListener("click", () =>
+      toggleModalOrtognatica(modalOrtognatica)
+    );
+  }
+
+  // Evento de clique para fechar o modal ao clicar no fundo escuro (fade)
+  fade.addEventListener("click", () =>
+    toggleModalOrtognatica(modalOrtognatica)
   );
 
   //menu cabeçalho exibir e fechar em modo mobile
@@ -23,23 +57,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
-  const fade = document.querySelector(".fade");
-  const imgContainers = document.querySelectorAll(".img-container");
+  images.forEach(function (image) {
+    image.addEventListener("click", function () {
+      // Remove expand de todas as imagens
+      images.forEach((img) => img.classList.remove("expand"));
 
-  const toggleModalOrtognatica = (modal) => {
-    if (modal) {
-      modal.classList.toggle("hide");
-      fade.classList.toggle("hide");
-    }
-  };
+      // Adiciona classe expand à imagem clicada
+      image.classList.add("expand");
 
-  // Evento de clique para abrir o modal de Ortognática
-  if (openModalOrtognaticaButton) {
-    openModalOrtognaticaButton.addEventListener("click", () =>
-      toggleModalOrtognatica(modalOrtognatica)
-    );
-  }
+      // Ativa o overlay para escurecer o fundo
+      overlay.classList.add("active");
+    });
+  });
+
+  // Fecha a imagem expandida ao clicar no overlay
+  overlay.addEventListener("click", function () {
+    images.forEach((img) => img.classList.remove("expand"));
+    overlay.classList.remove("active");
+  });
 
   // Evento para o botão "Sobre"
   if (sobreLink && detailsOtavio) {
@@ -57,60 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
-  // Evento para ampliar a imagem ao clicar
-  imgContainers.forEach((imgContainer) => {
-    imgContainer.addEventListener("click", function () {
-      const img = this.querySelector("img");
-      if (img) {
-        const overlay = document.createElement("div");
-        overlay.classList.add("dark-overlay");
-
-        const enlargedImg = document.createElement("img");
-        enlargedImg.src = img.src;
-        enlargedImg.classList.add("responsive-img");
-        enlargedImg.style.maxWidth = "90%";
-        enlargedImg.style.maxHeight = "90%";
-        enlargedImg.style.position = "fixed";
-        enlargedImg.style.top = "50%";
-        enlargedImg.style.left = "50%";
-        enlargedImg.style.transform = "translate(-50%, -50%)";
-        enlargedImg.style.zIndex = "1001";
-        enlargedImg.style.borderRadius = "8px";
-
-        document.body.appendChild(overlay);
-        document.body.appendChild(enlargedImg);
-
-        overlay.addEventListener("click", function () {
-          document.body.removeChild(overlay);
-          document.body.removeChild(enlargedImg);
-        });
-      }
-    });
-  });
-
-  // Evento para imagens dentro de um container de rolagem
-  document.querySelectorAll(".scroll-container-img img").forEach((img) => {
-    img.addEventListener("click", function () {
-      const modal = document.createElement("div");
-      modal.classList.add("modal-img");
-      modal.innerHTML = `<img src="${this.src}" alt="${this.alt}">`;
-      document.body.appendChild(modal);
-
-      // Exibir o modal
-      setTimeout(() => {
-        modal.classList.add("active");
-      }, 10);
-
-      // Fechar o modal ao clicar nele
-      modal.addEventListener("click", function () {
-        modal.classList.remove("active");
-        setTimeout(() => {
-          document.body.removeChild(modal);
-        }, 300);
-      });
-    });
-  });
 
   // Função para fechar todos os <details>
   function closeAllDetails() {
@@ -148,8 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
-  //////////////////////////////////////////////////////////////////////////// correção js
 
   document.querySelectorAll(".menu-link").forEach((link) => {
     link.addEventListener("click", function (event) {
