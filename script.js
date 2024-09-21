@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".close-modal-ortognatica"
   );
 
+  //menu cabeçalho exibir e fechar em modo mobile
   menuIcon.addEventListener("click", function () {
     menu.classList.toggle("active");
   });
@@ -26,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const fade = document.querySelector(".fade");
   const imgContainers = document.querySelectorAll(".img-container");
 
-  // Função para alternar a visibilidade do modal e do fade
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
       modal.classList.toggle("hide");
