@@ -2,12 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsElements = document.querySelectorAll("details");
   const sobreLink = document.querySelector('a[href="#quemSou"]');
   const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
+  const menuIcon = document.querySelector(".menu-icon");
+  const menu = document.querySelector(".menu");
+
   const openModalOrtognaticaButton = document.querySelector(
     "#open-modal-ortognatica"
   );
   const closeModalButtons = document.querySelectorAll(
     ".close-modal-ortognatica"
   );
+
+  menuIcon.addEventListener("click", function () {
+    menu.classList.toggle("active");
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+      menu.classList.remove("active");
+    }
+  });
+
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const fade = document.querySelector(".fade");
   const imgContainers = document.querySelectorAll(".img-container");
@@ -26,15 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleModalOrtognatica(modalOrtognatica)
     );
   }
-
-  // Eventos de clique para fechar o modal de Ortognática
-  closeModalButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      if (modalOrtognatica && !modalOrtognatica.classList.contains("hide")) {
-        toggleModalOrtognatica(modalOrtognatica);
-      }
-    });
-  });
 
   // Evento para o botão "Sobre"
   if (sobreLink && detailsOtavio) {
@@ -142,5 +147,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
+  });
+
+  //////////////////////////////////////////////////////////////////////////// correção js
+
+  document.querySelectorAll(".menu-link").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+    });
   });
 });
