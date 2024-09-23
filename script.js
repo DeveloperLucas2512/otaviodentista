@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
-  const images = document.querySelectorAll(".scroll-container-img");
-  const overlay = document.getElementById("overlay");
+  const images = document.querySelectorAll('.scroll-container-img img');
+  const overlay = document.getElementById('overlay');
+  let expandedImage = null;
   const openModalOrtognaticaButton = document.querySelector(
     "#open-modal-ortognatica"
   );
@@ -55,26 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
       menu.classList.remove("active");
     }
-  });
-
-  images.forEach(function (image) {
-    image.addEventListener("click", function () {
-      // Remove expand de todas as imagens
-      images.forEach((img) => img.classList.remove("expand"));
-
-      // Adiciona classe expand à imagem clicada
-      image.classList.add("expand");
-
-      // Ativa o overlay para escurecer o fundo
-      overlay.classList.add("active");
-    });
-  });
-
-  // Fecha a imagem expandida ao clicar no overlay
-  overlay.addEventListener("click", function () {
-    images.forEach((img) => img.classList.remove("expand"));
-    overlay.classList.remove("active");
-  });
+  });  
 
   // Evento para o botão "Sobre"
   if (sobreLink && detailsOtavio) {
@@ -137,4 +119,31 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
   });
+  
+  // Função para expandir a imagem e escurecer o fundo
+images.forEach(function (img) {
+  img.addEventListener('click', function () {
+    // Verifica se há uma imagem já expandida, e se sim, a minimiza
+    if (expandedImage && expandedImage !== img) {
+      expandedImage.parentElement.classList.remove('active');
+    }
+
+    // Expande a imagem clicada
+    img.parentElement.classList.add('active');
+    overlay.style.display = 'block';
+    document.body.classList.add('no-scroll');
+    expandedImage = img;
+  });
+});
+
+// Função para voltar ao estado normal ao clicar no overlay
+overlay.addEventListener('click', function () {
+  if (expandedImage) {
+    expandedImage.parentElement.classList.remove('active');
+    overlay.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+    expandedImage = null;
+  }
+});
+
 });
