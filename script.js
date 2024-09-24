@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
-  const images = document.querySelectorAll('.scroll-container-img img');
-  const overlay = document.getElementById('overlay');
-  let expandedImage = null;
-  const openModalOrtognaticaButton = document.querySelector("#open-modal-ortognatica");
+  const images = document.querySelectorAll(".scroll-container-img");
+  const overlay = document.getElementById("overlay");
+  const openModalOrtognaticaButton = document.querySelector(
+    "#open-modal-ortognatica"
+  );
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(
     ".close-modal-ortognatica"
@@ -45,23 +46,34 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleModalOrtognatica(modalOrtognatica)
   );
 
-  // Função para abrir e fechar o menu ao clicar no ícone
-  menuIcon.addEventListener("click", function (event) {
-    event.stopPropagation(); // Evita que o clique se propague e feche o menu
+  //menu cabeçalho exibir e fechar em modo mobile
+  menuIcon.addEventListener("click", function () {
     menu.classList.toggle("active");
   });
 
-  // Fechar o menu quando clicar fora dele
   document.addEventListener("click", function (event) {
-    // Se o clique não foi no menu ou no ícone do menu, fecha o menu
     if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
       menu.classList.remove("active");
     }
   });
 
-  // Evitar o fechamento ao clicar dentro do menu
-  menu.addEventListener("click", function (event) {
-    event.stopPropagation(); // Impede que o clique no menu feche o menu
+  images.forEach(function (image) {
+    image.addEventListener("click", function () {
+      // Remove expand de todas as imagens
+      images.forEach((img) => img.classList.remove("expand"));
+
+      // Adiciona classe expand à imagem clicada
+      image.classList.add("expand");
+
+      // Ativa o overlay para escurecer o fundo
+      overlay.classList.add("active");
+    });
+  });
+
+  // Fecha a imagem expandida ao clicar no overlay
+  overlay.addEventListener("click", function () {
+    images.forEach((img) => img.classList.remove("expand"));
+    overlay.classList.remove("active");
   });
 
   // Evento para o botão "Sobre"
@@ -125,32 +137,28 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
   });
-  
   // Função para expandir a imagem e escurecer o fundo
   images.forEach(function (img) {
-    img.addEventListener('click', function () {
+    img.addEventListener("click", function () {
       // Verifica se há uma imagem já expandida, e se sim, a minimiza
       if (expandedImage && expandedImage !== img) {
-        expandedImage.parentElement.classList.remove('active');
+        expandedImage.parentElement.classList.remove("active");
       }
 
       // Expande a imagem clicada
-      img.parentElement.classList.add('active');
-      overlay.style.display = 'block';
-      document.body.classList.add('no-scroll');
+      img.parentElement.classList.add("active");
+      overlay.style.display = "block";
+      document.body.classList.add("no-scroll");
       expandedImage = img;
     });
 
-
-
-     overlay.addEventListener('click', function () {
-    if (expandedImage) {
-      expandedImage.parentElement.classList.remove('active');
-      overlay.style.display = 'none';
-      document.body.classList.remove('no-scroll');
-      expandedImage = null;
-    }
-  });
-
+    overlay.addEventListener("click", function () {
+      if (expandedImage) {
+        expandedImage.parentElement.classList.remove("active");
+        overlay.style.display = "none";
+        document.body.classList.remove("no-scroll");
+        expandedImage = null;
+      }
+    });
   });
 });

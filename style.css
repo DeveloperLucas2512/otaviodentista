@@ -388,18 +388,47 @@ p {
   }
 }
 
-/* Estilo principal da seção */
 .scroll {
   background: linear-gradient(to bottom, rgba(6, 10, 10, 0.3), #0f1e2e);
+  overflow: hidden;
+  padding: 15px 0;
+  position: relative;
   padding: 20px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  overflow: hidden; /* Remove a rolagem desnecessária */
+  padding: 20px;
 }
 
-/* Texto de destaque */
+.scroll_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.scroll:before,
+.scroll:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.scroll:before {
+  left: 0;
+  background: linear-gradient(to left, rgba (255, 255, 255, 0), white);
+}
+
+.scroll:after {
+  right: 0;
+  background: linear-gradient(to right, rgba (255, 255, 255, 0), white);
+}
+
 .images-odonto-text {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -455,14 +484,12 @@ p {
   z-index: 5;
 }
 
-/* Layout responsivo: para telas pequenas, como celulares */
 @media (max-width: 768px) {
   .scroll-container-img {
     flex: 1 1 100%; /* Ocupa 100% da largura no celular, formando uma coluna */
     max-width: 100%;
   }
 }
-
 
 /* Exibir overlay ao ativar uma imagem */
 .scroll-container-img.active ~ .overlay {
@@ -494,12 +521,6 @@ body.no-scroll {
 .container {
   max-width: 1440px;
   margin: auto 10px;
-}
-
-.expand img {
-  transform: scale(1.4);
-  z-index: 10;
-  position: relative;
 }
 
 .image-home::before {
@@ -712,8 +733,13 @@ details[open] ~ .modal-backdrop {
   }
 
   .scroll-container-img {
-    flex: 1 1 100%; /* Ocupa 100% da largura no celular, formando uma coluna */
-    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 18%;
+    text-align: center;
   }
 
   .modal-content {
@@ -1356,15 +1382,17 @@ button .fa-caret-down,
 }
 
 .scroll-container-img {
-  flex-basis: 30%;
-  max-width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: fit-content;
+  text-align: center;
 }
 
 .scroll-container-img img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
+  max-width: 18rem;
 }
 
 .responsive-img {
@@ -1395,6 +1423,11 @@ button .fa-caret-down,
   justify-content: center;
   align-items: center;
   flex-direction: row;
+}
+.images-odonto-text {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -1595,19 +1628,16 @@ button .fa-caret-down,
   }
 
   .menu-icon {
-    display: block;
-    cursor: pointer;
+    display: block; /* Exibir no modo móvel */
   }
-
   .menu {
     display: none; /* Ocultar o menu por padrão */
     flex-direction: column; /* Alinhamento vertical */
   }
   .menu.active {
-    display: flex; /* Mostra o menu quando ativo */
-    flex-direction: column;
-    background-color: #1e3a8a; /* Cor do fundo do menu */
-    padding: 20px;
+    background-color: #a3c9ee; /* Branco com tom de cinza bem claro */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra preta clara */
+    display: flex; /* Mostrar quando ativo */
     z-index: 2;
     border-radius: 10px;
   }
@@ -1626,7 +1656,7 @@ button .fa-caret-down,
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Sombra preta clara */
   }
 
   .menu-visible {
