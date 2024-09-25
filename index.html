@@ -76,11 +76,12 @@
             <i class="fas fa-bars fa-2x"></i>
           </div>
 
-          <!-- Menu de navegação, visível no desktop e tablet, escondido no mobile -->
+          <!-- Menu de navegação -->
           <div class="menu">
             <a href="index.html" class="menu-link">Home</a>
             <a href="#especialidades" class="menu-link">Especialidades</a>
-            <a href="#quemSou" class="menu-link">Sobre</a>
+            <!-- Removi o onclick -->
+            <a href="#sobre" class="menu-link sobre-link">Sobre</a>
             <a href="#minhaEquipe" class="menu-link">Equipe</a>
             <a href="#contato" class="menu-link">Contato</a>
           </div>
@@ -107,6 +108,40 @@
         </a>
       </div>
     </header>
+
+    <!-- Seção Sobre, inicialmente oculta -->
+    <!-- Seção Sobre -->
+    <div id="sobre-section" class="scroll-container-img modal-oculta">
+      <div class="modal-content">
+        <div id="sobre" class="modal-header">
+          <h2>DR. OTÁVIO</h2>
+          <button class="close-btn">&times;</button>
+        </div>
+        <img
+          src="assets/drOtavio1.png"
+          alt="Dr. Otávio | Ortognática"
+          title="Dr. Otávio | O que é Ortognática"
+          class="sobre-img"
+        />
+        <div class="modal-body">
+          <h4>HISTÓRIA | FORMAÇÃO</h4>
+          <p>
+            Natural de São Sebastião do Paraíso e com 7 anos de atuação em
+            Ribeirão Preto, cidade que me acolheu e à qual sou profundamente
+            grato. <br />
+            Sou formado em Odontologia pela Unesp de Araraquara, com residência
+            em Cirurgia Bucomaxilofacial pela Santa Casa de Valinhos. <br />
+            Atualmente, sinto-me realizado profissionalmente por trabalhar em
+            uma especialidade que me permite atuar tanto em ambiente hospitalar,
+            realizando cirurgias em centros cirúrgicos, quanto em consultório,
+            onde realizo cirurgias e tratamentos clínicos. <br />
+            Minha verdadeira paixão é a cirurgia Ortognática. A transformação
+            que proporciono na vida dos meus pacientes é a minha maior motivação
+            e o que me impulsiona a continuar dedicando-me a esta especialidade.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <section id="especialidades">
       <div class="scroll">
@@ -238,7 +273,7 @@
               <summary class="saibaMaisBtn">Dr. Otávio</summary>
               <div class="modal-content">
                 <div id="quemSou" class="modal-header">
-                  <h2>DR. OTÁVIO</h2>
+                  <h3>DR. OTÁVIO</h3>
                   <button
                     class="close-btn"
                     onclick="this.closest('details').removeAttribute('open')"
@@ -249,21 +284,20 @@
                 <div class="modal-body">
                   <h4>HISTÓRIA | FORMAÇÃO</h4>
                   <p>
-                    Natural de São Sebastião do Paraíso e com 7 anos de atuação
-                    em Ribeirão Preto, cidade que me acolheu e à qual sou
-                    profundamente grato. <br />
-                    Sou formado em Odontologia pela Unesp de Araraquara, com
-                    residência em Cirurgia Bucomaxilofacial pela Santa Casa de
-                    Valinhos. <br />
-                    Atualmente, sinto-me realizado profissionalmente por
-                    trabalhar em uma especialidade que me permite atuar tanto em
-                    ambiente hospitalar, realizando cirurgias em centros
-                    cirúrgicos, quanto em consultório, onde realizo cirurgias e
-                    tratamentos clínicos. <br />
-                    Minha verdadeira paixão é a cirurgia Ortognática. A
-                    transformação que proporciono na vida dos meus pacientes é a
-                    minha maior motivação e o que me impulsiona a continuar
-                    dedicando-me a esta especialidade.
+                    . Cirurgião Bucomaxilofacial com formação em residência no
+                    Hospital Santa Casa de Valinhos.<br />
+                    Cirurgião dentista Formado pela UNESP Araraquara.<br />
+                    Coordenador da Cirurgia Bucomaxilofacial do Hospital São
+                    Lucas de Ribeirão Preto.<br />
+                    Coordenador da Odontologia Hospitalar do Hospital São Lucas
+                    de Ribeirão Preto.<br />
+                    Anos de experiência clínica atuando no Hospital São Lucas,
+                    Hospital Ribeirânia, Hospital Unimed de Ribeirão Preto e
+                    Campinas, Hospital Galileo, Santa Casa de Valinhos, Santa
+                    Casa de Vinhedo.<br />
+                    Extensa formação em Cirurgia Ortognática, Tratamento de DTM,
+                    Implantes dentários e Harmonização Facial . Membro da AO
+                    Maxillofacial Surgery.
                   </p>
                 </div>
               </div>
@@ -283,7 +317,7 @@
               <summary class="saibaMaisBtn">Dr. André Sampaio</summary>
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2>DR. ANDRÉ SAMPAIO</h2>
+                  <h3>DR. ANDRÉ SAMPAIO</h3>
                   <button
                     class="close-btn"
                     onclick="this.closest('details').removeAttribute('open')"
@@ -294,12 +328,13 @@
                 <div class="modal-body">
                   <h4>HISTÓRIA | FORMAÇÃO</h4>
                   <p>
-                    Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.
+                    Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.<br />
                     Cirurgião com extensa formação em cirurgias faciais, formado
                     pela Residência do Hospital, Irmandade da Santa Casa de
-                    Misericórdia-SP. Lugares de atuação em cirurgias: Hospital
-                    Madre Theodora, Hospital São Luis Campinas. Professor de Pós
-                    Graduação em Cirurgia Avançada - ABO Campinas.
+                    Misericórdia-SP.<br />
+                    Lugares de atuação em cirurgias: Hospital Madre Theodora,
+                    Hospital São Luis Campinas. Professor de Pós Graduação em
+                    Cirurgia Avançada - ABO Campinas.
                   </p>
                 </div>
               </div>
@@ -315,10 +350,10 @@
               title="Dra. Kelly | Formação e Experiência"
             />
             <details>
-              <summary class="saibaMaisBtn">Dra. Kelly</summary>
+              <summary class="saibaMaisBtn">Dra. Kelly Barel</summary>
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2>DRA. KELLY</h2>
+                  <h3>DRA. KELLY BAREL</h3>
                   <button
                     class="close-btn"
                     onclick="this.closest('details').removeAttribute('open')"
@@ -503,6 +538,15 @@
           reservados.</strong
         >
       </p>
+
+      <!-- Botão de WhatsApp fixo -->
+      <a
+        href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Otávio!"
+        target="_blank"
+        class="whatsapp-fixo"
+      >
+        <img src="assets/whatssapp.svg" alt="WhatsApp" />
+      </a>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
