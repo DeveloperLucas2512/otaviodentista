@@ -10,10 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(".close-modal-ortognatica");
   const fade = document.querySelector("#fade-ortognatica");
-  const modalSobre = document.getElementById("sobre-modal");
-  const closeButton = document.querySelector(".close-button");
-  const sobreLink = document.getElementById("sobre-link");
-
+ 
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
       modal.classList.toggle("hide");
@@ -73,31 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
   overlay.addEventListener("click", function () {
     images.forEach((img) => img.classList.remove("expand"));
     overlay.classList.remove("active");
-  });
-
-  // Evento para o botão "Sobre"
-  if (sobreLink && modalSobre) {
-    sobreLink.addEventListener("click", function (event) {
-      event.preventDefault(); // Evita o comportamento padrão do link
-      modalSobre.style.display = "flex"; // Abre o modal
-    });
-  }
-
-  // Evento para fechar o modal
-  if (closeButton) {
-    closeButton.addEventListener("click", function () {
-      modalSobre.style.display = "none"; // Fecha o modal
-    });
-  }
-
-  // Fecha o modal se o usuário clicar fora do conteúdo
-  window.addEventListener("click", function (event) {
-    if (event.target === modalSobre) {
-      modalSobre.style.display = "none"; // Fecha o modal
-    }
-  });
+  }); 
   
-
   // Função para fechar todos os <details>
   function closeAllDetails() {
     detailsElements.forEach((detail) => {
@@ -175,4 +149,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  document.getElementById("sobre-link").addEventListener("click", function(event) {
+    event.preventDefault(); // Previne o comportamento padrão do link
+
+    // Obtém o elemento <details>
+    const sobreDetalhes = document.getElementById("sobre-detalhes");
+
+    // Abre o details, se ainda não estiver aberto
+    if (!sobreDetalhes.open) {
+        sobreDetalhes.open = true;
+    }
+
+    // Rola a página até o elemento <details>
+    sobreDetalhes.scrollIntoView({ behavior: "smooth" });
+});
 });
