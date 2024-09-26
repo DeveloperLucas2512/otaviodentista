@@ -526,7 +526,7 @@ summary {
 .modal-content {
   display: none; /* Escondido inicialmente */
   position: fixed;
-  top: 50%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%; /* Largura responsiva */
@@ -536,9 +536,13 @@ summary {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   border-radius: 8px;
+  margin: 15% auto;
+  border: 1px solid #888;
+  text-align: center;
 }
 
 .modal-header {
+  padding: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -549,10 +553,14 @@ summary {
   margin: 0;
 }
 
+.sobre-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
 .modal-body {
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 1.5;
+  text-align: left;
 }
 
 /* Botão de fechar o modal */
@@ -566,7 +574,8 @@ summary {
 }
 
 details[open] > .modal-content {
-  display: block; /* Mostra o modal quando o <details> está aberto */
+  display: block; 
+  top: 30%;
 }
 
 details summary {
@@ -605,32 +614,6 @@ details[open] ~ .modal-backdrop {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-  .hero {
-    min-height: 48vh;
-  }
-  .hero h1 {
-    font-size: 34px;
-    padding: 0 14px;
-    width: 100%;
-  }
-  .hero p {
-    font-size: 14px;
-  }
-
-  .modal-content {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  .modal-header h2 {
-    font-size: 20px;
-  }
-
-  .modal-body {
-    font-size: 14px;
-  }
-}
 
 .close-modal-ortognatica {
   font-size: 16px; /* Ajusta o tamanho do ícone de fechar */
@@ -1282,6 +1265,19 @@ button .fa-caret-down,
   border-radius: 8px;
 }
 
+#sobre-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
 /* --------------------->> dispositivos Tablet <<------------------------ */
 @media (min-width: 769px) {
   .container {
@@ -1289,58 +1285,68 @@ button .fa-caret-down,
     margin: auto 30px;
     padding-top: 40px;
   }
-}
 
-.direitos-reservados {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
 
-.images-odonto {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.images-odonto-text {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 700;
-}
+  .direitos-reservados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
 
-.modal-aberta {
-  display: flex; /* Para centralizar */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  position: fixed; /* Fixa na tela */
-  top: 0;
-  left: 0;
-  width: 100vw; /* Largura total da tela */
-  height: 100vh; /* Altura total da tela */
-  background: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
-  z-index: 1001; /* Fica acima de outros elementos */
-}
+  .images-odonto {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
 
-#sobre-section {
-  display: none;
-}
+  .images-odonto-text {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+  }
 
-.sobre-img {
-  width: 80%; /* Ajusta a largura da imagem para dispositivos móveis */
-  height: auto; /* Mantém a proporção da imagem */
-}
+  .modal-aberta {
+    display: flex; /* Para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largura total da tela */
+    height: 100vh; /* Altura total da tela */
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+    z-index: 1001; /* Fica acima de outros elementos */
+  }
 
-/* Esconder a seção "Sobre" inicialmente */
-.modal-oculta {
-  display: none; /* Oculta a seção */
-}
+  #sobre-section {
+    display: none;
+  }
 
-.modal-body p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  .sobre-img {
+    width: 80%; /* Ajusta a largura da imagem para dispositivos móveis */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+
+  .modal-oculta {
+    display: none; /* Oculta a seção */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  }
+
+
+  .modal-body p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
 }
 
 .whatsapp-fixo {
@@ -1375,6 +1381,11 @@ button .fa-caret-down,
     position: relative;
   }
 
+  details[open] > .modal-content {
+    display: block; 
+    top: 30%;
+  }
+
   /* Aumentar a imagem ao clicar (modal) */
   .modal-img {
     display: none; /* Inicialmente oculto */
@@ -1387,6 +1398,36 @@ button .fa-caret-down,
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+  }
+
+  .hero {
+    min-height: 48vh;
+  }
+  .hero h1 {
+    font-size: 34px;
+    padding: 0 14px;
+    width: 100%;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+  }
+
+  .close-button {
+    font-size: 20px;
   }
 
   .modal-img img {
@@ -1795,7 +1836,8 @@ button .fa-caret-down,
   }
 
   .sobre-img {
-    max-width: 90%;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .modal-body p {
@@ -1846,13 +1888,19 @@ button .fa-caret-down,
     font-size: 14px; /* Ajusta o tamanho da fonte do título */
   }
 
+  details[open] > .modal-content {
+    display: block; 
+    top: 30%;
+  }
+
   .close-modal-ortognatica {
     font-size: 14px; /* Ajusta o tamanho do ícone de fechar */
   }
 
   /* Ajustes para celular */
   .sobre-img {
-    max-width: 100%;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .modal-body p {

@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   const detailsElements = document.querySelectorAll("details");
-  const sobreLink = document.querySelector('a[href="#quemSou"]');
+  
   const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
   const images = document.querySelectorAll(".scroll-container-img");
   const overlay = document.getElementById("overlay");
-  const openModalOrtognaticaButton = document.querySelector(
-    "#open-modal-ortognatica"
-  );
+  const openModalOrtognaticaButton = document.querySelector("#open-modal-ortognatica");
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
-  const closeModalButtons = document.querySelectorAll(
-    ".close-modal-ortognatica"
-  );
+  const closeModalButtons = document.querySelectorAll(".close-modal-ortognatica");
   const fade = document.querySelector("#fade-ortognatica");
+  const modalSobre = document.getElementById("sobre-modal");
+  const closeButton = document.querySelector(".close-button");
+  const sobreLink = document.getElementById("sobre-link");
 
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
@@ -77,21 +76,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Evento para o botão "Sobre"
-  if (sobreLink && detailsOtavio) {
+  if (sobreLink && modalSobre) {
     sobreLink.addEventListener("click", function (event) {
-      // Evita o comportamento padrão do link
-      event.preventDefault();
-
-      // Força a abertura do <details> do Dr. Otávio
-      const parentDetail = detailsOtavio.closest("details");
-      if (parentDetail) {
-        parentDetail.setAttribute("open", "open");
-
-        // Rola a página até a imagem do Dr. Otávio
-        detailsOtavio.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+      event.preventDefault(); // Evita o comportamento padrão do link
+      modalSobre.style.display = "flex"; // Abre o modal
     });
   }
+
+  // Evento para fechar o modal
+  if (closeButton) {
+    closeButton.addEventListener("click", function () {
+      modalSobre.style.display = "none"; // Fecha o modal
+    });
+  }
+
+  // Fecha o modal se o usuário clicar fora do conteúdo
+  window.addEventListener("click", function (event) {
+    if (event.target === modalSobre) {
+      modalSobre.style.display = "none"; // Fecha o modal
+    }
+  });
+  
 
   // Função para fechar todos os <details>
   function closeAllDetails() {
@@ -132,11 +137,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".menu-link").forEach((link) => {
     link.addEventListener("click", function (event) {
-      event.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+      const targetId = this.getAttribute("href") ? this.getAttribute("href").substring(1) : null;
+  
+      // Check if it's the "Sobre" link
+      if (this.id === "sobre-link") {
+        event.preventDefault(); // Prevent the default action
+        modalSobre.style.display = "block"; // Open the modal
+      } else if (targetId) {
+        event.preventDefault(); // Prevent the default action for other links
+        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); // Scroll to the target
+      }
     });
   });
+
+
   // Função para expandir a imagem e escurecer o fundo
   images.forEach(function (img) {
     img.addEventListener("click", function () {
