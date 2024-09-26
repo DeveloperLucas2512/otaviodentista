@@ -524,21 +524,32 @@ summary {
 }
 
 .modal-content {
-  display: none; /* Escondido inicialmente */
   position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%; /* Largura responsiva */
-  max-width: 600px; /* Largura máxima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  width: 90%;
   background-color: white;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
-  border-radius: 8px;
-  margin: 15% auto;
-  border: 1px solid #888;
-  text-align: center;
+}
+
+.oculto {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visivel {
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal-header {
@@ -554,28 +565,31 @@ summary {
 }
 
 .sobre-img {
-  max-width: 100%;
+  max-width: 300px;
   height: auto;
-  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .modal-body {
-  text-align: left;
+  display: flex;
+}
+
+.modal-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-text h5 {
+  margin-top: 10px;
 }
 
 /* Botão de fechar o modal */
 .close-btn {
-  background: none;
-  border: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
   cursor: pointer;
-}
-
-details[open] > .modal-content {
-  display: block; 
-  top: 30%;
 }
 
 details summary {
@@ -982,10 +996,11 @@ img:hover {
 }
 
 .close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .close-button:hover,
@@ -1043,6 +1058,11 @@ body,
   display: block; /* Garante que o título ocupe uma linha inteira */
   margin-bottom: 10px;
   color: #0f9f5a;
+}
+
+.img-modal-sobre img{
+  width: 30%;
+  height: 30%;
 }
 
 .btn-especialidades-desktop button {
@@ -1278,6 +1298,11 @@ button .fa-caret-down,
   z-index: 9999;
 }
 
+#sobre-detalhes[open] {
+  display: block;
+}
+
+
 /* --------------------->> dispositivos Tablet <<------------------------ */
 @media (min-width: 769px) {
   .container {
@@ -1323,11 +1348,6 @@ button .fa-caret-down,
 
   #sobre-section {
     display: none;
-  }
-
-  .sobre-img {
-    width: 80%; /* Ajusta a largura da imagem para dispositivos móveis */
-    height: auto; /* Mantém a proporção da imagem */
   }
 
   .modal-oculta {
@@ -1381,23 +1401,18 @@ button .fa-caret-down,
     position: relative;
   }
 
-  details[open] > .modal-content {
-    display: block; 
-    top: 30%;
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Aumentar a imagem ao clicar (modal) */
-  .modal-img {
-    display: none; /* Inicialmente oculto */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
+  .sobre-img {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  body.modal-open {
+    overflow: hidden;
   }
 
   .hero {
@@ -1412,20 +1427,12 @@ button .fa-caret-down,
     font-size: 14px;
   }
 
-  .modal-content {
-    width: 90%;
-    max-width: 400px;
-    padding: 15px;
-  }
+
 
   .modal-header h2 {
     font-size: 20px;
   }
-
-  .modal-body {
-    font-size: 14px;
-  }
-
+ 
   .close-button {
     font-size: 20px;
   }
@@ -1663,13 +1670,7 @@ button .fa-caret-down,
     display: flex;
   }
 
-  .modal-content {
-    font-size: 20px;
-    padding: 10px;
-    overflow-y: scroll;
-    height: 300px;
-    width: 90%;
-  }
+
 
   .modal-tratamento-content {
     width: 90%; /* Ajuste a largura para dispositivos móveis */
@@ -1834,11 +1835,7 @@ button .fa-caret-down,
     font-weight: 700;
     margin-bottom: -20px;
   }
-
-  .sobre-img {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-  }
+ 
 
   .modal-body p {
     font-size: 1rem;
@@ -1853,9 +1850,7 @@ button .fa-caret-down,
     width: 100%; /* Garante que a imagem ocupe toda a largura disponível no mobile */
   }
 
-  .modal-content {
-    padding: 8px; /* Ajusta o padding para telas muito pequenas */
-  }
+ 
 
   .scroll_container {
     display: flex;
@@ -1878,29 +1873,16 @@ button .fa-caret-down,
 
   .scroll-container-img img {
     width: 100%; /* Garante que a imagem ocupe toda a largura disponível no mobile */
-  }
-
-  .modal-content {
-    padding: 8px; /* Ajusta o padding para telas muito pequenas */
-  }
+  } 
 
   .modal-header h2 {
     font-size: 14px; /* Ajusta o tamanho da fonte do título */
   }
 
-  details[open] > .modal-content {
-    display: block; 
-    top: 30%;
-  }
+
 
   .close-modal-ortognatica {
     font-size: 14px; /* Ajusta o tamanho do ícone de fechar */
-  }
-
-  /* Ajustes para celular */
-  .sobre-img {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
   }
 
   .modal-body p {

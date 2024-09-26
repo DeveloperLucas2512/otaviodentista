@@ -74,7 +74,7 @@
           <div class="menu">
             <a href="index.html" class="menu-link">Home</a>
             <a href="#especialidades" class="menu-link">Especialidades</a>
-            <a href="#" id="sobre-link" class="menu-link sobre-link">Sobre</a> 
+            <a href="#" id="open-sobre" class="menu-link" >Sobre</a> 
             <a href="#minhaEquipe" class="menu-link">Equipe</a>
             <a href="#contato" class="menu-link">Contato</a>
           </div>
@@ -98,14 +98,13 @@
       </div>
     </header>
     
-    <details id="sobre-detalhes">
-      <summary>Clique para saber mais sobre Dr. Otávio</summary>
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Sobre Dr. Otávio</h2>
-        <img src="path/to/sobre-image.jpg" alt="Sobre Dr. Otávio" class="sobre-img">
-        <div class="modal-body">
-          <h4>HISTÓRIA | FORMAÇÃO</h4>
+    <div id="sobre-detalhes" class="modal-content img-modal-sobre oculto">
+      <span class="close-button fechar-modal-sobre">&times;</span>
+      <div class="modal-body">
+        <img src="./assets/GZCT9528.JPG" alt="Sobre Dr. Otávio" class="sobre-img">
+        <div class="modal-text">
+          <h2>Dr. Otávio</h2>
+          <h5>MINHA HISTÓRIA</h5>
           <p>
             Natural de São Sebastião do Paraíso e com 7 anos de atuação em Ribeirão Preto, cidade que me acolheu e à qual sou profundamente grato.
             <br />
@@ -119,7 +118,8 @@
           </p>
         </div>
       </div>
-    </details>
+    </div>
+    
     
 
     <section id="especialidades">

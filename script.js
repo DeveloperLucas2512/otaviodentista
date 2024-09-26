@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const openModalOrtognaticaButton = document.querySelector("#open-modal-ortognatica");
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(".close-modal-ortognatica");
-  const fade = document.querySelector("#fade-ortognatica");
+  const fade = document.querySelector("#fade-ortognatica");  
+  const modal = document.getElementById('sobre-detalhes');
+  const openButton = document.getElementById('open-sobre');
+  const closeButton = document.querySelector('.fechar-modal-sobre');
  
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
@@ -36,6 +39,41 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleModalOrtognatica(modalOrtognatica)
     );
   }
+
+    openButton.addEventListener('click', function() {
+      modal.classList.remove('oculto');
+      modal.classList.add('visivel');
+      document.body.classList.add('modal-open');  // Evita scroll da página
+  });
+
+    closeButton.addEventListener('click', function() {
+      modal.classList.remove('visivel');
+      modal.classList.add('oculto');
+      document.body.classList.remove('modal-open');
+  });
+
+  // Fechar o modal ao clicar fora do conteúdo
+  modalDetails.addEventListener('click', function(event) {
+    if (event.target === modalDetails) {
+      modalDetails.removeAttribute('open');
+    }
+  });
+
+  // Fechar o modal ao clicar no botão de fechar
+  closeButton.addEventListener('click', function() {
+    modal.classList.remove('visivel');
+    modal.classList.add('oculto');
+    document.body.classList.remove('modal-open');
+});
+
+// Fechar o modal ao clicar fora do conteúdo
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.classList.remove('visivel');
+        modal.classList.add('oculto');
+        document.body.classList.remove('modal-open');
+    }
+});
 
   // Evento de clique para fechar o modal ao clicar no fundo escuro (fade)
   fade.addEventListener("click", () =>
