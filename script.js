@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const detailsElements = document.querySelectorAll("details");
-  
-  const detailsOtavio = document.querySelector("summary.saibaMaisBtn");
+  const detailsElements = document.querySelectorAll("details");  
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
   const images = document.querySelectorAll(".scroll-container-img");
@@ -10,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(".close-modal-ortognatica");
   const fade = document.querySelector("#fade-ortognatica");  
-  const modal = document.getElementById('sobre-detalhes');
+  const modalSobre = document.getElementById("sobre-detalhes"); 
+  const closeButton = document.querySelector('.fechar-modal-sobre'); 
+  const menuLinks = document.querySelectorAll(".menu-link");
   const openButton = document.getElementById('open-sobre');
-  const closeButton = document.querySelector('.fechar-modal-sobre');
  
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
@@ -34,25 +33,54 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
 
+    window.addEventListener('click', function(event) {
+      if (event.target === modalSobre) {
+        modalSobre.classList.remove('visivel');
+        modalSobre.classList.add('oculto');
+        document.body.classList.remove('modal-open');
+      }
+    });
+  
+    // Menu icon toggle for mobile
+    menuIcon.addEventListener("click", function () {
+      menu.classList.toggle("active");
+    });
+
     // Fecha o modal ao clicar no fundo escuro (fade)
     fade.addEventListener("click", () =>
       toggleModalOrtognatica(modalOrtognatica)
     );
   }
 
-    openButton.addEventListener('click', function() {
+  openButton.addEventListener('click', function() {
       modal.classList.remove('oculto');
       modal.classList.add('visivel');
       document.body.classList.add('modal-open');  // Evita scroll da página
   });
 
-    closeButton.addEventListener('click', function() {
+  closeButton.addEventListener('click', function() {
       modal.classList.remove('visivel');
       modal.classList.add('oculto');
       document.body.classList.remove('modal-open');
   });
 
-  // Fechar o modal ao clicar fora do conteúdo
+  menuLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+      const targetId = this.getAttribute("href") ? this.getAttribute("href").substring(1) : null;
+
+      // Open "Sobre" modal
+      if (this.id === "open-sobre") {
+        event.preventDefault(); // Prevent default action
+        modalSobre.classList.remove('oculto'); // Show modal
+        modalSobre.classList.add('visivel'); // Add visible class
+        document.body.classList.add('modal-open'); // Prevent background scroll
+      } else if (targetId) {
+        event.preventDefault(); // Prevent default action for other links
+        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); // Scroll to target
+      }
+    });
+  });
+
   modalDetails.addEventListener('click', function(event) {
     if (event.target === modalDetails) {
       modalDetails.removeAttribute('open');

@@ -1392,6 +1392,32 @@ button .fa-caret-down,
     max-width: 1300px;
     margin: 0 25px;
   }
+
+  .modal-content {
+    max-height: 70%;
+    overflow-y: scroll;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+  }
+
+  .img-modal-sobre img {
+    width: 46%;
+}
+
   .header-content {
     display: flex;
     width: 88%;
