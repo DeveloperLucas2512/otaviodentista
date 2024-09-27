@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const detailsElements = document.querySelectorAll("details");  
+  const detailsElements = document.querySelectorAll("details");
   const menuIcon = document.querySelector(".menu-icon");
   const menu = document.querySelector(".menu");
   const images = document.querySelectorAll(".scroll-container-img");
@@ -7,12 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const openModalOrtognaticaButton = document.querySelector("#open-modal-ortognatica");
   const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
   const closeModalButtons = document.querySelectorAll(".close-modal-ortognatica");
-  const fade = document.querySelector("#fade-ortognatica");  
-  const modalSobre = document.getElementById("sobre-detalhes"); 
-  const closeButton = document.querySelector('.fechar-modal-sobre'); 
+  const fade = document.querySelector("#fade-ortognatica");
+  const modalSobre = document.getElementById("sobre-detalhes");
+  const closeButtonSobre = document.querySelector('.fechar-modal-sobre');
   const menuLinks = document.querySelectorAll(".menu-link");
-  const openButton = document.getElementById('open-sobre');
- 
+  const openButtonSobre = document.getElementById('open-sobre');
+  let expandedImage = null; // Variável para controlar imagem expandida
+
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
       modal.classList.toggle("hide");
@@ -23,211 +24,120 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   if (openModalOrtognaticaButton) {
-    openModalOrtognaticaButton.addEventListener("click", () =>
-      toggleModalOrtognatica(modalOrtognatica)
-    );
+    openModalOrtognaticaButton.addEventListener("click", () => toggleModalOrtognatica(modalOrtognatica));
 
     closeModalButtons.forEach((button) => {
-      button.addEventListener("click", () =>
-        toggleModalOrtognatica(modalOrtognatica)
-      );
+      button.addEventListener("click", () => toggleModalOrtognatica(modalOrtognatica));
     });
 
-    window.addEventListener('click', function(event) {
+    fade.addEventListener("click", () => toggleModalOrtognatica(modalOrtognatica));
+  }
+
+  // Controle do modal "Sobre"
+  if (openButtonSobre && modalSobre) {
+    openButtonSobre.addEventListener('click', function () {
+      modalSobre.classList.remove('oculto');
+      modalSobre.classList.add('visivel');
+      document.body.classList.add('modal-open');  // Evita scroll da página
+    });
+
+    if (closeButtonSobre) {
+      closeButtonSobre.addEventListener('click', function () {
+        modalSobre.classList.remove('visivel');
+        modalSobre.classList.add('oculto');
+        document.body.classList.remove('modal-open');
+      });
+    }
+
+    window.addEventListener('click', function (event) {
       if (event.target === modalSobre) {
         modalSobre.classList.remove('visivel');
         modalSobre.classList.add('oculto');
         document.body.classList.remove('modal-open');
       }
     });
-  
-    // Menu icon toggle for mobile
+  }
+
+  // Menu mobile
+  if (menuIcon && menu) {
     menuIcon.addEventListener("click", function () {
       menu.classList.toggle("active");
     });
 
-    // Fecha o modal ao clicar no fundo escuro (fade)
-    fade.addEventListener("click", () =>
-      toggleModalOrtognatica(modalOrtognatica)
-    );
-  }
-
-  openButton.addEventListener('click', function() {
-      modal.classList.remove('oculto');
-      modal.classList.add('visivel');
-      document.body.classList.add('modal-open');  // Evita scroll da página
-  });
-
-  closeButton.addEventListener('click', function() {
-      modal.classList.remove('visivel');
-      modal.classList.add('oculto');
-      document.body.classList.remove('modal-open');
-  });
-
-  menuLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-      const targetId = this.getAttribute("href") ? this.getAttribute("href").substring(1) : null;
-
-      // Open "Sobre" modal
-      if (this.id === "open-sobre") {
-        event.preventDefault(); // Prevent default action
-        modalSobre.classList.remove('oculto'); // Show modal
-        modalSobre.classList.add('visivel'); // Add visible class
-        document.body.classList.add('modal-open'); // Prevent background scroll
-      } else if (targetId) {
-        event.preventDefault(); // Prevent default action for other links
-        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); // Scroll to target
+    document.addEventListener("click", function (event) {
+      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+        menu.classList.remove("active");
       }
     });
-  });
+  }
 
-  modalDetails.addEventListener('click', function(event) {
-    if (event.target === modalDetails) {
-      modalDetails.removeAttribute('open');
-    }
-  });
-
-  // Fechar o modal ao clicar no botão de fechar
-  closeButton.addEventListener('click', function() {
-    modal.classList.remove('visivel');
-    modal.classList.add('oculto');
-    document.body.classList.remove('modal-open');
-});
-
-// Fechar o modal ao clicar fora do conteúdo
-window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        modal.classList.remove('visivel');
-        modal.classList.add('oculto');
-        document.body.classList.remove('modal-open');
-    }
-});
-
-  // Evento de clique para fechar o modal ao clicar no fundo escuro (fade)
-  fade.addEventListener("click", () =>
-    toggleModalOrtognatica(modalOrtognatica)
-  );
-
-  //menu cabeçalho exibir e fechar em modo mobile
-  menuIcon.addEventListener("click", function () {
-    menu.classList.toggle("active");
-  });
-
-  document.addEventListener("click", function (event) {
-    if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
-      menu.classList.remove("active");
-    }
-  });
-
-  images.forEach(function (image) {
-    image.addEventListener("click", function () {
-      // Remove expand de todas as imagens
-      images.forEach((img) => img.classList.remove("expand"));
-
-      // Adiciona classe expand à imagem clicada
-      image.classList.add("expand");
-
-      // Ativa o overlay para escurecer o fundo
-      overlay.classList.add("active");
+  // Imagens clicáveis para expandir
+  if (images.length > 0 && overlay) {
+    images.forEach(function (image) {
+      image.addEventListener("click", function () {
+        images.forEach((img) => img.classList.remove("expand")); // Remove a classe expand de todas as imagens
+        image.classList.add("expand"); // Adiciona a classe expand à imagem clicada
+        overlay.classList.add("active"); // Ativa o overlay
+      });
     });
-  });
 
-  // Fecha a imagem expandida ao clicar no overlay
-  overlay.addEventListener("click", function () {
-    images.forEach((img) => img.classList.remove("expand"));
-    overlay.classList.remove("active");
-  }); 
-  
-  // Função para fechar todos os <details>
+    overlay.addEventListener("click", function () {
+      images.forEach((img) => img.classList.remove("expand")); // Remove expand de todas as imagens
+      overlay.classList.remove("active"); // Desativa o overlay
+    });
+  }
+
+  // Controle do scroll suave para seções da página
+  if (menuLinks.length > 0) {
+    menuLinks.forEach(link => {
+      link.addEventListener("click", function (event) {
+        const targetId = this.getAttribute("href") ? this.getAttribute("href").substring(1) : null;
+
+        if (this.id === "open-sobre") {
+          event.preventDefault(); // Prevent default action
+          modalSobre.classList.remove('oculto');
+          modalSobre.classList.add('visivel');
+          document.body.classList.add('modal-open');
+        } else if (targetId) {
+          event.preventDefault();
+          document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  // Controle de <details>
   function closeAllDetails() {
     detailsElements.forEach((detail) => {
       detail.removeAttribute("open");
     });
   }
 
-  // Fecha o modal ao clicar fora (na backdrop)
-  const modalBackdrop = document.querySelector(".modal-backdrop");
-  if (modalBackdrop) {
-    modalBackdrop.addEventListener("click", function () {
-      closeAllDetails();
-    });
-  }
-
-  // Fecha o modal quando um <summary> for clicado novamente
   detailsElements.forEach((detail) => {
     const summary = detail.querySelector("summary");
 
-    // Adiciona um event listener ao <summary>
     if (summary) {
       summary.addEventListener("click", function (event) {
-        // Evita o comportamento padrão do summary (abre/fecha)
         event.preventDefault();
-
-        // Fecha todos os <details> antes de abrir o clicado
         const isOpen = detail.hasAttribute("open");
-        closeAllDetails();
+        closeAllDetails(); // Fecha todos os <details>
 
-        // Se o detalhe não estava aberto, abre-o
         if (!isOpen) {
-          detail.setAttribute("open", "open");
+          detail.setAttribute("open", "open"); // Abre o detalhe clicado
         }
       });
     }
   });
 
-  document.querySelectorAll(".menu-link").forEach((link) => {
-    link.addEventListener("click", function (event) {
-      const targetId = this.getAttribute("href") ? this.getAttribute("href").substring(1) : null;
-  
-      // Check if it's the "Sobre" link
-      if (this.id === "sobre-link") {
-        event.preventDefault(); // Prevent the default action
-        modalSobre.style.display = "block"; // Open the modal
-      } else if (targetId) {
-        event.preventDefault(); // Prevent the default action for other links
-        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); // Scroll to the target
-      }
-    });
-  });
-
-
-  // Função para expandir a imagem e escurecer o fundo
-  images.forEach(function (img) {
-    img.addEventListener("click", function () {
-      // Verifica se há uma imagem já expandida, e se sim, a minimiza
-      if (expandedImage && expandedImage !== img) {
-        expandedImage.parentElement.classList.remove("active");
-      }
-
-      // Expande a imagem clicada
-      img.parentElement.classList.add("active");
-      overlay.style.display = "block";
-      document.body.classList.add("no-scroll");
-      expandedImage = img;
-    });
-
-    overlay.addEventListener("click", function () {
-      if (expandedImage) {
-        expandedImage.parentElement.classList.remove("active");
-        overlay.style.display = "none";
-        document.body.classList.remove("no-scroll");
-        expandedImage = null;
-      }
-    });
-  });
-
-  document.getElementById("sobre-link").addEventListener("click", function(event) {
-    event.preventDefault(); // Previne o comportamento padrão do link
-
-    // Obtém o elemento <details>
+  // Modal para o link "Sobre"
+  document.getElementById("sobre-link").addEventListener("click", function (event) {
+    event.preventDefault();
     const sobreDetalhes = document.getElementById("sobre-detalhes");
 
-    // Abre o details, se ainda não estiver aberto
     if (!sobreDetalhes.open) {
-        sobreDetalhes.open = true;
+      sobreDetalhes.open = true;
     }
 
-    // Rola a página até o elemento <details>
     sobreDetalhes.scrollIntoView({ behavior: "smooth" });
-});
+  });
 });
