@@ -980,6 +980,7 @@ button, .close-button, button.close-modal-ortognatica {
   cursor: pointer;
   height: 30px;
   font-weight: 700;
+  border: none;
 }
 
 
