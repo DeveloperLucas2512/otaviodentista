@@ -12,8 +12,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeButtonSobre = document.querySelector('.fechar-modal-sobre');
   const menuLinks = document.querySelectorAll(".menu-link");
   const openButtonSobre = document.getElementById('open-sobre');
+  const allModals = document.querySelectorAll('.modal'); // Todas as modais
+  const closeButtons = document.querySelectorAll('.fechar-modal'); // Botões "X"
   let expandedImage = null; // Variável para controlar imagem expandida
 
+  // Função para fechar uma modal
+  const closeModal = (modal) => {
+    modal.classList.remove('visivel');
+    modal.classList.add('oculto');
+    document.body.classList.remove('modal-open');
+  };
+
+  // Função para abrir modal Ortognatica
   const toggleModalOrtognatica = (modal) => {
     if (modal) {
       modal.classList.toggle("hide");
@@ -23,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  // Abre/fecha modal Ortognatica ao clicar no botão
   if (openModalOrtognaticaButton) {
     openModalOrtognaticaButton.addEventListener("click", () => toggleModalOrtognatica(modalOrtognatica));
 
@@ -43,20 +54,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (closeButtonSobre) {
       closeButtonSobre.addEventListener('click', function () {
-        modalSobre.classList.remove('visivel');
-        modalSobre.classList.add('oculto');
-        document.body.classList.remove('modal-open');
+        closeModal(modalSobre);
       });
     }
 
     window.addEventListener('click', function (event) {
       if (event.target === modalSobre) {
-        modalSobre.classList.remove('visivel');
-        modalSobre.classList.add('oculto');
-        document.body.classList.remove('modal-open');
+        closeModal(modalSobre);
       }
     });
   }
+
+  // Fecha a modal ao clicar no botão de fechar (X) ou fora do conteúdo da modal
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const modal = this.closest('.modal'); // Encontra a modal mais próxima
+      closeModal(modal);
+    });
+  });
+
+  window.addEventListener('click', function (event) {
+    allModals.forEach(modal => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
 
   // Menu mobile
   if (menuIcon && menu) {
