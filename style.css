@@ -63,8 +63,6 @@ header {
   color: #fff;
 }
 
-
-
 button:hover {
   opacity: 1;
 }
@@ -600,7 +598,6 @@ details[open] ~ .modal-backdrop {
   cursor: pointer;
 }
 
-
 .close-modal-ortognatica {
   font-size: 16px; /* Ajusta o tamanho do ícone de fechar */
 }
@@ -967,7 +964,9 @@ img:hover {
   color: black;
 }
 
-button, .close-button, button.close-modal-ortognatica {
+button,
+.close-button,
+button.close-modal-ortognatica {
   align-items: center;
   display: flex;
   background: #ccc;
@@ -986,7 +985,6 @@ button, .close-button, button.close-modal-ortognatica {
 .box-shadow-map {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.9);
 }
-
 
 html,
 body,
@@ -1013,7 +1011,7 @@ body,
   cursor: pointer;
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -1275,13 +1273,19 @@ button .fa-caret-down,
 
 .scroll-container-img img {
   width: 100%;
-  max-width: 567px; /* Tamanho máximo para as imagens */
+  max-width: 300px; /* Tamanho máximo para as imagens */
+  height: auto;
+}
+
+.scroll-container-img-sintomas {
+  width: 100%;
+  max-width: 600px;
   height: auto;
 }
 
 .responsive-img {
   width: 100%;
-  height: auto;
+  height: 200px;
   border-radius: 8px;
 }
 
@@ -1302,7 +1306,6 @@ button .fa-caret-down,
   display: block;
 }
 
-
 /* --------------------->> dispositivos Tablet <<------------------------ */
 @media (min-width: 769px) {
   .container {
@@ -1310,7 +1313,6 @@ button .fa-caret-down,
     margin: auto 30px;
     padding-top: 40px;
   }
-
 
   .direitos-reservados {
     display: flex;
@@ -1361,7 +1363,6 @@ button .fa-caret-down,
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
   }
-
 
   .modal-body p {
     font-size: 0.8rem;
@@ -1416,7 +1417,7 @@ button .fa-caret-down,
 
   .img-modal-sobre img {
     width: 46%;
-}
+  }
 
   .header-content {
     display: flex;
@@ -1456,7 +1457,7 @@ button .fa-caret-down,
   .modal-header h2 {
     font-size: 20px;
   }
- 
+
   .close-button {
     font-size: 20px;
   }
@@ -1553,7 +1554,7 @@ button .fa-caret-down,
     align-items: center;
     font-size: 10px !important;
     white-space: nowrap;
-  }  
+  }
 
   h2 {
     font-size: 20px;
@@ -1683,8 +1684,6 @@ button .fa-caret-down,
   .clone {
     display: flex;
   }
-
-
 
   .modal-tratamento-content {
     width: 90%; /* Ajuste a largura para dispositivos móveis */
@@ -1849,7 +1848,6 @@ button .fa-caret-down,
     font-weight: 700;
     margin-bottom: -20px;
   }
- 
 
   .modal-body p {
     font-size: 1rem;
@@ -1860,9 +1858,10 @@ button .fa-caret-down,
     margin: 10px auto;
   }
 
+  .scroll-container-img-sintomas,
   .scroll-container-img img {
     width: 100%; /* Garante que a imagem ocupe toda a largura disponível no mobile */
-  } 
+  }
 
   .scroll_container {
     display: flex;
@@ -1897,15 +1896,14 @@ button .fa-caret-down,
     margin: 10px auto;
   }
 
+  .scroll-container-img-sintomas,
   .scroll-container-img img {
     width: 100%; /* Garante que a imagem ocupe toda a largura disponível no mobile */
-  } 
+  }
 
   .modal-header h2 {
     font-size: 14px; /* Ajusta o tamanho da fonte do título */
   }
-
-
 
   .close-modal-ortognatica {
     font-size: 14px; /* Ajusta o tamanho do ícone de fechar */
