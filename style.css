@@ -1628,7 +1628,7 @@ button .fa-caret-down,
     flex-direction: column; /* Alinhamento vertical */
   }
   .menu.active {
-    background-color: #1e90ff; /* Branco com tom de cinza bem claro */
+    background-color: #4a8fd2; /* Branco com tom de cinza bem claro */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra preta clara */
     display: flex; /* Mostrar quando ativo */
     z-index: 2;
