@@ -1438,6 +1438,14 @@ button .fa-caret-down,
     margin-bottom: 20px;
   }
 
+  .map-section {
+    padding: 1rem;
+    background-color: #eaeaeab7;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+
   body.modal-open {
     overflow: hidden;
   }
@@ -1877,7 +1885,7 @@ button .fa-caret-down,
 
   .map-box,
   .map-image {
-    width: 100%; /* Ajusta para 100% da largura no mobile */
+    width: 70%; /* Ajusta para 100% da largura no mobile */
     height: auto; /* Altura automática para manter a proporção */
   }
 
