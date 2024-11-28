@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Corrigido o valor do box-sizing */
+  outline: 0;
+}
+
+/* Cabeçalho fixo */
+.header-logo {
+  position: fixed; /* Fixa o header-logo no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Fundo translúcido */
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000; /* Mantém o cabeçalho acima do conteúdo */
+  padding: 0 20px;
+}
+
+/* Ajustando o logo */
+.header-logo img {
+  position: relative; /* Ajuste para manter o logo no lugar correto */
+  font-weight: 900;
+  width: 180px; /* Ajuste no tamanho da logo para melhorar a proporção */
+  height: auto;
+}
+
+/* Menu de navegação */
+.menu {
+  justify-content: end;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-links {
+  display: flex;
+  list-style: none;
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.menu-link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s; /* Transição suave para hover */
+  position: relative;
+}
+
+.menu-link::before {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* A linha fica logo abaixo do texto */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Altura da linha */
+  background-color: #ffffff; /* Cor da linha */
+  transform: scaleX(0); /* Inicialmente, a linha está invisível */
+  transform-origin: right; /* Origem da transformação */
+  transition: transform 0.3s ease-in-out; /* Transição suave */
+}
+
+.menu-link:hover::before {
+  transform: scaleX(1); /* Aumenta a largura da linha ao passar o mouse */
+  transform-origin: left; /* Animação a partir da esquerda */
+}
+
+.menu-link:hover {
+  color: #ffffff; /* Cor ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+/* Espaçamento da seção hero para não ser sobreposto pelo header */
+.hero {
+  margin-top: 150px; /* Espaço suficiente para não ser sobreposto pelo header fixo */
+}

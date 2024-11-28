@@ -44,6 +44,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="carrossel.css" />
     <title>DR Otávio | Cirurgião Dentista</title>
   </head>
   <body>
@@ -51,160 +53,162 @@
 
     <header class="image-home">
       <div>
-        <nav class="header-content container">
-          <!-- Ícones de redes sociais -->
-          <div class="header-icons">
-            <a href="https://www.instagram.com/dr.otaviopelucio/" target="_blank">
-              <i class="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Otávio!" target="_blank">
-              <i class="fab fa-whatsapp fa-2x"></i>
-            </a>
-            <a href="tel:+5516982024249">
-              <i class="fas fa-phone fa-2x"></i>
-            </a>
-          </div>
-    
-          <!-- Ícone de menu sanduíche, visível apenas no mobile -->
-          <div class="menu-icon">
-            <i class="fas fa-bars fa-2x"></i>
-          </div>
-    
-          <!-- Menu de navegação -->
-          <div class="menu">
-            <a href="index.html" class="menu-link">Home</a>
-            <a href="#especialidades" class="menu-link">Especialidades</a>
-            <a href="#" id="open-sobre" class="menu-link" >Sobre</a> 
-            <a href="#minhaEquipe" class="menu-link">Equipe</a>
-            <a href="#contato" class="menu-link">Contato</a>
-          </div>
-        </nav>
-    
         <!-- Logo -->
         <div class="header-logo">
           <img src="assets/logoSemFundo.png" alt="Logo Dr. Otávio" />
+
+          <nav class="header-content container">
+            <!-- Menu de navegação -->
+            <div class="menu">
+              <ul class="menu-links">
+                <li>
+                  <a href="#home" id="home-link" class="menu-link">Home</a>
+                </li>
+                <li>
+                  <a href="#especialidades" class="menu-link">Especialidades</a>
+                </li>
+                <li>
+                  <a href="#" id="open-sobre" class="menu-link">Sobre mim</a>
+                </li>
+                <li><a href="#minhaEquipe" class="menu-link">Equipe</a></li>
+                <li><a href="#contato" class="menu-link">Contato</a></li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </div>
-    
-      <!-- Seção hero -->
-      <div class="hero">
-        <div class="title-subtitle">
-          <h1>Excelência em Cirurgia Ortognática</h1>
-          <p>Transformando Sorrisos, Mudando Vidas e Realizando Sonhos</p>
+
+        <!-- Seção hero -->
+        <div class="hero">
+          <div class="title-subtitle">
+            <h1>Excelência em Cirurgia Ortognática</h1>
+            <p>Transformando Sorrisos, Mudando Vidas e Realizando Sonhos</p>
+          </div>
+          <a
+            href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Otávio!"
+            target="_blank"
+            class="button-contact"
+          >
+            AGENDE UMA CONSULTA
+          </a>
         </div>
-        <a href="https://api.whatsapp.com/send?phone=5516982024249&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Otávio!" target="_blank" class="button-contact">
-          AGENDE UMA CONSULTA
-        </a>
       </div>
     </header>
-    
+
     <div id="sobre-detalhes" class="modal-content img-modal-sobre oculto">
       <span class="close-button fechar-modal-sobre">&times;</span>
       <div class="modal-body">
-        <img src="./assets/GZCT9528.JPG" alt="Sobre Dr. Otávio" class="sobre-img">
+        <img
+          src="./assets/GZCT9528.JPG"
+          alt="Sobre Dr. Otávio"
+          class="sobre-img"
+        />
         <div class="modal-text">
           <h2>Dr. Otávio</h2>
           <h5>MINHA HISTÓRIA</h5>
           <p>
-            Otávio, mineiro de São Sebastião do Paraíso, atuando há 7 anos em Ribeirão Preto, 
-            cidade que me acolheu e que não troco mais! <br>
-            Formado em Odontologia pela Unesp de Araraquara, 
-            com residência em Cirurgia Bucomaxilofacial pela Santa Casa de Valinhos. <br>
-            Hoje sou muito realizado profissionalmente, por atuar em uma especialidade linda, 
-            que me permite atender tanto a nível hospitalar, onde realizo cirurgias em centro cirúrgico, 
-            quanto a nível ambulatorial, onde realizo cirurgias e tratamentos clínicos em consultório. <br>
-            Encontrei minha paixão na cirurgia Ortognática, 
-            pois a transformação que ela realiza na vida dos meu queridos pacientes é a minha maior motivação!
+            Otávio, mineiro de São Sebastião do Paraíso, atuando há 7 anos em
+            Ribeirão Preto, cidade que me acolheu e que não troco mais! <br />
+            Formado em Odontologia pela Unesp de Araraquara, com residência em
+            Cirurgia Bucomaxilofacial pela Santa Casa de Valinhos. <br />
+            Hoje sou muito realizado profissionalmente, por atuar em uma
+            especialidade linda, que me permite atender tanto a nível
+            hospitalar, onde realizo cirurgias em centro cirúrgico, quanto a
+            nível ambulatorial, onde realizo cirurgias e tratamentos clínicos em
+            consultório. <br />
+            Encontrei minha paixão na cirurgia Ortognática, pois a transformação
+            que ela realiza na vida dos meu queridos pacientes é a minha maior
+            motivação!
           </p>
         </div>
       </div>
-    </div>  
-    
+    </div>
 
-    <section id="especialidades">
-      <div class="scroll">
-        <div class="images-odonto">
-          <div class="images-odonto-text">
-            CONHEÇA NOSSOS TRATAMENTOS EM DESTAQUES
+    <div>
+      <section>
+        <div class="scroll">
+          <div class="carousel-container">
+            <!-- Setas para Navegação -->
+            <button class="carousel-arrow left-arrow" id="prevBtn">
+              &#8249;
+            </button>
+
+            <!-- Container Principal das Imagens -->
+            <div class="carousel-slide">
+              <div class="carousel-images">
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drOtavio1.png"
+                    alt="Dr. Otávio | Ortognática"
+                    title="Dr. Otávio | O que é Ortognática"
+                  />
+                </div>
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drAndreSampaio.png"
+                    alt="Dr. André Sampaio"
+                    title="Dr. André Sampaio | Formação e Experiência"
+                  />
+                </div>
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drKelly.png"
+                    alt="Dra. Kelly"
+                    title="Dra. Kelly | Formação e Experiência"
+                  />
+                </div>
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drOtavio2.png"
+                    alt="Dr. Otávio | Segunda Imagem"
+                    title="Dr. Otávio | Formação e Experiência"
+                  />
+                </div>
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drAndreSampaio2.png"
+                    alt="Dr. André Sampaio Segunda"
+                    title="Dr. André Sampaio | Segunda Imagem"
+                  />
+                </div>
+                <div class="scroll-container-img">
+                  <img
+                    src="assets/drKelly2.png"
+                    alt="Dra. Kelly Segunda"
+                    title="Dra. Kelly | Segunda Imagem"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-arrow right-arrow" id="nextBtn">
+              &#8250;
+            </button>
+
+            <!-- Miniaturas das Imagens -->
+            <div class="carousel-thumbnails">
+              <img
+                src="assets/drOtavio1.png"
+                alt="Miniatura Dr. Otávio"
+                data-index="0"
+                class="thumbnail"
+              />
+              <img
+                src="assets/drAndreSampaio.png"
+                alt="Miniatura Dr. André"
+                data-index="1"
+                class="thumbnail"
+              />
+              <img
+                src="assets/drKelly.png"
+                alt="Miniatura Dra. Kelly"
+                data-index="2"
+                class="thumbnail"
+              />
+            </div>
           </div>
+          <div class="saibaMaisBtn" id="open-modal-ortognatica">Saiba Mais</div>
         </div>
-        <div class="scroll_container">
-          <!-- img 1 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/OtavioExplicandoOrtognatica.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-            />
-          </div>
-
-          <!-- img 2 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/OtavioEspecialidade1.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-            />
-          </div>
-
-          <!-- img 3 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/OtavioEspecialidade2.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-            />
-          </div>
-
-          <!-- img 4 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/OtavioEspecialidade3.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-            />
-          </div>
-
-          <!-- img 5 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/SintomasDTM.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-            />
-          </div>
-        </div>
-      </div>
-      <div id="overlay" class="overlay"></div>
-    </section>
-
-    <section>
-      <div class="scroll">
-        <div class="images-odonto-text">
-          SAIBA QUANDO A CIRURGIA ORTOGNÁTICA DEVE SER REALIZADA
-        </div>
-        <div class="scroll_container">
-          <!-- img 1 -->
-          <div class="scroll-container-img-sintomas">
-            <img
-              src="assets/sintomasOrtognatica2.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-              class="responsive-img"
-            />
-          </div>
-          <!-- img 2 -->
-          <div class="scroll-container-img-sintomas">
-            <img
-              src="assets/Ortognatica3.png"
-              alt="Dr. Otávio | Ortognática"
-              title="Dr. Otávio | O que é Ortognática"
-              class="responsive-img"
-            />
-          </div>
-        </div>
-        <div class="saibaMaisBtn" id="open-modal-ortognatica">Saiba Mais</div>
-      </div>
+      </section>
 
       <div id="modal-ortognatica-content" class="modal hide">
         <div class="modal-header">
@@ -230,7 +234,7 @@
       </div>
 
       <div id="fade-ortognatica" class="fade hide"></div>
-    </section>
+    </div>
 
     <section id="minhaEquipe">
       <div class="scroll">
@@ -260,7 +264,7 @@
                   </button>
                 </div>
                 <h4>HISTÓRIA | FORMAÇÃO</h4>
-                <div class="modal-body">                  
+                <div class="modal-body">
                   <p>
                     . Cirurgião Bucomaxilofacial com formação em residência no
                     Hospital Santa Casa de Valinhos.<br />
@@ -304,7 +308,7 @@
                   </button>
                 </div>
                 <h4>HISTÓRIA | FORMAÇÃO</h4>
-                <div class="modal-body">                 
+                <div class="modal-body">
                   <p>
                     Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.<br />
                     Cirurgião com extensa formação em cirurgias faciais, formado
@@ -340,7 +344,7 @@
                   </button>
                 </div>
                 <h4>HISTÓRIA | FORMAÇÃO</h4>
-                <div class="modal-body">                
+                <div class="modal-body">
                   <p>
                     Mestre e especialista em CTBMF. Fellow em Cirurgia
                     Ortognática. Professora de Pós-Graduação em Cirurgia Buco
@@ -363,19 +367,18 @@
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1450.6295547798031!2d-47.80751300000001!3d-21.199652!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bf86f1765b09%3A0xfe39244887f4b688!2sDr.%20Ot%C3%A1vio%20Pelucio%2C%20Cirurgi%C3%A3o%20buco-maxilo-facial!5e1!3m2!1spt-BR!2sbr!4v1727465163556!5m2!1spt-BR!2sbr"
             width="600"
             height="450"
-            style="border:0;"
+            style="border: 0"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
         </div>
         <div class="map-image">
           <img src="assets/trioOffice.png" alt="Trio Office" />
         </div>
       </div>
     </aside>
-      
 
     <footer class="footer" id="contato">
       <div class="footer-content">

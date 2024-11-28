@@ -29,40 +29,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Cabeçalho e ícones */
-header {
-  width: 100%;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-}
-
-.header-icons {
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.header-icons a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.header-icons i {
-  padding: 5px;
-  font-size: 30px;
-}
-
-.header-icons a:hover i {
-  animation: translateYIcon 0.6s infinite alternate;
-  color: #fff;
-}
-
 button:hover {
   opacity: 1;
 }
@@ -168,63 +134,6 @@ p {
   font-size: 10pt;
 }
 
-.menu-icon {
-  display: none;
-}
-
-.menu {
-  position: relative;
-  z-index: 10; /* Ajuste conforme necessário */
-}
-
-.menu .menu-link {
-  padding: 10px;
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase; /* Adicione esta linha */
-}
-
-.menu-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 18px; /* Tamanho do texto */
-  transition: transform 0.3s, color 0.3s; /* Transições para transformação e cor */
-  padding: 8px 12px; /* Espaçamento interno */
-  position: relative; /* Permite animação baseada na posição */
-  letter-spacing: 5px;
-}
-
-.menu-link::before {
-  content: "";
-  position: absolute;
-  bottom: -2px; /* A linha fica logo abaixo do texto */
-  left: 0;
-  width: 100%;
-  height: 2px; /* Altura da linha */
-  background-color: #fff; /* Cor da linha */
-  transform: scaleX(0); /* Inicialmente, a linha está invisível */
-  transform-origin: right; /* Origem da transformação */
-  transition: transform 0.3s ease-in-out; /* Transição suave */
-}
-
-.menu-link:hover::before {
-  transform: scaleX(1.015); /* Aumenta a largura da linha ao passar o mouse */
-  transform-origin: left; /* Animação a partir da esquerda */
-}
-
-.menu-link:hover {
-  color: #fff; /* Altera a cor do texto ao passar o mouse */
-  font-size: 20px;
-}
-
-/* Estilizando especificamente o link 'Serviços' */
-.menu-link.servicos {
-  font-size: 12px; /* Tamanho menor para 'Serviços' */
-  margin-left: auto; /* Alinha à direita */
-  margin-right: auto; /* Alinha à esquerda */
-}
-
 .img-equipe {
   display: flex;
   justify-content: center;
@@ -283,35 +192,6 @@ p {
   font-size: 24px;
   font-weight: 400;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra do texto */
-}
-
-.header-button {
-  border: 1px solid #ffffff;
-  padding: 8px 24px;
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: transparent;
-  transition: background-color 0.6s;
-}
-
-.header-button:hover {
-  border: 1px solid #2e8b57;
-  background-color: #2e8b57;
-}
-
-.header-logo {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-}
-
-.header-logo img {
-  font-weight: 900;
-  width: 420px;
-  height: auto;
-  padding: 0px 0 20px 0px;
 }
 
 /* Configurações da imagem de fundo */
@@ -377,7 +257,8 @@ p {
 }
 
 .scroll {
-  background: linear-gradient(to bottom, rgba(6, 10, 10, 0.3), #0f1e2e);
+  background: linear-gradient(to bottom, rgba(200, 200, 200, 0.8), #4d4d4d);
+
   overflow: hidden;
   padding: 15px 0;
   position: relative;
@@ -1631,45 +1512,25 @@ button .fa-caret-down,
   .menu-icon {
     display: block; /* Exibir no modo móvel */
   }
-  .menu {
-    display: none; /* Ocultar o menu por padrão */
-    flex-direction: column; /* Alinhamento vertical */
-  }
-  .menu.active {
-    background-color: #4a8fd2; /* Branco com tom de cinza bem claro */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra preta clara */
-    display: flex; /* Mostrar quando ativo */
-    z-index: 2;
-    border-radius: 10px;
-  }
-
-  .menu-icon i {
-    color: rgba(204, 204, 204, 0.801);
-  }
-  .menu-link {
-    padding: 10px 0;
-    font-size: 18px;
-  }
-
-  .menu .menu-link {
-    font-size: 15px;
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
     padding: 10px;
-    color: #fff;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Sombra preta clara */
+    gap: 10px;
   }
 
-  .menu-visible {
-    display: flex;
+  .menu-icon {
+    display: block;
   }
 
-  .menu-open .menu {
-    margin-top: 10px;
-    margin-right: 0px;
-    padding: 20px;
+  .menu-icon.active + .menu-links,
+  .menu-links.active {
     display: flex;
-    background-color: #1e3a8a; /* Azul escuro */
   }
 
   .header-icons {

@@ -1,0 +1,86 @@
+/* Estilos Gerais do Carrossel */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: 50px auto; /* Ajuste de margem para melhorar o espaço */
+  overflow: hidden;
+  border-radius: 15px; /* Bordas arredondadas para suavizar o visual */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel-images {
+  display: flex;
+  width: calc(
+    100% * 2
+  ); /* Duas vezes a largura para rolar 6 imagens, 3 por vez */
+}
+
+.scroll-container-img {
+  min-width: calc(100% / 3); /* Mostra 3 imagens por vez */
+  transition: transform 0.5s ease-in-out;
+  padding: 10px; /* Espaço entre as imagens */
+}
+
+.scroll-container-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Estilos das Setas de Navegação */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+  left: 15px;
+}
+
+.right-arrow {
+  right: 15px;
+}
+
+/* Miniaturas */
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, border 0.3s;
+  border-radius: 5px;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumbnail.active {
+  border: 2px solid #2e8b57;
+  opacity: 1;
+}
