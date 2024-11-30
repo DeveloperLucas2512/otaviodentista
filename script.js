@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // CARROSSEL
   const slideContainer = document.querySelector(".carousel-images");
   const images = document.querySelectorAll(".scroll-container-img");
   const prevBtn = document.getElementById("prevBtn");

@@ -258,16 +258,13 @@ p {
 
 .scroll {
   background: linear-gradient(to bottom, rgba(200, 200, 200, 0.8), #4d4d4d);
-
   overflow: hidden;
   padding: 15px 0;
   position: relative;
-  padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
 }
 
 .scroll_container {
