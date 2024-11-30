@@ -2,7 +2,6 @@
 .carousel-container {
   position: relative;
   width: 80%;
-  margin: 50px auto;
   overflow: hidden;
 }
 
@@ -30,26 +29,22 @@
 /* Estilos das Setas de Navegação */
 .carousel-arrow {
   position: absolute;
-  top: 50%;
+  top: 96%;
   transform: translateY(-50%);
   background: transparent; /* Sem fundo */
   border: none;
   color: black; /* Cor da seta */
-  font-size: 3rem; /* Aumenta o tamanho da seta */
+  font-size: 2.5rem; /* Aumenta o tamanho da seta */
   cursor: pointer;
   z-index: 1000;
 }
 
 .left-arrow {
-  left: 10px; /* Posiciona a seta da esquerda fora da imagem */
+  left: 4px; /* Posiciona a seta da esquerda fora da imagem */
 }
 
 .right-arrow {
-  right: 10px; /* Posiciona a seta da direita fora da imagem */
-}
-
-.carousel-arrow:hover {
-  color: #2e8b57; /* Cor ao passar o mouse */
+  right: 4px; /* Posiciona a seta da direita fora da imagem */
 }
 
 /* Miniaturas */
@@ -65,12 +60,45 @@
   height: auto;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.3s, border 0.3s;
   border-radius: 5px;
 }
 
-.thumbnail:hover,
-.thumbnail.active {
-  opacity: 1;
-  border: 2px solid #2e8b57;
+@media screen and (max-width: 768px) {
+  .scroll-container-img {
+    min-width: calc(100% / 1);
+    transition: transform 0.5s ease-in-out;
+    padding: 10px;
+  }
+
+  /* Ajustes para Mobile */
+  .content-cards {
+    font-size: 0.8rem;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px; /* Bordas arredondadas para suavizar o visual */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+  }
+
+  .text-card p {
+    font-size: 0.8rem; /* Diminui o tamanho da fonte para mobile */
+    line-height: 1.2; /* Aumenta um pouco o espaçamento entre linhas para melhorar a leitura */
+    color: #444; /* Um tom de cinza para melhorar o contraste */
+  }
+
+  .title-card {
+    font-size: 1rem; /* Tamanho um pouco maior do que o texto para dar destaque */
+    font-weight: bold; /* Negrito para destacar o título */
+    margin-bottom: 5px; /* Margem abaixo para separar o título do texto */
+    color: #222; /* Cor mais escura para o título */
+  }
+
+  /* Ajustes de espaçamento para garantir que o texto se adapte ao mobile */
+  .scroll-container-img {
+    margin-bottom: 15px; /* Adiciona margem inferior para espaçamento adequado */
+  }
+
+  .scroll-container-img img {
+    width: 100%;
+    border-radius: 10px; /* Mantém as bordas arredondadas na imagem */
+  }
 }
