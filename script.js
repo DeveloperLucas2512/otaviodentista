@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // MENU MOBILE
-  const menuIcon = document.querySelector(".mobile-menu-icon");
+  const menuIcon = document.querySelector(".menu-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
 
   // Abre/Fecha o Menu Mobile ao clicar no ícone do menu
   if (menuIcon && mobileMenu) {
     menuIcon.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("active");
     });
 
     // Fechar o menu ao clicar fora do menu e do ícone
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         !mobileMenu.contains(event.target) &&
         !menuIcon.contains(event.target)
       ) {
-        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("active");
       }
     });
   }

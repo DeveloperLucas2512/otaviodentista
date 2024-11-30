@@ -63,59 +63,36 @@
   font-size: 2rem;
 }
 
-/* Menu Mobile */
+/* Links do Menu Mobile */
 .mobile-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 70%;
+  width: 60%;
   height: 100%;
   background: rgba(0, 0, 0, 0.95);
   display: none;
   flex-direction: column;
-  align-items: center;
-  padding: 100px 20px;
+  align-items: flex-start;
+  padding: 50px 20px;
   z-index: 1001;
 }
 
-/* Links do Menu Mobile */
 .mobile-menu-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  width: 100%;
 }
 
 .mobile-menu-links li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 1.5rem;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .menu {
-    display: none; /* Esconde o menu de navegação desktop no mobile */
-  }
-
-  .menu-icon {
-    display: block;
-    font-size: 1.8rem;
-  }
-
-  .header-logo {
-    height: 60px;
-    padding: 5px 15px;
-  }
-
-  .header-logo img {
-    width: 281px;
-    height: auto;
-    margin: 5px;
-  }
+  font-size: 1.2rem;
 }
 
 /* Animação de entrada do menu mobile */
@@ -135,5 +112,32 @@
 
 /* Espaçamento da seção hero para não ser sobreposto pelo header */
 .hero {
-  margin-top: 120px; /* Espaço suficiente para não ser sobreposto pelo header fixo */
+  margin-top: 100px; /* Espaço suficiente para não ser sobreposto pelo header fixo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* Esconde o menu de navegação desktop no mobile */
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.8rem;
+  }
+
+  .header-logo {
+    height: 60px;
+    padding: 5px 15px;
+  }
+
+  .header-logo img {
+    width: 280px;
+    height: auto;
+    margin: 5px;
+  }
+
+  .mobile-menu {
+    padding-top: 50px; /* Reduz a altura do padding para subir os itens */
+  }
 }
