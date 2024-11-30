@@ -2,9 +2,8 @@
 .carousel-container {
   position: relative;
   width: 80%;
-  margin: 50px auto; /* Ajuste de margem para melhorar o espaço */
+  margin: 50px auto;
   overflow: hidden;
-  border-radius: 15px; /* Bordas arredondadas para suavizar o visual */
 }
 
 .carousel-slide {
@@ -14,15 +13,12 @@
 
 .carousel-images {
   display: flex;
-  width: calc(
-    100% * 2
-  ); /* Duas vezes a largura para rolar 6 imagens, 3 por vez */
 }
 
 .scroll-container-img {
-  min-width: calc(100% / 3); /* Mostra 3 imagens por vez */
+  min-width: calc(100% / 3);
   transition: transform 0.5s ease-in-out;
-  padding: 10px; /* Espaço entre as imagens */
+  padding: 10px;
 }
 
 .scroll-container-img img {
@@ -36,27 +32,24 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent; /* Sem fundo */
   border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 5px 15px;
+  color: black; /* Cor da seta */
+  font-size: 3rem; /* Aumenta o tamanho da seta */
   cursor: pointer;
   z-index: 1000;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.carousel-arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
 }
 
 .left-arrow {
-  left: 15px;
+  left: 10px; /* Posiciona a seta da esquerda fora da imagem */
 }
 
 .right-arrow {
-  right: 15px;
+  right: 10px; /* Posiciona a seta da direita fora da imagem */
+}
+
+.carousel-arrow:hover {
+  color: #2e8b57; /* Cor ao passar o mouse */
 }
 
 /* Miniaturas */
@@ -68,19 +61,16 @@
 }
 
 .thumbnail {
-  width: 80px;
-  height: 50px;
+  width: 60px;
+  height: auto;
   cursor: pointer;
   opacity: 0.7;
   transition: opacity 0.3s, border 0.3s;
   border-radius: 5px;
 }
 
-.thumbnail:hover {
-  opacity: 1;
-}
-
+.thumbnail:hover,
 .thumbnail.active {
-  border: 2px solid #2e8b57;
   opacity: 1;
+  border: 2px solid #2e8b57;
 }

@@ -96,10 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fechar modal "Sobre" ao clicar fora do conteúdo da modal
     window.addEventListener("click", function (event) {
       if (
-        modalSobre.classList.contains("visivel") &&
-        !modalSobre.contains(event.target) &&
-        !event.target.classList.contains("menu-link") && // evita fechar se clicar no link que abre a modal
-        event.target !== modalSobre
+        modalSobre.classList.contains("visivel") && // Se a modal estiver visível
+        !modalSobre.contains(event.target) && // Se o clique não for dentro da modal
+        !event.target.closest("#open-sobre") && // Evitar fechar se clicar no link que abre a modal
+        !event.target.classList.contains("fechar-modal-sobre") // Evitar fechar se clicar no botão de fechar
       ) {
         modalSobre.classList.remove("visivel");
         modalSobre.classList.add("oculto");
@@ -108,24 +108,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // CARROSSEL
-  const slideContainer = document.querySelector(".carousel-slide");
+  const slideContainer = document.querySelector(".carousel-images");
   const images = document.querySelectorAll(".scroll-container-img");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const thumbnails = document.querySelectorAll(".thumbnail");
+
   let currentIndex = 0;
   const totalImages = images.length;
   const imagesPerView = 3;
 
-  // Atualiza a posição do carrossel
+  // Função para atualizar o carrossel
   function updateCarousel() {
     slideContainer.style.transform = `translateX(${
-      -currentIndex * (100 / imagesPerView)
+      -(currentIndex * 100) / imagesPerView
     }%)`;
 
+    // Atualiza o estado das miniaturas
     thumbnails.forEach((thumbnail, index) => {
-      if (index >= currentIndex && index < currentIndex + imagesPerView) {
+      if (index === currentIndex % totalImages) {
         thumbnail.classList.add("active");
       } else {
         thumbnail.classList.remove("active");
@@ -136,32 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para o botão "Próximo"
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + imagesPerView) % totalImages;
+      currentIndex = (currentIndex + 1) % totalImages;
       updateCarousel();
-    });
-  }
-
-  // Evento de clique para o link "Home"
-  const clickHome = document.getElementById("home-link");
-  if (clickHome) {
-    clickHome.addEventListener("click", function () {
-      // Move o scroll para o topo de forma suave
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
-      // Após uma pequena pausa, recarrega a página
-      setTimeout(() => {
-        window.location.reload();
-      }, 30); // Tempo de 30ms para garantir que o scroll seja processado
     });
   }
 
   // Evento para o botão "Anterior"
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - imagesPerView + totalImages) % totalImages;
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
       updateCarousel();
     });
   }
@@ -169,11 +153,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para clicar nas miniaturas
   thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener("click", () => {
-      currentIndex = index - (index % imagesPerView);
+      currentIndex = index;
       updateCarousel();
     });
   });
 
-  // Inicializa o carrossel com os primeiros slides ativos
+  // Inicializa o carrossel na posição correta
   updateCarousel();
 });
