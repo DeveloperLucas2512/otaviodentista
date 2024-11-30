@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // MENU MOBILE
   const menuIcon = document.querySelector(".menu-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-menu-links a");
 
   // Abre/Fecha o Menu Mobile ao clicar no ícone do menu
   if (menuIcon && mobileMenu) {
@@ -17,6 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
       ) {
         mobileMenu.classList.remove("active");
       }
+    });
+
+    // Fechar menu ao clicar em qualquer link dentro do menu mobile
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
     });
   }
 
@@ -54,17 +62,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // MODAL SOBRE
-  const openButtonSobre = document.getElementById("open-sobre");
+  const openButtonSobre = document.querySelectorAll("#open-sobre");
   const modalSobre = document.getElementById("sobre-detalhes");
   const closeButtonSobre = document.querySelector(".fechar-modal-sobre");
 
-  if (openButtonSobre && modalSobre) {
-    openButtonSobre.addEventListener("click", function () {
-      modalSobre.classList.remove("oculto");
-      modalSobre.classList.add("visivel");
-      document.body.classList.add("modal-open"); // Evita scroll da página
+  if (openButtonSobre.length > 0 && modalSobre) {
+    // Adiciona evento para cada botão "Sobre Mim" tanto do desktop quanto do mobile
+    openButtonSobre.forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault(); // Previne comportamento padrão do link
+
+        // Fecha o menu mobile, se estiver ativo
+        if (mobileMenu.classList.contains("active")) {
+          mobileMenu.classList.remove("active");
+        }
+
+        // Abre a modal
+        modalSobre.classList.remove("oculto");
+        modalSobre.classList.add("visivel");
+        document.body.classList.add("modal-open"); // Evita scroll da página
+      });
     });
 
+    // Fecha a modal "Sobre Mim"
     if (closeButtonSobre) {
       closeButtonSobre.addEventListener("click", function () {
         modalSobre.classList.remove("visivel");
