@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Fecha a modal "Sobre Mim"
+    // Fecha a modal "Sobre Mim" pelo botão de fechar
     if (closeButtonSobre) {
       closeButtonSobre.addEventListener("click", function () {
         modalSobre.classList.remove("visivel");
@@ -95,7 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fechar modal "Sobre" ao clicar fora do conteúdo da modal
     window.addEventListener("click", function (event) {
-      if (event.target === modalSobre) {
+      if (
+        modalSobre.classList.contains("visivel") &&
+        !modalSobre.contains(event.target) &&
+        !event.target.classList.contains("menu-link") && // evita fechar se clicar no link que abre a modal
+        event.target !== modalSobre
+      ) {
         modalSobre.classList.remove("visivel");
         modalSobre.classList.add("oculto");
         document.body.classList.remove("modal-open");
@@ -137,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Evento de clique para o link "Home"
+  const clickHome = document.getElementById("home-link");
   if (clickHome) {
     clickHome.addEventListener("click", function () {
       // Move o scroll para o topo de forma suave
