@@ -136,6 +136,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Evento de clique para o link "Home"
+  if (clickHome) {
+    clickHome.addEventListener("click", function () {
+      // Move o scroll para o topo de forma suave
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      // Após uma pequena pausa, recarrega a página
+      setTimeout(() => {
+        window.location.reload();
+      }, 30); // Tempo de 30ms para garantir que o scroll seja processado
+    });
+  }
+
   // Evento para o botão "Anterior"
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
