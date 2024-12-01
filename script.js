@@ -108,57 +108,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // CARROSSEL
-  const slideContainer = document.querySelector(".carousel-images");
-  const images = document.querySelectorAll(".scroll-container-img");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const thumbnails = document.querySelectorAll(".thumbnail");
+  let count = 1;
 
-  let currentIndex = 0;
-  const totalImages = images.length;
-  const imagesPerView = 3;
+  document.getElementById("radio1").checked = true;
 
-  // Função para atualizar o carrossel
-  function updateCarousel() {
-    slideContainer.style.transform = `translateX(${
-      -(currentIndex * 100) / imagesPerView
-    }%)`;
+  setInterval(function () {
+    nextImage();
+  }, 2000);
 
-    // Atualiza o estado das miniaturas
-    thumbnails.forEach((thumbnail, index) => {
-      if (index === currentIndex % totalImages) {
-        thumbnail.classList.add("active");
-      } else {
-        thumbnail.classList.remove("active");
-      }
-    });
+  function nextImage() {
+    count++;
+    if (count > 5) {
+      count = 1;
+    }
+
+    document.getElementById("radio" + count).checked = true;
   }
-
-  // Evento para o botão "Próximo"
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % totalImages;
-      updateCarousel();
-    });
-  }
-
-  // Evento para o botão "Anterior"
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-      updateCarousel();
-    });
-  }
-
-  // Evento para clicar nas miniaturas
-  thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener("click", () => {
-      currentIndex = index;
-      updateCarousel();
-    });
-  });
-
-  // Inicializa o carrossel na posição correta
-  updateCarousel();
 });
