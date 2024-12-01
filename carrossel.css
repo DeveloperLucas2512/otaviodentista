@@ -46,8 +46,10 @@
 }
 
 .manual-navigation {
+  width: 100%;
+  align-items: center;
   position: absolute;
-  width: 800px;
+  max-width: 800px;
   margin-top: -40px;
   display: flex;
   justify-content: center;
