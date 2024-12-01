@@ -108,20 +108,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  let count = 1;
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+  const totalSlides = slides.length;
+  const manualButtons = document.querySelectorAll(".manual-btn");
 
-  document.getElementById("radio1").checked = true;
-
-  setInterval(function () {
-    nextImage();
-  }, 2000);
-
-  function nextImage() {
-    count++;
-    if (count > 5) {
-      count = 1;
+  // Função para mostrar o slide atual
+  function showSlide(index) {
+    if (index >= totalSlides) {
+      currentSlide = 0; // Volta ao primeiro slide se passar do último
+    } else if (index < 0) {
+      currentSlide = totalSlides - 1; // Vai para o último slide se estiver antes do primeiro
+    } else {
+      currentSlide = index;
     }
 
-    document.getElementById("radio" + count).checked = true;
+    const slidesContainer = document.querySelector(".slides");
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // Atualiza o botão de navegação manual ativo
+    manualButtons.forEach((btn, idx) => {
+      if (idx === currentSlide) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
   }
+
+  // Setas de navegação
+  document.querySelector(".next").addEventListener("click", function () {
+    showSlide(currentSlide + 1);
+  });
+
+  document.querySelector(".prev").addEventListener("click", function () {
+    showSlide(currentSlide - 1);
+  });
+
+  // Botões de navegação manual
+  manualButtons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      showSlide(index);
+    });
+  });
+
+  // Inicializar com o primeiro slide
+  showSlide(currentSlide);
 });
