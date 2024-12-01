@@ -37,11 +37,10 @@
   color: #121212; /* Cor da seta em preto */
   border: none;
   background-color: transparent; /* Sem fundo ao redor das setas */
-  padding: 20px;
+  padding: 10px; /* Menos padding para focar mais na seta */
   cursor: pointer;
   z-index: 1000;
-  font-size: 36px;
-  border-radius: 50%;
+  font-size: 50px; /* Tamanho maior da seta para visibilidade */
   transition: transform 0.3s;
 }
 
@@ -51,6 +50,13 @@
 
 .next {
   right: 10px;
+}
+
+/* Estilo dos Ícones das Setas */
+.prev i,
+.next i {
+  font-size: 50px; /* Aumentando o tamanho da seta */
+  color: #121212; /* Setando a cor preta diretamente no ícone */
 }
 
 /* Navegação Manual (os botões abaixo do slide) */
@@ -91,12 +97,16 @@
 
   .prev,
   .next {
-    font-size: 45px;
+    font-size: 55px; /* Aumentar tamanho da seta para dispositivos móveis */
     padding: 15px;
   }
 
   .manual-navigation {
     bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: max-content;
+    padding: 15px;
+    border-radius: 15px;
   }
 
   .manual-btn {
