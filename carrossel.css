@@ -90,34 +90,6 @@
   background-color: #fff;
 }
 
-/* Estilo para os ícones sociais no menu */
-.menu-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px; /* Espaçamento entre os ícones */
-  padding: 10px 0;
-  list-style: none;
-}
-
-.menu-icons a {
-  color: #fff; /* Define a cor dos ícones para branco */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.menu-icons a:hover {
-  transform: scale(1.2); /* Aumenta ligeiramente o tamanho ao passar o mouse */
-  color: #1e90ff; /* Troca a cor dos ícones ao passar o mouse */
-}
-
-.menu-icons i {
-  font-size: 24px; /* Define o tamanho dos ícones */
-}
-
-/* Por padrão, esconde os ícones no desktop */
-.social-icons-mobile {
-  display: none;
-}
-
 /* Responsividade para Dispositivos Móveis */
 @media screen and (max-width: 768px) {
   .slider {
@@ -155,9 +127,5 @@
   .manual-btn {
     width: 10px;
     height: 10px;
-  }
-
-  .social-icons-mobile {
-    display: flex;
   }
 }
