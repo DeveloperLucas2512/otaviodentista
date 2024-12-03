@@ -28,63 +28,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // MODAL ORTOGNATICA
-  const openModalOrtognaticaButton = document.querySelector(
-    "#open-modal-ortognatica"
-  );
-  const modalOrtognatica = document.querySelector("#modal-ortognatica-content");
-  const fade = document.querySelector("#fade-ortognatica");
-
-  // Função para abrir e fechar a modal
-  const toggleModal = (modal, fade) => {
-    if (modal) {
-      modal.classList.toggle("hide");
-      fade.classList.toggle("hide");
-    }
-  };
-
-  // Evento para abrir/fechar a modal Ortognatica
-  if (openModalOrtognaticaButton && modalOrtognatica && fade) {
-    openModalOrtognaticaButton.addEventListener("click", () =>
-      toggleModal(modalOrtognatica, fade)
-    );
-
-    fade.addEventListener("click", () => toggleModal(modalOrtognatica, fade));
-
-    const closeModalButtons = document.querySelectorAll(
-      ".close-modal-ortognatica"
-    );
-    closeModalButtons.forEach((button) => {
-      button.addEventListener("click", () =>
-        toggleModal(modalOrtognatica, fade)
-      );
-    });
-  }
-
   // MODAL SOBRE
   const openButtonSobre = document.querySelectorAll("#open-sobre");
   const modalSobre = document.getElementById("sobre-detalhes");
   const closeButtonSobre = document.querySelector(".fechar-modal-sobre");
 
   if (openButtonSobre.length > 0 && modalSobre) {
-    // Adiciona evento para cada botão "Sobre Mim" tanto do desktop quanto do mobile
     openButtonSobre.forEach((button) => {
       button.addEventListener("click", function (event) {
-        event.preventDefault(); // Previne comportamento padrão do link
-
-        // Fecha o menu mobile, se estiver ativo
+        event.preventDefault();
         if (mobileMenu.classList.contains("active")) {
           mobileMenu.classList.remove("active");
         }
-
-        // Abre a modal
         modalSobre.classList.remove("oculto");
         modalSobre.classList.add("visivel");
-        document.body.classList.add("modal-open"); // Evita scroll da página
+        document.body.classList.add("modal-open");
       });
     });
 
-    // Fecha a modal "Sobre Mim" pelo botão de fechar
     if (closeButtonSobre) {
       closeButtonSobre.addEventListener("click", function () {
         modalSobre.classList.remove("visivel");
@@ -93,13 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Fechar modal "Sobre" ao clicar fora do conteúdo da modal
     window.addEventListener("click", function (event) {
       if (
-        modalSobre.classList.contains("visivel") && // Se a modal estiver visível
-        !modalSobre.contains(event.target) && // Se o clique não for dentro da modal
-        !event.target.closest("#open-sobre") && // Evitar fechar se clicar no link que abre a modal
-        !event.target.classList.contains("fechar-modal-sobre") // Evitar fechar se clicar no botão de fechar
+        modalSobre.classList.contains("visivel") &&
+        !modalSobre.contains(event.target) &&
+        !event.target.closest("#open-sobre") &&
+        !event.target.classList.contains("fechar-modal-sobre")
       ) {
         modalSobre.classList.remove("visivel");
         modalSobre.classList.add("oculto");
@@ -115,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Função para mostrar o slide atual
   function showSlide(index) {
+    // Corrige o índice do slide para garantir que ele esteja sempre no intervalo correto
     if (index >= totalSlides) {
       currentSlide = 0; // Volta ao primeiro slide se passar do último
     } else if (index < 0) {
@@ -123,8 +84,11 @@ document.addEventListener("DOMContentLoaded", function () {
       currentSlide = index;
     }
 
-    const slidesContainer = document.querySelector(".slides");
-    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    // Atualiza a posição dos slides
+    const offset = currentSlide * -100;
+    document.querySelector(
+      ".slides"
+    ).style.transform = `translateX(${offset}%)`;
 
     // Atualiza o botão de navegação manual ativo
     manualButtons.forEach((btn, idx) => {
@@ -135,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Inicializar a posição dos slides
+  showSlide(currentSlide);
 
   // Setas de navegação
   document.querySelector(".next").addEventListener("click", function () {
@@ -151,7 +118,4 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide(index);
     });
   });
-
-  // Inicializar com o primeiro slide
-  showSlide(currentSlide);
 });
