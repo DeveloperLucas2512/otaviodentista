@@ -23,10 +23,12 @@
   flex-shrink: 0;
 }
 
+/* Correção para Imagens Responsivas no Carrossel */
 .slide img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: 100%; /* Ocupa toda a largura disponível */
+  height: auto; /* Mantém a proporção e ajusta a altura automaticamente */
+  object-fit: cover; /* Preenche o espaço sem distorções, cortando se necessário */
+  max-height: 380px; /* Garante uma altura máxima apropriada */
 }
 
 /* Setas de Navegação */
