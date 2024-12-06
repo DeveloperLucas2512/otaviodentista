@@ -1208,7 +1208,7 @@ button .fa-caret-down,
 
   .images-odonto-text {
     font-size: 20px;
-    color: #fff;
+    color: #121212;
     font-weight: 700;
   }
 
@@ -1709,10 +1709,12 @@ button .fa-caret-down,
     flex-direction: row;
   }
   .images-odonto-text {
-    font-size: 15px;
-    color: #fff;
+    margin: auto;
+    font-size: 0.9rem;
+    color: #121212;
     font-weight: 700;
     margin-bottom: -20px;
+    white-space: nowrap;
   }
 
   .modal-body p {
