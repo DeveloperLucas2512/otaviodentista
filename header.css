@@ -23,7 +23,8 @@
 
 /* Ajustando o logo */
 .header-logo img {
-  width: 150px;
+  font-weight: 900;
+  width: 165px;
   height: auto;
 }
 
@@ -127,14 +128,17 @@
   }
 
   .header-logo {
+    display: flex;
     height: 60px;
-    padding: 5px 15px;
   }
 
   .header-logo img {
-    width: 280px;
+    display: flex;
+    width: 100%;
+    font-weight: 900;
+    max-width: 270px;
     height: auto;
-    margin: 5px;
+    padding: 0px 0 75px 0px;
   }
 
   .mobile-menu {

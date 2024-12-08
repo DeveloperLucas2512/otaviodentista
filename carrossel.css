@@ -137,18 +137,6 @@
   }
 }
 
-/* Menu Sanduíche Sempre Visível */
-.menu-icon {
-  display: block;
-  position: static;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  color: white;
-  z-index: 2000;
-  cursor: pointer;
-}
-
 /* Menu Mobile e Desktop */
 .mobile-menu {
   position: fixed;

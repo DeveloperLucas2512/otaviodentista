@@ -1485,14 +1485,6 @@ button .fa-caret-down,
     margin: 0 -2.5%;
     padding: 0;
   }
-
-  .header-logo img {
-    font-weight: 900;
-    width: 290px;
-    height: auto;
-    padding: 0px 0 82px 0px;
-  }
-
   .menu {
     display: none;
     flex-direction: column;
@@ -1506,7 +1498,14 @@ button .fa-caret-down,
   }
 
   .menu-icon {
-    display: block; /* Exibir no modo móvel */
+    display: block;
+    position: static;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: white;
+    z-index: 2000;
+    cursor: pointer;
   }
   .menu-links {
     display: none;
