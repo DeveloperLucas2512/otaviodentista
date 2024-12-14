@@ -6,7 +6,8 @@
   max-width: 1200px; /* Maior largura para desktop */
   height: auto;
   overflow: hidden;
-  display: none; /* Ocultar carrossel em telas maiores */
+  display: flex; /* Ocultar carrossel em telas maiores */
+  background-color: #ccc;
 }
 
 /* Slides */
@@ -18,7 +19,7 @@
 
 .slide {
   min-width: 100%;
-  height: 400px;
+  height: auto;
   position: relative;
   flex-shrink: 0;
 }
@@ -57,11 +58,14 @@
 /* Navegação Manual (botões abaixo do slide) */
 .manual-navigation {
   position: absolute;
+  width: 100%;
   bottom: 10px;
-  left: 50%;
   display: flex;
   gap: 10px;
   z-index: 1000;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
 }
 
 .manual-btn {
@@ -81,142 +85,65 @@
 /* Responsividade para Dispositivos Móveis */
 @media screen and (max-width: 768px) {
   .slider {
-    display: block; /* Mostrar carrossel apenas em dispositivos móveis */
-    height: auto;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
   }
 
-  #minhaEspecialidade {
-    display: none; /* Ocultar imagens lado a lado em dispositivos móveis */
+  .slide {
+    min-width: 100%;
+    height: auto;
+    position: relative;
+    flex-shrink: 0;
+    aspect-ratio: 3 / 5;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Ajustado para o número de slides */
   }
 
   .prev,
   .next {
-    font-size: 25px;
+    font-size: xx-large;
     padding: 10px;
   }
 
+  .container-setas {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+
+  .prev,
+  .next {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
   .manual-navigation {
-    bottom: 5px;
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
 
   .manual-btn {
     width: 10px;
     height: 10px;
-  }
-}
-
-/* Exibir imagens lado a lado em Desktop e Tablet */
-@media screen and (min-width: 769px) {
-  #minhaEspecialidade {
-    display: block; /* Mostrar imagens lado a lado apenas em dispositivos maiores */
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
   }
 
-  .slider {
-    display: none; /* Ocultar carrossel em dispositivos maiores */
+  .manual-btn.active {
+    background-color: #333;
   }
-
-  .image-gallery {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .image-gallery .image-item {
-    flex: 1 1 calc(33.33% - 20px); /* Três imagens por linha */
-    max-width: calc(33.33% - 20px);
-  }
-
-  .image-gallery .image-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-}
-
-/* Menu Mobile e Desktop */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 60%;
-  max-width: 300px;
-  height: auto;
-  background: rgba(0, 0, 0, 0.95);
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 80px 20px; /* Espaço para o ícone do menu no topo */
-  z-index: 1500;
-}
-
-.mobile-menu.active {
-  display: flex;
-}
-
-.mobile-menu-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
-.mobile-menu-links li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Ajuste para Desktop - Mantendo o menu sanduíche */
-@media screen and (min-width: 769px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .mobile-menu {
-    width: 30%;
-    max-width: 400px;
-  }
-}
-
-/* Animação de Entrada do Menu Mobile */
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.mobile-menu.active {
-  animation: slideIn 0.3s forwards;
-}
-
-/* Estilo para escurecer o fundo quando o menu está aberto */
-body.menu-open {
-  overflow: hidden;
-}
-
-/* Overlay para fundo escurecido */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: none;
-}
-
-.menu-overlay.active {
-  display: block;
 }

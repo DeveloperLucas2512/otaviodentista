@@ -1183,6 +1183,30 @@ button .fa-caret-down,
   display: block;
 }
 
+.menu-icon {
+  display: block;
+}
+
+.mobile-menu {
+  width: 30%;
+  max-width: 400px;
+}
+
+.social-icons {
+  display: flex; /* Organiza os itens dentro da div horizontalmente */
+  justify-content: space-around; /* Espaça os ícones igualmente */
+  gap: 15px; /* Distância entre os ícones */
+}
+
+.social-icons a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: #fff; /* Mantém a cor branca dos ícones */
+}
+
+.social-icons i {
+  font-size: 24px; /* Ajuste do tamanho do ícone, se necessário */
+}
+
 /* --------------------->> dispositivos Tablet <<------------------------ */
 @media (min-width: 769px) {
   .container {

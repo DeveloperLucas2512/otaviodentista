@@ -73,48 +73,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const totalSlides = slides.length;
   const manualButtons = document.querySelectorAll(".manual-btn");
 
-  // Função para mostrar o slide atual
+  // Configurar largura dinâmica para o contêiner de slides
+  const slidesContainer = document.querySelector(".slides");
+  slidesContainer.style.width = `${100 * totalSlides}%`;
+
+  // Mostrar o slide atual
   function showSlide(index) {
-    // Corrige o índice do slide para garantir que ele esteja sempre no intervalo correto
     if (index >= totalSlides) {
-      currentSlide = 0; // Volta ao primeiro slide se passar do último
+      currentSlide = 0;
     } else if (index < 0) {
-      currentSlide = totalSlides - 1; // Vai para o último slide se estiver antes do primeiro
+      currentSlide = totalSlides - 1;
     } else {
       currentSlide = index;
     }
 
-    // Atualiza a posição dos slides
     const offset = currentSlide * -100;
-    document.querySelector(
-      ".slides"
-    ).style.transform = `translateX(${offset}%)`;
+    slidesContainer.style.transform = `translateX(${offset}%)`;
 
-    // Atualiza o botão de navegação manual ativo
     manualButtons.forEach((btn, idx) => {
-      if (idx === currentSlide) {
-        btn.classList.add("active");
-      } else {
-        btn.classList.remove("active");
-      }
+      btn.classList.toggle("active", idx === currentSlide);
     });
   }
 
-  // Inicializar a posição dos slides
   showSlide(currentSlide);
 
-  // Setas de navegação
-  document.querySelector(".next").addEventListener("click", function () {
+  document.querySelector(".next").addEventListener("click", () => {
     showSlide(currentSlide + 1);
   });
 
-  document.querySelector(".prev").addEventListener("click", function () {
+  document.querySelector(".prev").addEventListener("click", () => {
     showSlide(currentSlide - 1);
   });
 
-  // Botões de navegação manual
   manualButtons.forEach((button, index) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
       showSlide(index);
     });
   });
