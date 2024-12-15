@@ -1,42 +1,74 @@
-/* Atualização do Carrossel Responsivo */
+/* Slider Container */
 .slider {
   position: relative;
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px; /* Maior largura para desktop */
-  height: auto;
+  max-width: 1200px; /* Largura máxima para telas grandes */
+  height: 400px; /* Aumentando a altura para telas maiores */
   overflow: hidden;
-  display: flex; /* Ocultar carrossel em telas maiores */
   background-color: #ccc;
-}
-
-/* Slides */
-.slides {
   display: flex;
+  flex-direction: column; /* Colocando os itens na vertical */
+  align-items: center; /* Centraliza o conteúdo */
+  justify-content: center; /* Centraliza o conteúdo */
+}
+
+/* Slides Container */
+.slides {
+  display: flex; /* Flexbox para alinhar slides horizontalmente */
   transition: transform 0.5s ease-in-out;
-  width: 100%;
+  width: 100%; /* Ajustado dinamicamente no JS */
+  height: 80%; /* Altura ajustada do slider */
 }
 
+/* Cada Slide */
 .slide {
-  min-width: 100%;
-  height: auto;
-  position: relative;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Evitar encolhimento */
+  width: 100%; /* Cada slide ocupa 100% da largura do carrossel */
+  height: 100%; /* Altura total do slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Correção para Imagens Responsivas no Carrossel */
+/* Imagens no Slide */
 .slide img {
-  width: 100%; /* Ocupa toda a largura disponível */
-  height: auto; /* Mantém a proporção e ajusta a altura automaticamente */
-  object-fit: cover; /* Preenche o espaço sem distorções, cortando se necessário */
-  max-height: 380px; /* Garante uma altura máxima apropriada */
+  max-width: 100%; /* Assegura que as imagens não ultrapassem a largura do slide */
+  height: auto; /* Manter proporção da imagem */
+  object-fit: contain; /* Ajuste para garantir que a imagem não seja cortada */
+  display: block;
+}
+
+/* Navegação Manual (botões abaixo do slide) */
+.manual-navigation {
+  position: absolute;
+  width: 100%;
+  bottom: 15px; /* Ajuste alinhamento em relação ao fundo do slide */
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+  justify-content: center;
+}
+
+.manual-btn {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.manual-btn:hover,
+.manual-btn.active {
+  background-color: #fff;
 }
 
 /* Setas de Navegação */
 .prev,
 .next {
   position: absolute;
-  top: 50%;
+  bottom: 10px; /* Alinhado com os botões manuais */
   color: #121212;
   border: none;
   background-color: transparent;
@@ -55,95 +87,63 @@
   right: 15px;
 }
 
-/* Navegação Manual (botões abaixo do slide) */
-.manual-navigation {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
-  justify-content: center;
-  margin: auto;
-  align-items: center;
+/* Botão "Ortognática | Saiba Mais" */
+.container-button {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.manual-btn {
-  width: 12px;
-  height: 12px;
-  border: 2px solid #fff;
-  border-radius: 50%;
+.button-procedimentos {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.manual-btn:hover,
-.manual-btn.active {
-  background-color: #fff;
 }
 
 /* Responsividade para Dispositivos Móveis */
 @media screen and (max-width: 768px) {
   .slider {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
+    height: 250px; /* Reduz a altura para dispositivos móveis */
   }
 
-  .slide {
-    min-width: 100%;
-    height: auto;
-    position: relative;
-    flex-shrink: 0;
-    aspect-ratio: 3 / 5;
-  }
-
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 300%; /* Ajustado para o número de slides */
+  .slide img {
+    max-width: 100%; /* Garantir que as imagens ocupem toda a largura do slide */
+    max-height: 85%; /* Garantir que a imagem não ultrapasse a altura */
   }
 
   .prev,
   .next {
-    font-size: xx-large;
-    padding: 10px;
-  }
-
-  .container-setas {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-
-  .prev,
-  .next {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .manual-navigation {
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    font-size: 24px; /* Tamanho das setas reduzido em dispositivos móveis */
+    bottom: 15px; /* Ajuste no alinhamento das setas */
   }
 
   .manual-btn {
     width: 10px;
     height: 10px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
   }
 
-  .manual-btn.active {
-    background-color: #333;
+  .manual-navigation {
+    bottom: 10px; /* Ajuste a posição dos botões manuais */
+  }
+
+  .button-procedimentos {
+    font-size: 14px; /* Ajustar o tamanho do texto no botão */
+    padding: 8px 16px;
+  }
+}
+
+/* Para telas grandes */
+@media screen and (min-width: 1200px) {
+  .slider {
+    height: 500px; /* Maior altura para telas grandes */
+  }
+
+  .slide img {
+    max-width: 95%; /* Aumentando o tamanho das imagens em telas grandes */
+    max-height: 90%;
   }
 }

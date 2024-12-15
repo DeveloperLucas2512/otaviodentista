@@ -68,46 +68,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  let currentSlide = 0;
-  const slides = document.querySelectorAll(".slide");
-  const totalSlides = slides.length;
-  const manualButtons = document.querySelectorAll(".manual-btn");
+  // Função para inicializar um carrossel
+  function initializeCarousel(carousel) {
+    let currentSlide = 0;
+    const slides = carousel.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const manualButtons = carousel.querySelectorAll(".manual-btn");
 
-  // Configurar largura dinâmica para o contêiner de slides
-  const slidesContainer = document.querySelector(".slides");
-  slidesContainer.style.width = `${100 * totalSlides}%`;
+    // Configurar largura dinâmica para o contêiner de slides
+    const slidesContainer = carousel.querySelector(".slides");
+    slidesContainer.style.width = `${100 * totalSlides}%`;
 
-  // Mostrar o slide atual
-  function showSlide(index) {
-    if (index >= totalSlides) {
-      currentSlide = 0;
-    } else if (index < 0) {
-      currentSlide = totalSlides - 1;
-    } else {
-      currentSlide = index;
+    // Mostrar o slide atual
+    function showSlide(index) {
+      // Ajustar o índice para looping circular
+      if (index >= totalSlides) {
+        currentSlide = 0; // Voltar para o primeiro slide
+      } else if (index < 0) {
+        currentSlide = totalSlides - 1; // Ir para o último slide
+      } else {
+        currentSlide = index; // Manter o índice atual
+      }
+
+      // Atualizar a posição do carrossel
+      const offset = currentSlide * -100;
+      slidesContainer.style.transform = `translateX(${offset}%)`;
+
+      // Atualizar o estado dos botões de navegação manual
+      manualButtons.forEach((btn, idx) => {
+        btn.classList.toggle("active", idx === currentSlide);
+      });
     }
 
-    const offset = currentSlide * -100;
-    slidesContainer.style.transform = `translateX(${offset}%)`;
+    // Inicializar o carrossel
+    showSlide(currentSlide);
 
-    manualButtons.forEach((btn, idx) => {
-      btn.classList.toggle("active", idx === currentSlide);
+    // Configurar eventos dos botões de navegação
+    const nextButton = carousel.querySelector(".next");
+    const prevButton = carousel.querySelector(".prev");
+
+    if (nextButton) {
+      nextButton.addEventListener("click", () => {
+        showSlide(currentSlide + 1); // Ir para o próximo slide
+      });
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener("click", () => {
+        showSlide(currentSlide - 1); // Voltar para o slide anterior
+      });
+    }
+
+    // Configurar eventos dos botões de navegação manual
+    manualButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        showSlide(index);
+      });
     });
   }
 
-  showSlide(currentSlide);
-
-  document.querySelector(".next").addEventListener("click", () => {
-    showSlide(currentSlide + 1);
-  });
-
-  document.querySelector(".prev").addEventListener("click", () => {
-    showSlide(currentSlide - 1);
-  });
-
-  manualButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      showSlide(index);
-    });
+  // Inicializar todos os carrosséis na página
+  document.querySelectorAll(".slider").forEach((carousel) => {
+    initializeCarousel(carousel);
   });
 });
