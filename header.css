@@ -26,6 +26,8 @@
   font-weight: 900;
   width: 165px;
   height: auto;
+  transform: scale(1);
+  padding: 10px;
 }
 
 /* Menu de navegação - Desktop */

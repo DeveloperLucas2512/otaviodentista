@@ -20,7 +20,7 @@ body {
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
-  background-color: #f8f9fa;
+  background-color: #ddd;
   color: #343a40;
 }
 
@@ -1149,6 +1149,7 @@ button .fa-caret-down,
 }
 
 .scroll-container-img img {
+  border-radius: 10px;
   width: 100%;
   max-width: 300px; /* Tamanho máximo para as imagens */
   height: auto;

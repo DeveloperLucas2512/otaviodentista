@@ -131,4 +131,23 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".slider").forEach((carousel) => {
     initializeCarousel(carousel);
   });
+
+  // Seleciona todos os <details> com botão de fechar
+  document.querySelectorAll(".details-procedimentos").forEach((details) => {
+    const closeButton = details.querySelector(".close-details");
+
+    // Fecha o <details> ao clicar no botão "Fechar"
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        details.removeAttribute("open");
+      });
+    }
+
+    // Fecha o <details> ao clicar fora dele
+    document.addEventListener("click", (event) => {
+      if (!details.contains(event.target) && details.hasAttribute("open")) {
+        details.removeAttribute("open");
+      }
+    });
+  });
 });

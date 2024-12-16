@@ -3,22 +3,21 @@
   position: relative;
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px; /* Largura máxima para telas grandes */
-  height: 400px; /* Aumentando a altura para telas maiores */
+  height: 500px; /* Altura aumentada */
   overflow: hidden;
-  background-color: #ccc;
   display: flex;
-  flex-direction: column; /* Colocando os itens na vertical */
-  align-items: center; /* Centraliza o conteúdo */
-  justify-content: center; /* Centraliza o conteúdo */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
 }
 
 /* Slides Container */
 .slides {
-  display: flex; /* Flexbox para alinhar slides horizontalmente */
+  display: flex;
   transition: transform 0.5s ease-in-out;
-  width: 100%; /* Ajustado dinamicamente no JS */
-  height: 80%; /* Altura ajustada do slider */
+  width: 100%;
+  height: 85%;
 }
 
 /* Cada Slide */
@@ -33,10 +32,10 @@
 
 /* Imagens no Slide */
 .slide img {
-  max-width: 100%; /* Assegura que as imagens não ultrapassem a largura do slide */
-  height: auto; /* Manter proporção da imagem */
-  object-fit: contain; /* Ajuste para garantir que a imagem não seja cortada */
-  display: block;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px !important;
+  transform: scale(1);
 }
 
 /* Navegação Manual (botões abaixo do slide) */
@@ -61,7 +60,17 @@
 
 .manual-btn:hover,
 .manual-btn.active {
-  background-color: #fff;
+  background-color: #121212;
+}
+
+.container-setas {
+  position: absolute;
+  bottom: 10%;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
 }
 
 /* Setas de Navegação */
@@ -88,20 +97,104 @@
 }
 
 /* Botão "Ortognática | Saiba Mais" */
+/* Container Geral */
 .container-button {
-  text-align: center;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 380px;
+  width: 100%;
+  margin-top: auto;
 }
 
+/* Estilo do <details> */
+.details-procedimentos {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+
+/* Estilo do Botão <summary> */
 .button-procedimentos {
-  background-color: #007bff;
+  font-size: 18px;
+  font-weight: bold;
   color: white;
-  padding: 10px 20px;
+  background-color: #007bff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.button-procedimentos:hover {
+  background-color: #0056b3;
+}
+
+.button-procedimentos .icon {
+  font-size: 14px;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Conteúdo do <details> */
+.details-content {
+  width: 100%;
+  min-width: 800px;
+  margin-top: 15px;
+  padding: 15px 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone Rotativo */
+details[open] .button-procedimentos .icon {
+  transform: rotate(180deg);
+}
+
+/* Botão Fechar */
+.close-details {
+  transform: translateX(217%);
+  max-width: 90px;
+  width: 100%;
+  margin-top: 20px;
   font-size: 16px;
+  color: white;
+  background-color: #bbb;
+  /* padding: 10px 15px; */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.close-details:hover {
+  background-color: #cc0000;
+}
+
+/* Ajuste no <details> */
+details[open] .close-details {
+  display: block;
+}
+
+.close-details {
+  display: hidden;
+}
+
+.custom-height-img {
+  max-height: 340px;
+  object-fit: contain; /* Ajusta o conteúdo da imagem proporcionalmente */
+  width: auto; /* Mantém a largura proporcional à altura */
 }
 
 /* Responsividade para Dispositivos Móveis */
@@ -131,19 +224,17 @@
   }
 
   .button-procedimentos {
-    font-size: 14px; /* Ajustar o tamanho do texto no botão */
-    padding: 8px 16px;
-  }
-}
-
-/* Para telas grandes */
-@media screen and (min-width: 1200px) {
-  .slider {
-    height: 500px; /* Maior altura para telas grandes */
+    font-size: 16px;
+    padding: 10px 15px;
   }
 
-  .slide img {
-    max-width: 95%; /* Aumentando o tamanho das imagens em telas grandes */
-    max-height: 90%;
+  .details-content {
+    padding: 10px 15px;
+  }
+
+  .custom-height-img {
+    max-height: 340px;
+    object-fit: contain; /* Ajusta o conteúdo da imagem proporcionalmente */
+    width: auto; /* Mantém a largura proporcional à altura */
   }
 }
