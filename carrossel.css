@@ -252,6 +252,22 @@ details[open] .close-details {
     max-height: 85%; /* Garantir que a imagem não ultrapasse a altura */
   }
 
+  .container-slides {
+    height: 100%;
+    background: #bbb;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    z-index: 1;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
   .prev,
   .next {
     font-size: 24px; /* Tamanho das setas reduzido em dispositivos móveis */

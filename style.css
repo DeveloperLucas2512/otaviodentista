@@ -1133,11 +1133,36 @@ button .fa-caret-down,
   }
 }
 
+.rodape-information {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
 .direitos-reservados {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
+}
+
+.desenvolvedor-pagina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.desenvolvedor-pagina a {
+  font-size: 0.8rem;
+}
+
+.desenvolvedor-pagina .whatsapp-icon {
+  font-size: 10px;
 }
 
 .scroll-container-img {
