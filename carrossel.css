@@ -1,15 +1,43 @@
-/* Slider Container */
+* {
+  margin: 2px 2px;
+  padding: 0;
+  box-sizing: 0;
+  outline: 0;
+}
+
+.container-slides {
+  height: 100%;
+  background: #bbb;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Permite quebrar os itens em várias linhas */
+  width: 100%;
+  max-width: 100%; /* Permite expandir até o tamanho do container pai */
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  z-index: 1;
+  column-gap: 20px; /* Espaçamento horizontal entre colunas */
+  row-gap: 20px; /* Espaçamento vertical entre linhas */
+}
+
+.container-slides > * {
+  flex: 1 1 calc(50% - 20px); /* Cada item ocupa 50% da largura menos o gap */
+  max-width: calc(50% - 20px); /* Garante que cada item não ultrapasse 50% */
+  box-sizing: border-box; /* Inclui o padding e border no tamanho total */
+}
+
 .slider {
   position: relative;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 100%;
-  height: 500px; /* Altura aumentada */
+  height: auto; /* Altura aumentada */
+  max-height: min-content;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ddd;
 }
 
 /* Slides Container */
@@ -32,21 +60,69 @@
 
 /* Imagens no Slide */
 .slide img {
+  min-height: 330px;
+  height: auto;
   border-radius: 10px;
   width: 100%;
-  max-width: 700px !important;
+  max-width: 500px !important;
   transform: scale(1);
 }
 
-/* Navegação Manual (botões abaixo do slide) */
-.manual-navigation {
-  position: absolute;
+.titulo-inferior-image {
+  display: flex;
   width: 100%;
-  bottom: 15px; /* Ajuste alinhamento em relação ao fundo do slide */
+  justify-content: center;
+  margin: auto;
+}
+
+.titulo-inferior-image p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* Wrapper para Navegação Manual e Setas */
+.navigation-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Setas ficam nas extremidades */
+  align-items: center; /* Centraliza verticalmente */
+  width: 100%;
+  max-width: 200px; /* Defina conforme necessário */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Setas de Navegação */
+.prev,
+.next {
+  color: #121212;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.prev {
+  position: relative;
+  left: 0;
+}
+
+.next {
+  position: relative;
+  right: 0;
+}
+
+/* Navegação Manual (Botões) */
+.manual-navigation {
+  top: 10px;
   display: flex;
   gap: 10px;
-  z-index: 1000;
   justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .manual-btn {
@@ -63,48 +139,16 @@
   background-color: #121212;
 }
 
-.container-setas {
-  position: absolute;
-  bottom: 10%;
-  max-width: 300px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1000;
-}
-
-/* Setas de Navegação */
-.prev,
-.next {
-  position: absolute;
-  bottom: 10px; /* Alinhado com os botões manuais */
-  color: #121212;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  z-index: 1000;
-  font-size: 30px;
-  padding: 5px;
-  transition: transform 0.3s;
-}
-
-.prev {
-  left: 15px;
-}
-
-.next {
-  right: 15px;
-}
-
 /* Botão "Ortognática | Saiba Mais" */
 /* Container Geral */
 .container-button {
+  position: relative;
   display: flex;
   justify-content: center;
   margin: 20px auto;
   border-radius: 10px;
   max-width: 380px;
-  width: 100%;
+  width: auto;
   margin-top: auto;
 }
 
