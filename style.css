@@ -1215,22 +1215,44 @@ button .fa-caret-down,
 
 .mobile-menu {
   width: 30%;
-  max-width: 400px;
+  max-width: 290px;
 }
 
 .social-icons {
   display: flex; /* Organiza os itens dentro da div horizontalmente */
   justify-content: space-around; /* Espaça os ícones igualmente */
-  gap: 15px; /* Distância entre os ícones */
+  gap: 20px; /* Distância entre os ícones */
 }
 
 .social-icons a {
   text-decoration: none; /* Remove o sublinhado dos links */
-  color: #fff; /* Mantém a cor branca dos ícones */
 }
 
 .social-icons i {
-  font-size: 24px; /* Ajuste do tamanho do ícone, se necessário */
+  font-size: 1.5rem; /* Aumenta o tamanho para 1.5rem */
+  transition: transform 0.3s, color 0.3s ease; /* Efeito de transição */
+}
+
+/* Cor individual para cada ícone */
+.social-icons a:nth-child(1) i {
+  /* WhatsApp */
+  color: #25d366;
+}
+
+.social-icons a:nth-child(2) i {
+  /* Instagram */
+  color: #c13584; /* Roxo/vinho típico */
+}
+
+.social-icons a:nth-child(3) i {
+  /* Telefone */
+  color: #007bff;
+}
+
+/* Efeito ao passar o mouse */
+.social-icons a:hover i {
+  transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+  opacity: 0.8; /* Leve transparência */
 }
 
 /* --------------------->> dispositivos Tablet <<------------------------ */

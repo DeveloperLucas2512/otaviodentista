@@ -60,7 +60,7 @@
 
 /* Imagens no Slide */
 .slide img {
-  min-height: 330px;
+  min-height: 360px;
   height: auto;
   border-radius: 10px;
   width: 100%;
@@ -73,6 +73,7 @@
   width: 100%;
   justify-content: center;
   margin: auto;
+  white-space: nowrap;
 }
 
 .titulo-inferior-image p {
@@ -192,7 +193,7 @@
 /* Conteúdo do <details> */
 .details-content {
   width: 100%;
-  min-width: 800px;
+  min-width: min-content;
   margin-top: 15px;
   padding: 15px 20px;
   background: #fff;
@@ -208,18 +209,17 @@ details[open] .button-procedimentos .icon {
 
 /* Botão Fechar */
 .close-details {
-  transform: translateX(217%);
-  max-width: 90px;
-  width: 100%;
+  transform: translateX(10%);
+  width: auto;
   margin-top: 20px;
   font-size: 16px;
-  color: white;
-  background-color: #bbb;
-  /* padding: 10px 15px; */
+  font-weight: bold;
+  color: #121212;
   border: none;
-  border-radius: 5px;
+  border-radius: 55%;
   cursor: pointer;
   transition: background-color 0.3s;
+  padding: 5px;
 }
 
 .close-details:hover {
@@ -235,10 +235,11 @@ details[open] .close-details {
   display: hidden;
 }
 
-.custom-height-img {
+.custom-height-img img {
   max-height: 340px;
   object-fit: contain; /* Ajusta o conteúdo da imagem proporcionalmente */
   width: auto; /* Mantém a largura proporcional à altura */
+  border-radius: 30px;
 }
 
 /* Responsividade para Dispositivos Móveis */
