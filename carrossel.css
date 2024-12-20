@@ -1,10 +1,12 @@
+/* Estilo Global */
 * {
   margin: 2px 2px;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box; /* Ajustado para evitar conflitos */
   outline: 0;
 }
 
+/* Layout Principal */
 .container-slides {
   height: 100%;
   background: #bbb;
@@ -27,6 +29,7 @@
   box-sizing: border-box; /* Inclui o padding e border no tamanho total */
 }
 
+/* Slider Principal */
 .slider {
   position: relative;
   margin: 10px auto;
@@ -40,7 +43,6 @@
   justify-content: center;
 }
 
-/* Slides Container */
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -48,7 +50,6 @@
   height: 85%;
 }
 
-/* Cada Slide */
 .slide {
   flex-shrink: 0; /* Evitar encolhimento */
   width: 100%; /* Cada slide ocupa 100% da largura do carrossel */
@@ -58,7 +59,6 @@
   align-items: center;
 }
 
-/* Imagens no Slide */
 .slide img {
   min-height: 360px;
   height: auto;
@@ -83,7 +83,7 @@
   text-transform: uppercase;
 }
 
-/* Wrapper para Navegação Manual e Setas */
+/* Navegação e Botões */
 .navigation-wrapper {
   position: relative;
   display: flex;
@@ -94,7 +94,6 @@
   margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-/* Setas de Navegação */
 .prev,
 .next {
   color: #121212;
@@ -116,7 +115,6 @@
   right: 0;
 }
 
-/* Navegação Manual (Botões) */
 .manual-navigation {
   top: 10px;
   display: flex;
@@ -141,7 +139,6 @@
 }
 
 /* Botão "Ortognática | Saiba Mais" */
-/* Container Geral */
 .container-button {
   position: relative;
   display: flex;
@@ -153,14 +150,12 @@
   margin-top: auto;
 }
 
-/* Estilo do <details> */
 .details-procedimentos {
   justify-content: center;
   display: flex;
   width: 100%;
 }
 
-/* Estilo do Botão <summary> */
 .button-procedimentos {
   font-size: 18px;
   font-weight: bold;
@@ -190,7 +185,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Conteúdo do <details> */
 .details-content {
   width: 100%;
   min-width: min-content;
@@ -202,12 +196,10 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ícone Rotativo */
 details[open] .button-procedimentos .icon {
   transform: rotate(180deg);
 }
 
-/* Botão Fechar */
 .close-details {
   transform: translateX(10%);
   width: auto;
@@ -226,7 +218,6 @@ details[open] .button-procedimentos .icon {
   background-color: #cc0000;
 }
 
-/* Ajuste no <details> */
 details[open] .close-details {
   display: block;
 }
@@ -245,43 +236,39 @@ details[open] .close-details {
 /* Responsividade para Dispositivos Móveis */
 @media screen and (max-width: 768px) {
   .slider {
-    height: 250px; /* Reduz a altura para dispositivos móveis */
+    height: auto; /* Ajusta altura de forma flexível */
+    padding: 10px;
   }
 
   .slide img {
-    max-width: 100%; /* Garantir que as imagens ocupem toda a largura do slide */
-    max-height: 85%; /* Garantir que a imagem não ultrapasse a altura */
+    max-width: 90%; /* Ajuste para dispositivos menores */
+    max-height: 240px; /* Evita imagens muito grandes */
+    object-fit: cover;
   }
 
   .container-slides {
-    height: 100%;
-    background: #bbb;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 100%;
+    flex-direction: column; /* Alinha itens em uma coluna */
+    flex-wrap: nowrap; /* Evita quebra de linha */
+    align-items: center; /* Centraliza itens */
+  }
+
+  .container-slides > * {
+    flex: 1 1 100%; /* Cada item ocupa 100% no mobile */
     max-width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    z-index: 1;
-    column-gap: 20px;
-    row-gap: 20px;
   }
 
   .prev,
   .next {
-    font-size: 24px; /* Tamanho das setas reduzido em dispositivos móveis */
-    bottom: 15px; /* Ajuste no alinhamento das setas */
+    font-size: 24px; /* Reduz tamanho das setas */
+  }
+
+  .manual-navigation {
+    gap: 5px; /* Reduz espaço entre os botões manuais */
   }
 
   .manual-btn {
     width: 10px;
     height: 10px;
-  }
-
-  .manual-navigation {
-    bottom: 10px; /* Ajuste a posição dos botões manuais */
   }
 
   .button-procedimentos {
@@ -293,9 +280,7 @@ details[open] .close-details {
     padding: 10px 15px;
   }
 
-  .custom-height-img {
-    max-height: 340px;
-    object-fit: contain; /* Ajusta o conteúdo da imagem proporcionalmente */
-    width: auto; /* Mantém a largura proporcional à altura */
+  .custom-height-img img {
+    max-height: 200px; /* Ajusta altura da imagem no mobile */
   }
 }

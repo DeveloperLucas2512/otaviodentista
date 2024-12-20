@@ -1214,8 +1214,10 @@ button .fa-caret-down,
 }
 
 .mobile-menu {
+  right: 2%;
+  border-radius: 20px;
   width: 30%;
-  max-width: 290px;
+  max-width: 230px;
 }
 
 .social-icons {
