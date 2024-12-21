@@ -752,10 +752,6 @@ img:hover {
   margin-right: 5px;
 }
 
-.footer-list a i .fa-instagram {
-  margin-right: 5px;
-}
-
 .logo-cliente {
   text-align: center;
 }
@@ -777,7 +773,7 @@ img:hover {
 }
 
 .fa-phone {
-  color: #fff;
+  color: #007bff;
   font-size: 30px;
 }
 
@@ -788,13 +784,6 @@ img:hover {
   align-items: center;
   margin-top: -40px;
   gap: 20px;
-}
-
-.fa-whatsapp,
-.fa-instagram,
-.fa-phone {
-  font-size: 40px;
-  color: #fff;
 }
 
 .direitos-autorais {
@@ -1041,7 +1030,6 @@ body,
 .fa-instagram,
 .fa-phone {
   font-size: 30px;
-  color: #fff;
 }
 
 .fa-phone {
@@ -1214,7 +1202,6 @@ button .fa-caret-down,
 }
 
 .mobile-menu {
-  right: 2%;
   border-radius: 20px;
   width: 30%;
   max-width: 230px;
@@ -1235,20 +1222,23 @@ button .fa-caret-down,
   transition: transform 0.3s, color 0.3s ease; /* Efeito de transição */
 }
 
-/* Cor individual para cada ícone */
-.social-icons a:nth-child(1) i {
-  /* WhatsApp */
-  color: #25d366;
-}
-
-.social-icons a:nth-child(2) i {
-  /* Instagram */
-  color: #c13584; /* Roxo/vinho típico */
-}
-
 .social-icons a:nth-child(3) i {
   /* Telefone */
   color: #007bff;
+}
+
+.fa-whatsapp {
+  color: #fff;
+  background: linear-gradient(#25d366, #6ebe8b) 14% 84%/16% 16% no-repeat,
+    radial-gradient(#25d366 60%, transparent 0);
+}
+
+.fa-instagram {
+  color: #fff;
+  background: linear-gradient(#cc2366, #bc1888) 10% 16% no-repeat,
+    radial-gradient(circle, #cc2366 100%, transparent 0) 0 0 / calc(100% - 2px)
+      calc(100% - 2px) no-repeat,
+    transparent;
 }
 
 /* Efeito ao passar o mouse */
@@ -1761,7 +1751,7 @@ button .fa-caret-down,
   }
 
   .fa-phone {
-    color: #fff;
+    color: #007bff;
     font-size: 24px;
   }
 
