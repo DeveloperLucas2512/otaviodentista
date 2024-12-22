@@ -8,7 +8,7 @@
 
 /* Cabeçalho fixo */
 .header-logo {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -19,15 +19,7 @@
   justify-content: space-between;
   z-index: 1000;
   padding: 0 20px;
-}
-
-/* Ajustando o logo */
-.header-logo img {
-  font-weight: 900;
-  width: 165px;
-  height: auto;
-  transform: scale(1);
-  padding: 10px;
+  margin: auto;
 }
 
 /* Menu de navegação - Desktop */
@@ -58,25 +50,21 @@
   transform: scale(1.05);
 }
 
-.menu-icon {
-  cursor: pointer;
-  color: white;
-  font-size: 2rem;
-}
-
 /* Links do Menu Mobile */
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.95);
+  border-radius: 10px;
   display: none;
+  position: absolute;
+  top: 7%;
+  right: 0;
+  width: auto;
+  height: min-content;
+  background: rgba(0, 0, 0, 0.95);
   flex-direction: column;
   align-items: flex-start;
   padding: 50px 20px;
   z-index: 1001;
+  overflow-y: auto;
 }
 
 .mobile-menu-links {
@@ -98,9 +86,7 @@
 
 /* Animação de entrada do menu mobile */
 .mobile-menu.active {
-  margin: 70px auto;
-  right: -1%;
-  display: flex;
+  display: flex !important; /* Exibe o menu quando a classe active é adicionada */
   animation: slideIn 0.3s forwards;
 }
 
@@ -118,6 +104,27 @@
   margin-top: 100px; /* Espaço suficiente para não ser sobreposto pelo header fixo */
 }
 
+.content-header-logo {
+  width: 100%; /* Garante que o elemento ocupe 100% da largura */
+  background-color: #121212; /* Cor de fundo ocupa toda a largura */
+  display: flex; /* Ativa o flexbox para alinhar os itens */
+  justify-content: space-between; /* Espaço entre os itens internos */
+  align-items: center; /* Centraliza verticalmente os itens */
+  padding: 10px 20px; /* Adiciona espaçamento interno */
+  box-sizing: border-box; /* Garante que o padding não ultrapasse os 100% */
+}
+
+.header-logo img {
+  max-width: 150px; /* Define um tamanho máximo para a imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.menu-icon {
+  font-size: 1.8rem; /* Tamanho do ícone do menu */
+  cursor: pointer;
+  color: white; /* Cor do ícone */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .menu {
@@ -125,18 +132,27 @@
   }
 
   .menu-icon {
-    margin-right: 77%;
-    display: block;
-    font-size: 1.8rem;
+    display: block; /* Mostra o ícone do menu hamburguer */
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 1002; /* Mantém acima do menu mobile */
+  }
+
+  .content-header-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
   }
 
   .header-logo {
-    max-width: none;
-    margin: auto;
     width: 100%;
-    justify-content: space-between;
     display: flex;
-    height: 60px;
+    margin: auto;
   }
 
   .header-logo img {
@@ -148,7 +164,11 @@
     padding: 0px 0 75px 0px;
   }
 
-  .mobile-menu {
-    padding-top: 50px; /* Reduz a altura do padding para subir os itens */
+  /* Animação de entrada do menu mobile */
+  .mobile-menu.active {
+    display: flex !important; /* Garante que o menu apareça */
+    right: -1%;
+    animation: slideIn 0.3s forwards;
+    margin: auto;
   }
 }

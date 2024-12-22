@@ -56,10 +56,6 @@ header {
   }
 }
 
-.menu-icon {
-  display: none;
-}
-
 .menu {
   border-radius: 5px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
@@ -91,16 +87,6 @@ header {
     align-items: flex-start;
   }
 
-  .menu-icon {
-    display: block;
-    font-size: 24px;
-    cursor: pointer;
-    margin-bottom: 0; /* Remova qualquer margem inferior */
-    margin-top: 0; /* Remova qualquer margem superior */
-    align-self: flex-end;
-    display: flex;
-  }
-
   .menu {
     display: none;
   }
@@ -112,8 +98,7 @@ header {
 
 @media screen and (max-width: 768px) {
   .header-content,
-  .header-icons,
-  .menu-icon {
+  .header-icons {
     width: 100vw;
     flex-direction: row;
     align-items: center;
