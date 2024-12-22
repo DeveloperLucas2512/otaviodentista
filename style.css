@@ -16,17 +16,14 @@
 html,
 body {
   margin: 0;
+  max-height: 100vh;
+  max-width: 100%;
   padding: 0rem;
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #bbb;
   color: #343a40;
-}
-
-body {
-  height: auto;
-  max-height: 100vh;
 }
 
 html {
@@ -91,11 +88,6 @@ button:hover {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   white-space: normal;
-}
-
-#minhaEquipe {
-  position: relative;
-  margin-top: -23%;
 }
 
 .modal-body p {
@@ -401,7 +393,7 @@ summary {
   margin: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, -50%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -460,6 +452,22 @@ details summary {
 
 details[open] > summary {
   display: none; /* Esconde o botão summary quando o modal está aberto */
+}
+
+details[open] ~ .modal-backdrop {
+  display: block; /* Exibe o fundo escuro quando o modal está aberto */
+}
+
+/* Estilo para escurecer o fundo quando o modal está aberto */
+.modal-backdrop {
+  display: none; /* Escondido inicialmente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 .close-modal-ortognatica {
@@ -1298,6 +1306,11 @@ button .fa-caret-down,
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
   }
+
+  .modal-body p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
 }
 
 .whatsapp-fixo {
@@ -1317,25 +1330,34 @@ button .fa-caret-down,
   transform: scale(1.1);
 }
 
+.minhaEquipe {
+  transform: translateY(-34%);
+}
+
+.map-section {
+  transform: translateY(-37%);
+}
+
+.footer {
+  margin-top: auto;
+  transform: translateY(-33%);
+}
+
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
-  #minhaEquipe {
-    position: relative;
-    margin-top: -155%;
-  }
   .container {
     max-width: 1300px;
     margin: 0 25px;
   }
 
   .modal-content {
-    max-height: 70%;
+    max-height: 27%;
     overflow-y: scroll;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 300px;
+    min-width: 400px;
     width: 90%;
     background-color: white;
     padding: 20px;
@@ -1344,7 +1366,7 @@ button .fa-caret-down,
     margin: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -50%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1370,6 +1392,19 @@ button .fa-caret-down,
   .sobre-img {
     margin-right: 0;
     margin-bottom: 20px;
+  }
+
+  .minhaEquipe {
+    transform: translateY(-12%);
+  }
+
+  .map-section {
+    transform: translateY(-37%);
+  }
+
+  .footer {
+    margin-top: auto;
+    transform: translateY(-33%);
   }
 
   .map-section {
@@ -1771,6 +1806,10 @@ button .fa-caret-down,
     font-weight: 700;
     margin-bottom: -20px;
     white-space: nowrap;
+  }
+
+  .modal-body p {
+    font-size: 0.8rem;
   }
 
   .scroll-container-img {
