@@ -255,6 +255,9 @@ details[open] .close-details {
     margin-top: auto;
     display: flex;
     justify-content: center; /* Centraliza os slides horizontalmente */
+    transform: translateY(-30%);
+    margin: 10px auto;
+    height: auto;
   }
 
   .slides {
@@ -326,6 +329,31 @@ details[open] .close-details {
   .button-procedimentos {
     font-size: 16px;
     padding: 10px 15px;
+  }
+
+  .button-procedimentos {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: auto;
+    text-align: left;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  .details-procedimentos {
+    justify-content: center;
+    display: flex;
+    width: 100%;
   }
 
   /* Conteúdo do <details> */

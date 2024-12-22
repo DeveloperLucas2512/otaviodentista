@@ -125,11 +125,16 @@
   }
 
   .menu-icon {
+    margin-right: 77%;
     display: block;
     font-size: 1.8rem;
   }
 
   .header-logo {
+    max-width: none;
+    margin: auto;
+    width: 100%;
+    justify-content: space-between;
     display: flex;
     height: 60px;
   }

@@ -16,8 +16,6 @@
 html,
 body {
   margin: 0;
-  max-height: 100vh;
-  max-width: 100%;
   padding: 0rem;
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
@@ -1330,19 +1328,6 @@ button .fa-caret-down,
   transform: scale(1.1);
 }
 
-.minhaEquipe {
-  transform: translateY(-34%);
-}
-
-.map-section {
-  transform: translateY(-37%);
-}
-
-.footer {
-  margin-top: auto;
-  transform: translateY(-33%);
-}
-
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
   .container {
@@ -1351,7 +1336,6 @@ button .fa-caret-down,
   }
 
   .modal-content {
-    max-height: 27%;
     overflow-y: scroll;
     position: relative;
     display: flex;
@@ -1392,19 +1376,6 @@ button .fa-caret-down,
   .sobre-img {
     margin-right: 0;
     margin-bottom: 20px;
-  }
-
-  .minhaEquipe {
-    transform: translateY(-12%);
-  }
-
-  .map-section {
-    transform: translateY(-37%);
-  }
-
-  .footer {
-    margin-top: auto;
-    transform: translateY(-33%);
   }
 
   .map-section {
