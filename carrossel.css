@@ -28,6 +28,7 @@
 }
 
 .slider {
+  transform: translateY(-50%);
   position: relative;
   margin: 10px auto;
   width: 100%;
@@ -49,9 +50,9 @@
 
 /* Cada Slide */
 .slide {
-  flex-shrink: 0; /* Evitar encolhimento */
-  width: 100%; /* Cada slide ocupa 100% da largura do carrossel */
-  height: 100%; /* Altura total do slider */
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,11 +202,6 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ícone Rotativo */
-details[open] .button-procedimentos .icon {
-  transform: rotate(180deg);
-}
-
 /* Botão Fechar */
 .close-details {
   transform: translateX(10%);
@@ -215,19 +211,17 @@ details[open] .button-procedimentos .icon {
   font-weight: bold;
   color: #121212;
   border: none;
-  border-radius: 55%;
+  border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s;
-  padding: 5px;
-}
-
-.close-details:hover {
-  background-color: #cc0000;
+  padding: 0 3px;
 }
 
 /* Ajuste no <details> */
 details[open] .close-details {
+  margin: 10px auto;
   display: block;
+  transform: translateX(80%);
 }
 
 .close-details {
@@ -256,8 +250,10 @@ details[open] .close-details {
 
   /* Ajustando o slider para que ocupe 100% da largura no mobile */
   .slider {
+    transform: translateY(-104%);
+    position: relative;
     width: 100%; /* Garantir que o slider ocupe 100% da largura disponível */
-    margin: auto;
+    margin-top: auto;
     display: flex;
     justify-content: center; /* Centraliza os slides horizontalmente */
   }
@@ -295,10 +291,21 @@ details[open] .close-details {
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
+    max-width: 62%;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     z-index: 1;
+  }
+
+  .navigation-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Setas ficam nas extremidades */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%;
+    min-width: 110px; /* Defina conforme necessário */
+    margin: auto 20px; /* Centraliza horizontalmente */
   }
 
   .prev,
@@ -321,8 +328,29 @@ details[open] .close-details {
     padding: 10px 15px;
   }
 
+  /* Conteúdo do <details> */
   .details-content {
-    padding: 10px 15px;
+    width: 100%;
+    min-width: 350px;
+    margin-top: 15px;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  details[open] .close-details {
+    margin: 10px auto;
+    display: block;
+    transform: translateX(900%);
+  }
+
+  .details-content h2,
+  h3,
+  li,
+  p {
+    font-size: 0.75rem;
   }
 
   .custom-height-img {

@@ -24,6 +24,11 @@ body {
   color: #343a40;
 }
 
+body {
+  height: auto;
+  max-height: 100vh;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -88,8 +93,13 @@ button:hover {
   white-space: normal;
 }
 
+#minhaEquipe {
+  position: relative;
+  margin-top: -23%;
+}
+
 .modal-body p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
 }
 
 .hide {
@@ -378,7 +388,7 @@ summary {
 }
 
 .modal-content {
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -391,7 +401,7 @@ summary {
   margin: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -450,22 +460,6 @@ details summary {
 
 details[open] > summary {
   display: none; /* Esconde o botão summary quando o modal está aberto */
-}
-
-details[open] ~ .modal-backdrop {
-  display: block; /* Exibe o fundo escuro quando o modal está aberto */
-}
-
-/* Estilo para escurecer o fundo quando o modal está aberto */
-.modal-backdrop {
-  display: none; /* Escondido inicialmente */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
 }
 
 .close-modal-ortognatica {
@@ -1304,11 +1298,6 @@ button .fa-caret-down,
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
   }
-
-  .modal-body p {
-    font-size: 0.8rem;
-    line-height: 1.3;
-  }
 }
 
 .whatsapp-fixo {
@@ -1330,6 +1319,10 @@ button .fa-caret-down,
 
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
+  #minhaEquipe {
+    position: relative;
+    margin-top: -155%;
+  }
   .container {
     max-width: 1300px;
     margin: 0 25px;
@@ -1338,7 +1331,7 @@ button .fa-caret-down,
   .modal-content {
     max-height: 70%;
     overflow-y: scroll;
-    position: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1351,7 +1344,7 @@ button .fa-caret-down,
     margin: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1780,10 +1773,6 @@ button .fa-caret-down,
     white-space: nowrap;
   }
 
-  .modal-body p {
-    font-size: 1rem;
-  }
-
   .scroll-container-img {
     width: 90%; /* Ajusta o container em dispositivos menores */
     margin: 10px auto;
@@ -1838,10 +1827,6 @@ button .fa-caret-down,
 
   .close-modal-ortognatica {
     font-size: 14px; /* Ajusta o tamanho do ícone de fechar */
-  }
-
-  .modal-body p {
-    font-size: 0.9rem;
   }
 
   .scroll_container {
