@@ -158,7 +158,6 @@ p {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 999;
 }
@@ -309,7 +308,6 @@ p {
 .hero {
   margin-top: -100px;
   color: #ffffff;
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,6 +376,7 @@ summary {
 }
 
 .modal-content {
+  overflow: auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -454,18 +453,6 @@ details[open] > summary {
 
 details[open] ~ .modal-backdrop {
   display: block; /* Exibe o fundo escuro quando o modal está aberto */
-}
-
-/* Estilo para escurecer o fundo quando o modal está aberto */
-.modal-backdrop {
-  display: none; /* Escondido inicialmente */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
 }
 
 .close-modal-ortognatica {
@@ -1274,7 +1261,6 @@ button .fa-caret-down,
     top: 0;
     left: 0;
     width: 100vw; /* Largura total da tela */
-    height: 100vh; /* Altura total da tela */
     background: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
     z-index: 1001; /* Fica acima de outros elementos */
   }
@@ -1328,19 +1314,19 @@ button .fa-caret-down,
   }
 
   .modal-content {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 400px;
+    max-width: 400px;
     width: 90%;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    top: 50%;
+    transform: translateY(-130%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1381,7 +1367,7 @@ button .fa-caret-down,
   }
 
   .hero {
-    min-height: 48vh;
+    height: auto;
   }
   .hero h1 {
     font-size: 34px;
