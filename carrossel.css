@@ -260,6 +260,17 @@ details[open] .close-details {
     height: auto;
   }
 
+  #minhaEquipe {
+    position: relative;
+    width: 100%; /* Garantir que o slider ocupe 100% da largura disponível */
+    margin-top: auto;
+    display: flex;
+    justify-content: center; /* Centraliza os slides horizontalmente */
+    transform: translateY(-50%);
+    margin: 10px auto;
+    height: auto;
+  }
+
   .slides {
     display: flex; /* Garante que os slides fiquem lado a lado */
     width: 100%; /* Ajusta a largura dos slides para 100% */
