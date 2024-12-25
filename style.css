@@ -1326,7 +1326,7 @@ button .fa-caret-down,
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-175%);
+    transform: translateY(-130%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
