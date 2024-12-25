@@ -306,6 +306,7 @@ p {
 }
 
 .hero {
+  height: 100%;
   margin-top: -100px;
   color: #ffffff;
   display: flex;
@@ -390,7 +391,7 @@ summary {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: auto;
-  transform: translateY(-130%);
+  transform: translateY(-150%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -1325,7 +1326,7 @@ button .fa-caret-down,
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-80%);
+    transform: translateY(-175%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
