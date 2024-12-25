@@ -376,7 +376,7 @@ summary {
 }
 
 .modal-content {
-  overflow: auto;
+  overflow: scroll;
   position: relative;
   display: flex;
   justify-content: center;
@@ -1314,19 +1314,18 @@ button .fa-caret-down,
   }
 
   .modal-content {
-    overflow-y: auto;
+    overflow-y: scroll;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
-    width: 90%;
+    width: 84%;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-130%);
+    transform: translateY(-80%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1363,7 +1362,7 @@ button .fa-caret-down,
   }
 
   body.modal-open {
-    overflow: hidden;
+    overflow: scroll;
   }
 
   .hero {
@@ -1387,7 +1386,7 @@ button .fa-caret-down,
   }
 
   .modal-img img {
-    max-width: 90%;
+    max-width: 90%; /*evitar o uso de max-.. para mobile, erro em iphone*/
     max-height: 90%;
     border: 2px solid white;
   }
