@@ -1287,7 +1287,7 @@ button .fa-caret-down,
   height: auto;
   border-radius: 10px;
   width: 100%;
-  max-width: 500px;
+  max-width: max-content;
   transform: scale(1);
 }
 
@@ -1313,7 +1313,7 @@ button .fa-caret-down,
   justify-content: space-between; /* Setas ficam nas extremidades */
   align-items: center; /* Centraliza verticalmente */
   width: 100%;
-  max-width: 200px; /* Defina conforme necessário */
+  max-width: 150px; /* Defina conforme necessário */
   margin: 0 auto; /* Centraliza horizontalmente */
 }
 
@@ -1575,7 +1575,7 @@ details[open] .close-details {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-130%);
+    transform: translateY(-160%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1986,7 +1986,7 @@ details[open] .close-details {
   }
 
   .modal-body p {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   .scroll-container-img {
@@ -2041,7 +2041,7 @@ details[open] .close-details {
     margin-top: auto;
     display: flex;
     justify-content: center; /* Centraliza os slides horizontalmente */
-    transform: translateY(-130%);
+    transform: translateY(-110%);
     margin: 10px auto;
     height: auto;
   }
@@ -2079,7 +2079,7 @@ details[open] .close-details {
     width: 100%; /* Garantir que a imagem ocupe 100% da largura disponível do contêiner */
     height: auto; /* Ajuste a altura proporcionalmente à largura */
     object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
-    max-height: 360px; /* Garante que a imagem tenha uma altura mínima */
+    min-height: auto; /* Garante que a imagem tenha uma altura mínima */
     border-radius: 10px; /* Bordas arredondadas */
     display: block; /* Remover o display flex, pois a tag img não precisa dele */
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
@@ -2105,7 +2105,6 @@ details[open] .close-details {
     justify-content: center; /* Setas ficam nas extremidades */
     align-items: center; /* Centraliza verticalmente */
     width: 100%;
-    min-width: 110px; /* Defina conforme necessário */
     margin: auto 20px; /* Centraliza horizontalmente */
   }
 
