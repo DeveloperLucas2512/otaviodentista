@@ -1951,6 +1951,10 @@ details[open] .close-details {
     font-size: 10px;
   }
 
+  .footer {
+    transform: translateY(-35%);
+  }
+
   .footer p {
     font-weight: 900;
     line-height: 6px;
@@ -2069,10 +2073,12 @@ details[open] .close-details {
   }
 
   .slides {
-    display: flex; /* Garante que os slides fiquem lado a lado */
-    width: 100%; /* Ajusta a largura dos slides para 100% */
-    transform: translateX(0); /* Corrige a transformação do slider */
-    transition: transform 0.5s ease; /* A transição entre os slides */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 0.5s ease;
   }
 
   .slide {
