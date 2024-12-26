@@ -1308,13 +1308,12 @@ button .fa-caret-down,
 
 /* Wrapper para Navegação Manual e Setas */
 .navigation-wrapper {
-  position: relative;
+  position: sticky;
   display: flex;
-  justify-content: space-between; /* Setas ficam nas extremidades */
-  align-items: center; /* Centraliza verticalmente */
-  width: 100%;
-  max-width: 150px; /* Defina conforme necessário */
-  margin: 0 auto; /* Centraliza horizontalmente */
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: auto;
 }
 
 /* Setas de Navegação */
@@ -2098,12 +2097,12 @@ details[open] .close-details {
   }
 
   .navigation-wrapper {
-    position: relative;
+    position: sticky;
     display: flex;
-    justify-content: center; /* Setas ficam nas extremidades */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%;
-    margin: auto 20px; /* Centraliza horizontalmente */
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin: auto;
   }
 
   .prev,
@@ -2122,16 +2121,11 @@ details[open] .close-details {
   }
 
   .button-procedimentos {
-    font-size: 16px;
-    padding: 10px 15px;
-  }
-
-  .button-procedimentos {
     font-size: 18px;
     font-weight: bold;
     color: white;
     background-color: #007bff;
-    padding: 12px 20px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
