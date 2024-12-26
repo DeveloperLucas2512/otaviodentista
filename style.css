@@ -1551,6 +1551,18 @@ details[open] .close-details {
   align-items: center;
   width: 100%;
   margin: auto;
+  white-space: nowrap;
+}
+
+.information-screen p {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 /* --------------------->> dispositivos móveis <<------------------------ */
@@ -1603,6 +1615,7 @@ details[open] .close-details {
   }
 
   .map-section {
+    transform: translateY(-45%);
     padding: 1rem;
     background-color: #eaeaeab7;
     border-radius: 8px;
@@ -2124,16 +2137,14 @@ details[open] .close-details {
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: #007bff;
-    padding: 15px;
+    background: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     list-style: none;
-    width: auto;
     text-align: left;
     text-decoration: none;
     letter-spacing: 2px;
