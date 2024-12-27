@@ -391,7 +391,7 @@ summary {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: auto;
-  transform: translateY(-150%);
+  transform: translateY(-1080%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -852,7 +852,6 @@ body,
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  margin-top: -207px;
 }
 
 .map-header {
@@ -1251,7 +1250,6 @@ button .fa-caret-down,
 }
 
 .slider {
-  transform: translateY(-50%);
   position: relative;
   margin: 10px auto;
   width: 100%;
@@ -1460,7 +1458,6 @@ details[open] .close-details {
   position: relative;
   width: 100%; /* Garantir que o slider ocupe 100% da largura disponível */
   margin-top: auto;
-  transform: translateY(-30%);
   margin: 10px auto;
   height: auto;
 }
@@ -1569,9 +1566,9 @@ details[open] .close-details {
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
+    margin: 0 auto;
+    padding: 0 15px; /* Ajuste para espaçamento */
     max-width: 100%; /* Remove valores fixos */
-    margin: 0 auto; /* Centraliza a margem */
-    padding: 0 15px; /* Garante espaçamento interno */
   }
 
   .modal-content {
@@ -1586,7 +1583,7 @@ details[open] .close-details {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-160%);
+    transform: translateY(-1070%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1607,20 +1604,20 @@ details[open] .close-details {
   .modal-body {
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Garante preenchimento completo */
   }
 
   .sobre-img {
-    margin-right: 0;
     margin-bottom: 20px;
   }
 
   .map-section {
-    transform: translateY(-45%);
+    transform: none; /* Reseta transform */
     padding: 1rem;
     background-color: #eaeaeab7;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 100%; /* Garante largura total no mobile */
   }
 
   body.modal-open {
@@ -1951,10 +1948,6 @@ details[open] .close-details {
     font-size: 10px;
   }
 
-  .footer {
-    transform: translateY(-35%);
-  }
-
   .footer p {
     font-weight: 900;
     line-height: 6px;
@@ -2056,7 +2049,6 @@ details[open] .close-details {
     margin-top: auto;
     display: flex;
     justify-content: center; /* Centraliza os slides horizontalmente */
-    transform: translateY(-110%);
     margin: 10px auto;
     height: auto;
   }
@@ -2067,13 +2059,11 @@ details[open] .close-details {
     margin-top: auto;
     display: flex;
     justify-content: center; /* Centraliza os slides horizontalmente */
-    transform: translateY(-25%);
     margin: 10px auto;
     height: auto;
   }
 
   .slides {
-    overflow: hidden;
     position: relative;
     display: flex;
     width: 100%;
