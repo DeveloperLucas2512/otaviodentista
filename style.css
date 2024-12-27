@@ -622,6 +622,7 @@ details[open] ~ .modal-backdrop {
 }
 
 .saibaMaisBtn {
+  white-space: nowrap;
   margin-top: 20px;
   display: inline-block;
   padding: 3px 9px;
@@ -629,6 +630,7 @@ details[open] ~ .modal-backdrop {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .close {
@@ -1086,6 +1088,7 @@ button .fa-caret-down,
 
 .button-contact,
 .saibaMaisBtn {
+  white-space: nowrap;
   display: inline-block;
   padding: 10px 20px;
   background-color: #1e90ff;
@@ -1374,6 +1377,8 @@ button .fa-caret-down,
 
 /* Estilo do <details> */
 .details-procedimentos {
+  margin: auto;
+  align-items: center;
   justify-content: center;
   display: flex;
   width: 100%;
@@ -1661,10 +1666,6 @@ details[open] .close-details {
   .btn-especialidades-mobile {
     margin-top: -20px;
     margin-bottom: -40px;
-  }
-
-  .saibaMaisBtn {
-    margin-top: 15px;
   }
 
   .btn-especialidades-mobile button {
@@ -2147,6 +2148,8 @@ details[open] .close-details {
   }
 
   .details-procedimentos {
+    margin: auto;
+    align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
