@@ -1416,14 +1416,18 @@ button .fa-caret-down,
 
 /* Conteúdo do <details> */
 .details-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  min-width: min-content;
+  min-width: 350px;
   margin-top: 15px;
   padding: 15px 20px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
 }
 
 /* Botão Fechar */
@@ -2157,6 +2161,9 @@ details[open] .close-details {
 
   /* Conteúdo do <details> */
   .details-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     min-width: 350px;
     margin-top: 15px;
@@ -2165,6 +2172,7 @@ details[open] .close-details {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
   }
 
   details[open] .close-details {
