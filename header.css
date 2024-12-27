@@ -156,10 +156,11 @@
   }
 
   .header-logo img {
+    justify-content: center;
     display: flex;
     width: 100%;
     font-weight: 900;
-    max-width: 270px;
+    max-width: 300px;
     height: auto;
     padding: 0px 0 75px 0px;
   }

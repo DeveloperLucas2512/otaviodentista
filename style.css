@@ -77,6 +77,20 @@ button:hover {
   opacity: 1; /* Torna visível */
 }
 
+.responsive-line {
+  width: 100%;
+  height: 3px; /* Altura no centro da linha */
+  background: linear-gradient(
+    to right,
+    rgba(18, 18, 18, 0) 0%,
+    /* Transparente nas extremidades */ #121212 50%,
+    /* Cor mais forte no centro */ rgba(18, 18, 18, 0) 100%
+      /* Transparente nas extremidades */
+  );
+  border-radius: 50%; /* Suaviza as extremidades */
+  position: relative;
+}
+
 .modal-header {
   margin-top: 24px;
   display: flex;
@@ -89,7 +103,7 @@ button:hover {
 }
 
 .modal-body p {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
 }
 
 .hide {
@@ -255,7 +269,7 @@ p {
 }
 
 .scroll {
-  background: linear-gradient(to bottom, rgba(200, 200, 200, 0.8), #4d4d4d);
+  background: #bbb;
   overflow: hidden;
   padding: 15px 0;
   position: relative;
@@ -377,7 +391,6 @@ summary {
 }
 
 .modal-content {
-  overflow: scroll;
   position: relative;
   display: flex;
   justify-content: center;
@@ -391,7 +404,6 @@ summary {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: auto;
-  transform: translateY(-1080%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -850,7 +862,7 @@ body,
 
 .map-section {
   padding: 1rem;
-  background-color: #f9f9f9;
+  background-color: #bbb;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -1366,10 +1378,11 @@ button .fa-caret-down,
 /* Botão "Ortognática | Saiba Mais" */
 /* Container Geral */
 .container-button {
+  align-items: center;
+  margin: auto;
   position: relative;
   display: flex;
   justify-content: center;
-  margin: 20px auto;
   border-radius: 10px;
   width: 100%;
   margin-top: auto;
@@ -1529,7 +1542,7 @@ details[open] .close-details {
   }
 
   .modal-body p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.3;
   }
 }
@@ -1580,8 +1593,11 @@ details[open] .close-details {
     max-width: 100%; /* Remove valores fixos */
   }
 
+  .responsive-line {
+    height: 4px;
+  }
+
   .modal-content {
-    overflow-y: scroll;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1592,7 +1608,6 @@ details[open] .close-details {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
-    transform: translateY(-1070%);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
   }
@@ -1623,7 +1638,7 @@ details[open] .close-details {
   .map-section {
     transform: none; /* Reseta transform */
     padding: 1rem;
-    background-color: #eaeaeab7;
+    background-color: #bbb;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%; /* Garante largura total no mobile */
@@ -2000,7 +2015,7 @@ details[open] .close-details {
   }
 
   .modal-body p {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
 
   .scroll-container-img {
@@ -2038,10 +2053,11 @@ details[open] .close-details {
   /*---- carrossel mobile*/
 
   .container-button {
+    align-items: center;
+    margin: auto;
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 20px auto;
     border-radius: 10px;
     width: 100%;
     margin-top: auto;
@@ -2185,7 +2201,7 @@ details[open] .close-details {
   h3,
   li,
   p {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
 
   .custom-height-img {

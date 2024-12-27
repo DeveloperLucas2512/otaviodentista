@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta
       name="description"
       content="DR Otávio, Cirurgião Dentista especializado em cuidados dentários completos."
@@ -46,7 +45,6 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="carrossel.css" />
 
     <title>DR Otávio | Cirurgião Dentista</title>
   </head>
@@ -71,7 +69,7 @@
             <li>
               <a href="#especialidades" class="menu-link">Especialidades</a>
             </li>
-            <li><a href="#" id="open-sobre" class="menu-link">Sobre mim</a></li>
+            <li><a href="#quemSou" class="menu-link">Sobre mim</a></li>
             <li><a href="#minhaEquipe" class="menu-link">Equipe</a></li>
             <li><a href="#contato" class="menu-link">Contato</a></li>
 
@@ -119,13 +117,123 @@
       </div>
     </header>
 
-    <div class="information-screen" id="especialidades">
-      <p>PROCEDIMENTOS E TRATAMENTOS</p>
-    </div>
+   
 
+    <!-- INICIO - Apresentação dr otavio -->
     <div class="container-slides">
-      <!-- INICIO - Container Ortognatica -->
+       
       <div class="slider">
+       <div class="information-screen" id="quemSou">
+          <p class="images-odonto-text">SOBRE</p>
+        </div>
+        <div class="slides">
+          <div class="slide">
+            <img
+              src="assets/drOtavio1.png"
+              alt="DR. Otavio"
+              title="DR. Otavio"
+              class="custom-height-img"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/OtavioEmCirurgia4.png"
+              alt="Ortognática"
+              title="Ortognática"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/OtavioCongressoCirurgico2.png"
+              alt="Bichectomia"
+              title="Bichectomia"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="assets/OtavioEmCirurgia2.png"
+              alt="Implantes Faciais"
+              title="Implantes Faciais"
+              class="custom-height-img"
+            />
+          </div>
+        </div>      
+
+        <!-- Navegação Manual e Setas -->
+        <div class="navigation-wrapper">
+          <!-- Setas de Navegação -->
+          <button class="prev" aria-label="Slide anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <!-- Navegação Manual -->
+          <div class="manual-navigation">
+            <div class="manual-btn" aria-label="Ir para o primeiro slide"></div>
+            <div class="manual-btn" aria-label="Ir para o segundo slide"></div>
+            <div class="manual-btn" aria-label="Ir para o terceiro slide"></div>
+            <div class="manual-btn" aria-label="Ir para o quarto slide"></div>
+          </div>
+
+          <button class="next" aria-label="Próximo slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <br />
+
+        <!-- Botão Centralizado Abaixo -->
+        <div class="container-button">
+          <details class="details-procedimentos">
+            <summary
+              class="button-procedimentos"
+              title="Ortognática | Saiba Mais"
+            >
+              <div class="titulo-inferior-image">
+                <p>DR. OTÁVIO | QUEM SOU</p>
+              </div>
+            </summary>
+            <div class="details-content">
+              <h2>HISTÓRIA | FORMAÇÃO</h2>
+              <p>
+                <strong>Otávio</strong>, mineiro de São Sebastião do Paraíso,
+                atuando há 7 anos em Ribeirão Preto, cidade que me acolheu e que
+                não troco mais!
+                <br />
+                Formado em Odontologia pela Unesp de Araraquara, com residência
+                em Cirurgia Bucomaxilofacial pela Santa Casa de Valinhos. <br />
+                Hoje sou muito realizado profissionalmente, por atuar em uma
+                especialidade linda, que me permite atender tanto a nível
+                hospitalar, onde realizo cirurgias em centro cirúrgico, quanto a
+                nível ambulatorial, onde realizo cirurgias e tratamentos
+                clínicos em consultório. <br />
+                Encontrei minha paixão na cirurgia Ortognática, pois a
+                transformação que ela realiza na vida dos meu queridos pacientes
+                é a minha maior motivação!
+              </p>
+
+              <!-- botao fechar -->
+              <button class="close-details" aria-label="Fechar conteúdo">
+                x
+              </button>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <!-- FIM - Apresentação dr otavio -->
+
+    <div class="responsive-line"></div>
+
+
+      <!-- INICIO - Container Ortognatica -->
+
+       <div class="information-screen" id="especialidades">
+          <p class="images-odonto-text">PROCEDIMENTOS E TRATAMENTOS</p>
+        </div>
+    
+    <div class="container-slides">
+          
+      <div class="slider"> 
         <!-- Container dos Slides -->
         <div class="slides">
           <div class="slide">
@@ -596,51 +704,21 @@
       </div>
       <!-- FIM - Container DTM -->
     </div>
+    </div>
+
+    <div class="responsive-line"></div>
+
 
     <section class="minhaEquipe" id="minhaEquipe">
       <div class="scroll">
-        <div class="information-screen">
-          <p>CONHEÇA NOSSA EQUIPE DE PROFISSIONAIS</p>
+        <div class="information-screen" id="especialidades">
+          <p class="images-odonto-text">
+            CONHEÇA NOSSA EQUIPE DE PROFISSIONAIS
+          </p>
         </div>
+
         <div class="scroll_container">
           <!-- Profissional 1 -->
-
-          <!-- Profissional 2 -->
-          <div class="scroll-container-img">
-            <img
-              src="assets/drAndreSampaio.png"
-              alt="Dr. André Sampaio"
-              title="Dr. André Sampaio | Formação e Experiência"
-              style="max-height: 430px"
-            />
-            <details>
-              <summary class="saibaMaisBtn">Dr. André Sampaio</summary>
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4>DR. ANDRÉ SAMPAIO</h4>
-                  <button
-                    class="close-btn"
-                    onclick="this.closest('details').removeAttribute('open')"
-                  >
-                    &times;
-                  </button>
-                </div>
-                <h4>HISTÓRIA | FORMAÇÃO</h4>
-                <div class="modal-body">
-                  <p>
-                    Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.<br />
-                    Cirurgião com extensa formação em cirurgias faciais, formado
-                    pela Residência do Hospital, Irmandade da Santa Casa de
-                    Misericórdia-SP.<br />
-                    Lugares de atuação em cirurgias: Hospital Madre Theodora,
-                    Hospital São Luis Campinas. Professor de Pós Graduação em
-                    Cirurgia Avançada - ABO Campinas.
-                  </p>
-                </div>
-              </div>
-            </details>
-          </div>
-
           <div class="scroll-container-img">
             <img
               src="assets/drOtavio1.png"
@@ -683,6 +761,42 @@
             </details>
           </div>
 
+          <!-- Profissional 2 -->
+          <div class="scroll-container-img">
+            <img
+              src="assets/drAndreSampaio.png"
+              alt="Dr. André Sampaio"
+              title="Dr. André Sampaio | Formação e Experiência"
+              style="max-height: 430px"
+            />
+            <details>
+              <summary class="saibaMaisBtn">Dr. André Sampaio</summary>
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4>DR. ANDRÉ SAMPAIO</h4>
+                  <button
+                    class="close-btn"
+                    onclick="this.closest('details').removeAttribute('open')"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <h4>HISTÓRIA | FORMAÇÃO</h4>
+                <div class="modal-body">
+                  <p>
+                    Cirurgião Maxilo-Facial Membro da AO Craniomaxillofacial.<br />
+                    Cirurgião com extensa formação em cirurgias faciais, formado
+                    pela Residência do Hospital, Irmandade da Santa Casa de
+                    Misericórdia-SP.<br />
+                    Lugares de atuação em cirurgias: Hospital Madre Theodora,
+                    Hospital São Luis Campinas. Professor de Pós Graduação em
+                    Cirurgia Avançada - ABO Campinas.
+                  </p>
+                </div>
+              </div>
+            </details>
+          </div>
+
           <!-- Profissional 3 -->
           <div class="scroll-container-img">
             <img
@@ -719,8 +833,11 @@
       </div>
     </section>
 
+    <div class="responsive-line"></div>
+
     <aside class="map-section">
-      <div class="information-screen"><p>COMO ME ECONTRAR</p></div>
+      <div class="information-screen"><h3>COMO ME ECONTRAR</h3></div>
+      <br/>
       <div class="map-content">
         <div class="map-box">
           <iframe
@@ -907,35 +1024,6 @@
         <img src="assets/whatssapp.svg" alt="WhatsApp" />
       </a>
     </footer>
-
-    <div id="sobre-detalhes" class="modal-content img-modal-sobre oculto">
-      <span class="close-button fechar-modal-sobre">&times;</span>
-      <div class="modal-body">
-        <img
-          src="./assets/GZCT9528.JPG"
-          alt="Sobre Dr. Otávio"
-          class="sobre-img"
-        />
-        <div class="modal-text">
-          <h2>Dr. Otávio</h2>
-          <h5>MINHA HISTÓRIA</h5>
-          <p>
-            Otávio, mineiro de São Sebastião do Paraíso, atuando há 7 anos em
-            Ribeirão Preto, cidade que me acolheu e que não troco mais! <br />
-            Formado em Odontologia pela Unesp de Araraquara, com residência em
-            Cirurgia Bucomaxilofacial pela Santa Casa de Valinhos. <br />
-            Hoje sou muito realizado profissionalmente, por atuar em uma
-            especialidade linda, que me permite atender tanto a nível
-            hospitalar, onde realizo cirurgias em centro cirúrgico, quanto a
-            nível ambulatorial, onde realizo cirurgias e tratamentos clínicos em
-            consultório. <br />
-            Encontrei minha paixão na cirurgia Ortognática, pois a transformação
-            que ela realiza na vida dos meu queridos pacientes é a minha maior
-            motivação!
-          </p>
-        </div>
-      </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
