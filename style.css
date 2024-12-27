@@ -1584,8 +1584,24 @@ details[open] .close-details {
   font-size: 1rem;
 }
 
+.container-slides-mobile {
+  display: none;
+}
+
+.scroll-container-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  flex-direction: row;
+}
+
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
+  .scroll-container-desktop {
+    display: none;
+  }
   .container {
     width: 100%;
     margin: 0 auto;
@@ -2111,6 +2127,18 @@ details[open] .close-details {
     display: block; /* Remover o display flex, pois a tag img não precisa dele */
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
     -webkit-border-radius: 10px; /* Safari */
+  }
+
+  .container-slides-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    max-width: 62%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    z-index: 1;
   }
 
   /* Container dos slides ajustado */
