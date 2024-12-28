@@ -433,7 +433,7 @@ summary {
 }
 
 .modal-body {
-  display: flex;
+  display: block;
 }
 
 .modal-text {
