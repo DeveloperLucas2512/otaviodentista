@@ -1509,20 +1509,6 @@ details[open] .close-details {
     font-weight: 700;
   }
   /* Setas de Navegação */
-  .prev,
-  .next {
-    margin-top: 60px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    color: #121212;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 30px;
-    z-index: 1000;
-    transition: transform 0.3s;
-  }
 
   .modal-aberta {
     display: flex; /* Para centralizar */
