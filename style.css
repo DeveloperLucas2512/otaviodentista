@@ -393,17 +393,16 @@ summary {
 .modal-content {
   position: relative;
   display: flex;
-  justify-content: center;
   width: 100%;
   align-items: center;
   flex-direction: column;
-  max-width: 700px;
+  min-width: 700px;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   top: 50%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: auto;
+  margin: 0 -30px;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
@@ -719,14 +718,14 @@ img:hover {
 }
 
 .footer-content {
+  gap: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .footer-column {
-  flex: 1;
   margin: 10px;
   min-width: 200px;
 }
@@ -752,15 +751,6 @@ img:hover {
 
 .footer-list a i {
   margin-right: 5px;
-}
-
-.logo-cliente {
-  text-align: center;
-}
-
-.logo-cliente-content {
-  max-width: 100%;
-  height: auto;
 }
 
 .footer-icons a {
@@ -974,6 +964,9 @@ body,
 }
 
 .logo-cliente {
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
   margin-bottom: -50px;
   display: flex;
   justify-content: center;
@@ -983,7 +976,7 @@ body,
 }
 
 .logo-cliente-content {
-  width: 260px;
+  width: 200px;
   height: auto;
   font-weight: 900;
 }
@@ -1390,6 +1383,7 @@ button .fa-caret-down,
 
 /* Estilo do <details> */
 .details-procedimentos {
+  max-width: 700px;
   margin: auto;
   align-items: center;
   justify-content: center;
@@ -1579,7 +1573,6 @@ details[open] .close-details {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: auto;
   white-space: nowrap;
   font-size: 1rem;
 }
@@ -1599,7 +1592,7 @@ details[open] .close-details {
 
 /* --------------------->> dispositivos móveis <<------------------------ */
 @media screen and (max-width: 768px) {
-  .scroll-container-desktop {
+  .minha-apresentacao-desktop {
     display: none;
   }
   .container {
