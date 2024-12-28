@@ -28,6 +28,10 @@ html {
   scroll-behavior: smooth;
 }
 
+h4 {
+  text-transform: uppercase;
+}
+
 button:hover {
   opacity: 1;
 }
@@ -445,7 +449,7 @@ summary {
 .close-btn {
   position: absolute;
   margin-top: auto;
-  right: 15px;
+  right: -34px;
   font-size: 24px;
   cursor: pointer;
 }
@@ -1297,6 +1301,7 @@ button .fa-caret-down,
 }
 
 .titulo-inferior-image {
+  margin-bottom: -30px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -1324,6 +1329,10 @@ button .fa-caret-down,
 /* Setas de Navegação */
 .prev,
 .next {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  height: 100%;
   color: #121212;
   border: none;
   background-color: transparent;
@@ -1345,17 +1354,18 @@ button .fa-caret-down,
 
 /* Navegação Manual (Botões) */
 .manual-navigation {
-  top: 10px;
+  margin: auto;
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 100%;
 }
 
 .manual-btn {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   border: 2px solid #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -1503,6 +1513,21 @@ details[open] .close-details {
     font-size: 20px;
     color: #121212;
     font-weight: 700;
+  }
+  /* Setas de Navegação */
+  .prev,
+  .next {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #121212;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: 1000;
+    transition: transform 0.3s;
   }
 
   .modal-aberta {
@@ -2110,6 +2135,7 @@ details[open] .close-details {
   }
 
   .slide img {
+    margin-bottom: -35px;
     position: relative;
     width: 100%; /* Garantir que a imagem ocupe 100% da largura disponível do contêiner */
     height: auto; /* Ajuste a altura proporcionalmente à largura */
@@ -2161,8 +2187,8 @@ details[open] .close-details {
   }
 
   .manual-btn {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
   }
 
   .manual-navigation {
