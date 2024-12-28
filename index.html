@@ -325,6 +325,7 @@
               alt="Ortognática"
               title="Ortognática"
               class="custom-height-img"
+              style="max-width: 400px"
             />
           </div>
           <div class="slide">
@@ -332,6 +333,7 @@
               src="assets/cirurgia-ortognatica-antes-depois-1.jpg"
               alt="Ortognática"
               title="Ortognática"
+               style="max-width: 400px"
             />
           </div>
           <div class="slide">
@@ -339,6 +341,7 @@
               src="assets/cirurgia-ortognatica-antes-depois-2.jpg"
               alt="Bichectomia"
               title="Bichectomia"
+               style="max-width: 400px"
             />
           </div>
           <div class="slide">
@@ -347,6 +350,7 @@
               alt="Implantes Faciais"
               title="Implantes Faciais"
               class="custom-height-img"
+               style="max-width: 400px"
             />
           </div>
         </div>
@@ -373,9 +377,7 @@
           <button class="next" aria-label="Próximo slide">
             <i class="fas fa-chevron-right"></i>
           </button>
-        </div>
-
-        <br />
+        </div>        
 
          <details class="details-procedimentos">
               <summary class="saibaMaisBtn">ORTOGNÁTICA | SAIBA MAIS</summary>
@@ -485,9 +487,7 @@
           <button class="next" aria-label="Próximo slide">
             <i class="fas fa-chevron-right"></i>
           </button>
-        </div>
-
-        <br />
+        </div>      
 
        <details class="details-procedimentos">
               <summary class="saibaMaisBtn">MENTOPLASTIA | SAIBA MAIS</summary>
@@ -599,7 +599,7 @@
           </button>
         </div>
 
-        <br />
+       
 
         <details class="details-procedimentos">
               <summary class="saibaMaisBtn">IMPLANTES FACIAIS | SAIBA MAIS</summary>
@@ -708,24 +708,22 @@
           <button class="next" aria-label="Próximo slide">
             <i class="fas fa-chevron-right"></i>
           </button>
-        </div>
+        </div>       
 
-        <br />
-
-        <!-- Botão Centralizado Abaixo -->
-        <div class="container-button">
-          <details class="details-procedimentos">
-            <summary
-              class="button-procedimentos"
-              title="Ortognática | Saiba Mais"
-            >
-              <div class="titulo-inferior-image">
-                <p>ATM DTM | SAIBA MAIS</p>
-              </div>
-            </summary>
-            <div class="details-content">
-              <h2>O que é ATM e DTM?</h2>
-              <p>
+         <details class="details-procedimentos">
+              <summary class="saibaMaisBtn">ATM DTM | SAIBA MAIS</summary>
+              <div class="details-content">
+                <div class="modal-header">
+                  <h4>O que é ATM e DTM?</h4>
+                  <button
+                    class="close-btn"
+                    onclick="this.closest('details').removeAttribute('open')"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <p>
                 A ATM (Articulação Temporomandibular) é responsável pelos
                 movimentos da mandíbula, como mastigar, falar e bocejar. Já a
                 DTM (Disfunção Temporomandibular) é um conjunto de problemas que
@@ -767,13 +765,10 @@
                 dificuldades para mastigar ou desalinhamento da mordida.
               </p>
 
-              <!-- botao fechar -->
-              <button class="close-btn" aria-label="Fechar conteúdo">
-                x
-              </button>
-            </div>
-          </details>
-        </div>
+                </div>
+              </div>
+       </details> 
+        
       </div>
       <!-- FIM - Container DTM -->
       </div>
