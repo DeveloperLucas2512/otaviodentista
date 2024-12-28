@@ -2138,7 +2138,6 @@ details[open] .close-details {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 62%;
     justify-content: space-between;
     align-items: center;
     margin: auto;
@@ -2151,7 +2150,6 @@ details[open] .close-details {
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
-    max-width: 62%;
     justify-content: space-between;
     align-items: center;
     margin: auto;
