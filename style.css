@@ -1391,7 +1391,6 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  width: 100%; /* Responsivo */
 }
 
 /* Estilo do Botão <summary> */
