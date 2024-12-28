@@ -217,7 +217,6 @@ p {
   width: 100%;
   height: 100vh; /* Ocupa toda a altura da viewport */
   position: relative;
-  overflow: hidden;
   background: url("../assets/OtavioEmCirurgia.png") no-repeat center
     center/cover;
   background-image: linear-gradient(to bottom, rgba(6, 10, 10, 0.1), #0f1e2e),
