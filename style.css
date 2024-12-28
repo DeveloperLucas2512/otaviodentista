@@ -444,7 +444,7 @@ summary {
 /* Botão de fechar o modal */
 .close-btn {
   position: absolute;
-  top: 10px;
+  margin-top: auto;
   right: 15px;
   font-size: 24px;
   cursor: pointer;
@@ -831,7 +831,6 @@ button.close-modal-ortognatica {
   padding: 0.2rem;
   font-size: 30px;
   position: absolute;
-  top: 10px;
   right: 15px;
   font-size: 24px;
   cursor: pointer;
@@ -1425,7 +1424,6 @@ button .fa-caret-down,
 .details-content {
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   min-width: 350px;
   margin-top: 15px;
