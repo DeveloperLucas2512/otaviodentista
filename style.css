@@ -447,9 +447,9 @@ summary {
 
 /* Botão de fechar o modal */
 .close-btn {
+  background: #ccc;
   position: absolute;
-  margin-top: auto;
-  right: -34px;
+  margin-top: -66px;
   font-size: 24px;
   cursor: pointer;
 }
@@ -2130,7 +2130,6 @@ details[open] .close-details {
     object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
     display: block; /* Remover o display flex, pois a tag img não precisa dele */
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
-    -webkit-border-radius: 10px; /* Safari */
   }
 
   .container-slides-mobile {
