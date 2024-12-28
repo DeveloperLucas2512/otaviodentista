@@ -1387,11 +1387,11 @@ button:hover {
 
 /* Estilo do <details> */
 .details-procedimentos {
-  margin: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
-  width: 100%;
+  padding: 10px;
+  width: 100%; /* Responsivo */
 }
 
 /* Estilo do Botão <summary> */
