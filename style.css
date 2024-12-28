@@ -1289,7 +1289,6 @@ button .fa-caret-down,
 
 /* Imagens no Slide */
 .slide img {
-  max-height: 360px;
   height: auto;
   border-radius: 10px;
   width: 100%;
@@ -1631,6 +1630,21 @@ details[open] .close-details {
 
   .img-modal-sobre img {
     width: 46%;
+  }
+
+  .information-screen p {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 0.9rem;
   }
 
   .header-content {
@@ -2120,7 +2134,6 @@ details[open] .close-details {
   }
 
   .slide img {
-    max-height: 435px;
     position: relative;
     width: 100%; /* Garantir que a imagem ocupe 100% da largura disponível do contêiner */
     height: auto; /* Ajuste a altura proporcionalmente à largura */
