@@ -20,8 +20,9 @@ body {
   box-sizing: border-box;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
-  background-color: #bbb;
+  background-color: #bbb !important;
   color: #343a40;
+  overflow-x: hidden !important;
 }
 
 html {
@@ -1567,6 +1568,7 @@ details[open] .close-details {
 }
 
 .information-screen p {
+  background: #bbb;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -2147,6 +2149,7 @@ details[open] .close-details {
   }
 
   .container-slides-mobile {
+    background: #bbb;
     display: flex;
     flex-direction: column;
     width: 100%;
